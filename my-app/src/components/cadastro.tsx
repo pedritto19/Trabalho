@@ -91,7 +91,7 @@ const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 return (
     <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center" id="header">
       <form onSubmit={handleSubmit}>
-        <h3 className="form-title"><TextoElegante>Login</TextoElegante></h3>
+        <h3 className="form-title"><TextoElegante>Cadastro</TextoElegante></h3>
         <Input
           type="text"
           
@@ -134,6 +134,7 @@ return (
         </div>
       </div>
     </div>
+    
   )
 }
 export default Cadastro
