@@ -1,8 +1,20 @@
 import { ChangeEvent, FC } from 'react'
+import styled from 'styled-components';
+
+
+const TextoElegante = styled.p`
+  font-family: 'Roboto Mono', monospace;
+  font-size: 15px;
+  font-weight: 700;
+  color: #db5151;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.5px;
+`;
+
 
 interface InputProps {
   type: 'text' | 'number' | 'email' | 'password'
-  label: string
   value: string | number
   name: string
   placeholder: string
@@ -13,7 +25,6 @@ interface InputProps {
 
 const Input: FC<InputProps> = ({
   type,
-  label,
   value,
   name,
   placeholder,
@@ -23,17 +34,17 @@ const Input: FC<InputProps> = ({
 }) => {
   return (
     <div className="input-wrapper">
-      <label htmlFor={label}>{label}</label>
+     
       <input
+        className={`beautifulInput ${error ? 'error' : ''}`}
         type={type}
-        id={label}
         value={value}
         name={name}
         placeholder={placeholder}
         onChange={onChange}
         disabled={disabled}
       />
-      {error && <p className="error">Preencha corretamente!</p>}
+      {error && <p className="error"><TextoElegante>Preencha o Campo!</TextoElegante></p>}
     </div>
   )
 }

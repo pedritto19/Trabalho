@@ -3,3 +3,36 @@
     border: 2px solid #225a07;
     border-radius: 100px; /* Isso arredonda os cantos da borda */
 }
+
+#header2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #f3f3f3;
+    border: 2px solid #030303;
+    border-radius: 100px; /* Isso arredonda os cantos da borda */
+    width: 130px; /* Largura reduzida */
+    height: 15px; /* Altura reduzida */
+    padding: 0px; /* Preenchimento interno reduzido */
+    margin: auto 
+}
+
+.beautifulInput {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 55px;
+    margin: 10px 0;
+    width: calc(100% - 600px); /* Ajusta a largura considerando o padding */
+    box-sizing: border-box;
+  }
+  
+  /* Estilo para quando houver erro */
+  .beautifulInput.error {
+    border-color: #ff0000;
+  }
+  
+  /* Estilo para o placeholder */
+  .beautifulInput::placeholder {
+    color: #a9a9a9;
+  }
