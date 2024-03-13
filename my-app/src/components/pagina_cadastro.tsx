@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Cadastro from './cadastro';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import seta from './images/seta.png'
+
 
 function Pagina(){
   let navigate = useNavigate();
@@ -15,6 +15,7 @@ function Pagina(){
         
         <Cadastro></Cadastro>
         <div style={{ textAlign: 'center' }}>
+          
         </div>
 
         
