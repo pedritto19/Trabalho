@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import beagle from './images/beagle.jpg'
+import img from 'react-image'
+import Pessoa from './components/componente'
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import Pagina from './components/pagina_cadastro';
+import Mensagem from './components/componente';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Mensagem />} />
+        <Route path="/pagina_cadastro" element={<Pagina/>} />
+      </Routes>
+    </Router>
   );
 }
-
 export default App;
