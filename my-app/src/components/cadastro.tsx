@@ -2,6 +2,7 @@ import React, { ChangeEvent, FormEvent, useState } from 'react'
 import Input from './input'
 import "./Header/styles.css"
 import { useNavigate } from 'react-router-dom';
+import confirm from './images/confirm.png'
 
 const Cadastro: React.FC = () => {
   let navigate = useNavigate();
@@ -67,7 +68,7 @@ return (
           onChange={handleImagChange}
           placeholder="Tipo"
         />
-        <button type="submit" onClick={handleClick}>Submit</button>
+        <button type="submit" onClick={handleClick}><img style={{ width: '30px', height: 'auto' }} src={confirm}/></button>
       </form>
     </div>
   )

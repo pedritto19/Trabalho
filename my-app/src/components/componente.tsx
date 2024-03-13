@@ -4,6 +4,7 @@ import img from 'react-image'
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import './Header/styles.css'
 import { useNavigate } from 'react-router-dom';
+import seta from './images/seta.png'
 
 type BoasVindas = {
     nome: string;
@@ -24,7 +25,7 @@ type BoasVindas = {
         <h3 >Bem Vindo</h3>
         <p>Pagina inicial</p>
       <button onClick={handleClick}>
-        Seguinte
+      <img src={seta} style={{ width: '30px', height: 'auto' , transform:'scaleX(-1)'}} />
       </button>
         
       </div>
