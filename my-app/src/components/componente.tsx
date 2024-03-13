@@ -6,6 +6,7 @@ import './Header/styles.css'
 import { useNavigate } from 'react-router-dom';
 import seta from './images/seta.png'
 
+
 type BoasVindas = {
     nome: string;
     cargo: string;
@@ -21,7 +22,7 @@ type BoasVindas = {
       navigate('/pagina_cadastro'); // Substitua isso pelo seu caminho desejado
     }
     return (
-        <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center" id="container-home">
+        <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center" id="header">
         <h3 >Bem Vindo</h3>
         <p>Pagina inicial</p>
       <button onClick={handleClick}>

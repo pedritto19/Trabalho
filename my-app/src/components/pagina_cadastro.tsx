@@ -15,9 +15,6 @@ function Pagina(){
         
         <Cadastro></Cadastro>
         <div style={{ textAlign: 'center' }}>
-          <button onClick={handleClick}>
-            <img src={seta} style={{ width: '30px', height: 'auto'}} />
-          </button>
         </div>
 
         

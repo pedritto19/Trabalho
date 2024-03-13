@@ -3,12 +3,16 @@ import Input from './input'
 import "./Header/styles.css"
 import { useNavigate } from 'react-router-dom';
 import confirm from './images/confirm.png'
+import seta from './images/seta.png'
 
 const Cadastro: React.FC = () => {
   let navigate = useNavigate();
 
   function handleClick() {
     navigate('/pagina_cadastro'); // Substitua isso pelo seu caminho desejado
+  }
+  function handleClickback() {
+    navigate('/'); // Substitua isso pelo seu caminho desejado
   }
 
 const [name, setName] = useState('')
@@ -38,7 +42,7 @@ const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 
   
 return (
-    <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center" id="container-home">
+    <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center" id="header">
       <form onSubmit={handleSubmit}>
         <h3 className="form-title">Login</h3>
         <Input
@@ -66,9 +70,13 @@ return (
           name="name"
           error={error}
           onChange={handleImagChange}
-          placeholder="Tipo"
+          placeholder="URL"
         />
+        <button onClick={handleClickback}>
+          <img src={seta} style={{ width: '30px', height: 'auto'}} />
+        </button>
         <button type="submit" onClick={handleClick}><img style={{ width: '30px', height: 'auto' }} src={confirm}/></button>
+
       </form>
     </div>
   )

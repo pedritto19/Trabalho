@@ -1,3 +1,5 @@
 #header {
-    background: #5636d3;
-  }
+    background: #13a153;
+    border: 2px solid #225a07;
+    border-radius: 100px; /* Isso arredonda os cantos da borda */
+}
