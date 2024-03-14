@@ -18,6 +18,17 @@
     margin: auto 
 }
 
+.pokemon-container {
+  margin: 50px; /* Ajuste o valor conforme necessário */
+}
+
+#header3 {
+  background: #9aaaa1;
+  border: 2px solid #000000;
+  border-radius: 100px; /* Isso arredonda os cantos da borda */
+}
+
+
 .beautifulInput {
     padding: 10px 15px;
     border: 1px solid #ccc;

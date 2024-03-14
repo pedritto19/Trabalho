@@ -5,6 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import confirm from './images/confirm.png'
 import seta from './images/seta.png'
 import styled from 'styled-components';
+import prisma from '../prisma/index';
+import { Createpkmserver } from '../services/Createpkmserver';
+import { api } from '../services/api';
+import { useEffect} from 'react';
 
 
 const TextoElegante = styled.p`
@@ -27,6 +31,7 @@ const TextoElegante2 = styled.p`
 let foto = `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPpTgkKwzgL_HV-VS88idnFVnK0KL3tWbTJaNB2A8blQ&s`;
 
 const Cadastro: React.FC = () => {
+
   let navigate = useNavigate();
 
   function handleClick() {
@@ -53,7 +58,7 @@ const handleImagChange = (e: ChangeEvent<HTMLInputElement>) => {
   setImag(e.target.value)
 }
 
-const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
   e.preventDefault()
   if (!name.trim()) {
     setError(true)
@@ -78,11 +83,30 @@ const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
       return; 
     }
   
-  
-  
+
     setError(false)
     setError1(false)
     setError2(false)
+    e.preventDefault();
+  if (!name.trim() || !type.trim() || !imag.trim()) {
+    // Sua lógica de validação aqui
+    return;
+  }
+  
+  try {
+    // Enviando os dados para o backend
+    const response = await api.post('/pkm', { name, type, imag });
+    console.log('Pokemon criado:', response.data);
+    window.location.reload(); 
+    // Aqui você pode redirecionar o usuário ou limpar o formulário
+  } catch (error) {
+    console.error("Erro ao enviar o Pokémon:", error);
+  }
+    
+
+
+
+
   
 }
 
@@ -105,7 +129,7 @@ return (
         
           type="text"
           value={type}
-          name="name"
+          name="type"
           error={error1}
           onChange={handleTypechange}
           placeholder="Tipo"
@@ -113,7 +137,7 @@ return (
         <Input
           type="text"
           value={imag}
-          name="name"
+          name="imag"
           error={error2}
           onChange={handleImagChange}
           placeholder="URL da sprite"
