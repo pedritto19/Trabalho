@@ -13,13 +13,17 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: #f3f3f3;
-    border: 2px solid #030303;
+    border: 2px;
     border-radius: 100px; /* Isso arredonda os cantos da borda */
     width: 130px; /* Largura reduzida */
     height: 15px; /* Altura reduzida */
     padding: 0px; /* Preenchimento interno reduzido */
-    margin: auto 
+    margin: auto;
+    transition: background-color 0.3s ease;
+}
+
+#header2:hover{
+  background-color: #ffffff;
 }
 
 .pokemon-container {
@@ -27,7 +31,7 @@
 }
 
 #header3 {
-  background: #777e7a;
+  background: #9ba39e;
   border: 2px solid #000000;
   border-radius: 100px; /* Isso arredonda os cantos da borda */
   transition: background-color 0.3s ease;

@@ -14,8 +14,9 @@ import { useEffect} from 'react';
 import App from '../App';
 import {FaTrash} from 'react-icons/fa';
 import Modal from 'react-modal';
-import PokemonList from './modal';
+import PokemonList from './modaldelete';
 import fechar from './images/fechar.png';
+import editar from './images/editar.png';
 
 
 const TextoElegante = styled.p`
@@ -79,14 +80,14 @@ const Edicao: React.FC = () => {
 return (
     <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center" id="header">
     <h3><TextoElegante>Tela de Edicao</TextoElegante></h3>
-    <p><img style={{ width: '30px', height: 'auto' }} src={edicao}/><TextoElegante></TextoElegante></p>
+    <p><TextoElegante></TextoElegante></p>
     <button id="meuBotao"  onClick={handleClickback}>
           <img src={seta} style={{ width: '40px', height: 'auto'}} />
         </button>
         <button id="meuBotao"  onClick={handleClickhome}>
           <img src={home} style={{ width: '30px', height: 'auto'}} />
         </button>
-        <button id="meuBotao"  onClick={() => setIsModalOpen(true)} >{isEditingPage && <FaTrash size={26} color="red" />}</button><h3> {pokemons.type}</h3>
+        <button id="meuBotao"  onClick={() => setIsModalOpen(true)} ><img src={editar} style={{ width: '30px', height: 'auto'}} /></button><h3> {pokemons.type}</h3>
     <Modal
         isOpen={isModalOpen} // Passa a propriedade isOpen
         onRequestClose={() => setIsModalOpen(false)} // Opcional: Função para fechar o modal

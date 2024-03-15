@@ -2,8 +2,48 @@ import React, { useEffect, useState } from 'react';
 import { api } from '../services/api';
 import death from './images/death.png';
 import { FaTrash } from 'react-icons/fa';
+import styled from 'styled-components';
+import Modal from 'react-modal';
+import ModalPokemon from './modalupdate';
+import fechar from './images/fechar.png';
+import editar from './images/editar.png';
+import seta from './images/seta.png'
+
+const TextoElegante = styled.p`
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  color: #000000;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.5px;
+`;
+
 
 const PokemonList = () => {
+
+
+ 
+  const [pokemonSelecionado, setPokemonSelecionado] = useState(null);
+  
+
+
+
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = (pokemons: any) => {
+    setPokemonSelecionado(pokemons);
+    setIsModalOpen(true);
+  };
+
+  const selecionarPokemon = ({pokemon}: any) => {
+    setPokemonSelecionado(pokemon);
+    setIsModalOpen(true)
+  };
+
+
+
+
   const [pokemons, setPokemons] = useState([]);
 
   useEffect(() => {
@@ -38,13 +78,22 @@ const PokemonList = () => {
   }} className="container align-self-center d-flex justify-content-center" id="header4">
     {pokemons.map((pokemon) => (
       <div key={pokemon.id} style={{ marginBottom: '20px' }}> {/* Adiciona um espaço entre os itens */}
-        {pokemon.name}
-        <img style={{ width: '90px', height: 'auto' }} src={pokemon.imag} alt={pokemon.name} />
+        <TextoElegante>{pokemon.name}</TextoElegante>
+        <img id="meuBotao" style={{ width: '90px', height: 'auto' }} src={pokemon.imag} alt={pokemon.name} onClick={() => setIsModalOpen(true)} />
         <button id="meuBotao" onClick={() => handleDelete(pokemon.id)}><FaTrash size={18} color="red" /></button>
       </div>
     ))}
+
+
+
+
+    <Modal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)}>
+    <button id="meuBotao" onClick={() => setIsModalOpen(false)}><img src={fechar} style={{ width: '30px', height: 'auto'}} /></button>
+      </Modal>
   </div>
   );
 };
+
+
 
 export default PokemonList;
