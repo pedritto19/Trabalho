@@ -1,3 +1,7 @@
+
+
+
+
 #header {
     background: #13a153;
     border: 2px solid #225a07;
@@ -23,10 +27,36 @@
 }
 
 #header3 {
-  background: #9aaaa1;
+  background: #777e7a;
   border: 2px solid #000000;
   border-radius: 100px; /* Isso arredonda os cantos da borda */
+  transition: background-color 0.3s ease;
 }
+#header3:hover{
+  background-color:rgba(0, 0, 0, 0.1) ;
+}
+
+#header4 {
+  /*background-image: url('../images/fundo.png'); /* Adiciona a imagem de fundo */
+  background-color: #9aaaa1; /* Cor de fundo como fallback */
+  border: 2px solid #000000;
+  border-radius: 100px; /* Isso arredonda os cantos da borda */
+  background-size: cover; /* Garante que a imagem cubra todo o espaço disponível */
+  background-position: center; /* Centraliza a imagem no elemento */
+}
+
+#meuBotao {
+  border: none; /* Remove a borda */
+  background-color: transparent; /* Torna o fundo transparente */
+  padding: 10px 20px; /* Adiciona um pouco de espaço interno para tornar o botão mais fácil de clicar */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  transition: background-color 0.3s ease; /* Adiciona uma transição suave para o background-color */
+}
+
+#meuBotao:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Torna o botão mais escuro quando o cursor está em cima */
+}
+
 
 
 .beautifulInput {

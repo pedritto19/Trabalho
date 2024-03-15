@@ -1,7 +1,3 @@
-import React, { useReducer } from 'react';
-import beagle from './images/beagle.jpg'
-import img from 'react-image'
-import Pessoa from './components/componente'
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import Pagina from './components/pagina_cadastro';
 import Mensagem from './components/componente';
@@ -9,15 +5,18 @@ import "./components/Header/styles.css"
 import './components/Header/styles.css'
 import { api } from './services/api';
 import { useEffect, useState } from 'react';
+import {FaTrash} from 'react-icons/fa';
+import Edicao from './components/pagina_edicao';
+
 
 
 function App() {
-
+  
   interface pokemons {
     id: string;
     name: string;
-    imag: string; // Certifique-se de que o nome da propriedade está correto. No seu código original, estava 'imag', o que parece ser um erro de digitação.
-    type: string; // Adicione esta linha se os Pokémons devem ter um tipo.
+    imag: string; 
+    type: string; 
   }
 
 
@@ -33,7 +32,7 @@ function App() {
     fetchPokemons();
   }, []);
 
-
+let isEditingPage=false;
 
 
   return (
@@ -44,6 +43,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Mensagem />} />
         <Route path="/pagina_cadastro" element={<Pagina/>} />
+        <Route path="/pagina_edicao" element={<Edicao/>} />
         
       </Routes>
     </Router>
@@ -51,18 +51,25 @@ function App() {
     <div>
             <img src=''/>  
     </div>
-    <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center" id="header3">
+    <div style={{ 
+        textAlign: 'center', 
+        display: 'flex',
+        flexWrap: 'wrap', 
+        justifyContent: 'center', 
+        alignItems: 'center' }} className="container align-self-center d-flex justify-content-center" id="header3">
     
         {/* Renderização dos Pokémon */}
         {pokemons.map((pokemon) => (
           <div key={pokemon.id} className="pokemon-container"> 
             <h3>{pokemon.name}</h3> 
             <img style={{ width: '90px', height: 'auto' }} src={pokemon.imag} alt={pokemon.name} /> 
-            <h3> {pokemon.type}</h3>
+            <h3>{pokemon.type}</h3>
           </div>
         ))}
+        
       
     </div>
+
     </div>
   );
 }

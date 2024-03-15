@@ -5,10 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import confirm from './images/confirm.png'
 import seta from './images/seta.png'
 import styled from 'styled-components';
+import edicao from './images/edicao.png'
 import prisma from '../prisma/index';
 import { Createpkmserver } from '../services/Createpkmserver';
 import { api } from '../services/api';
 import { useEffect} from 'react';
+import {FaTrash} from 'react-icons/fa';
 
 
 const TextoElegante = styled.p`
@@ -28,9 +30,29 @@ const TextoElegante2 = styled.p`
   letter-spacing: 0.5px;
 `;
 
-let foto = `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPpTgkKwzgL_HV-VS88idnFVnK0KL3tWbTJaNB2A8blQ&s`;
 
 const Cadastro: React.FC = () => {
+  interface pokemons {
+    id: string;
+    name: string;
+    imag: string; 
+    type: string; 
+  }
+
+
+  const [pokemons, setPokemons] = useState([]);
+
+  // Efeito para carregar os Pokémon quando o componente for montado
+  useEffect(() => {
+    const fetchPokemons = async () => {
+      const response = await api.get('/pokemons');
+      setPokemons(response.data); // Supondo que a resposta da API seja o array de Pokémon
+    };
+
+    fetchPokemons();
+  }, []);
+
+let isEditingPage=false;
 
   let navigate = useNavigate();
 
@@ -40,6 +62,10 @@ const Cadastro: React.FC = () => {
   function handleClickback() {
     navigate('/'); // Substitua isso pelo seu caminho desejado
   }
+  function handleClickedicao() {
+    navigate('/pagina_edicao'); // Substitua isso pelo seu caminho desejado
+  }
+
 
 const [name, setName] = useState('')
 const [type, setType] = useState('')
@@ -142,14 +168,18 @@ return (
           onChange={handleImagChange}
           placeholder="URL da sprite"
         />
-        <button onClick={handleClickback}>
+        <button id="meuBotao"   onClick={handleClickback}>
           <img src={seta} style={{ width: '30px', height: 'auto'}} />
         </button>
-        <button type="submit" onClick={handleClick}><img style={{ width: '30px', height: 'auto' }} src={confirm}/></button>
+        <button id="meuBotao"   type="submit" onClick={handleClick}><img style={{ width: '30px', height: 'auto' }} src={confirm}/></button>
+        <button id="meuBotao"   onClick={handleClickedicao}><img style={{ width: '30px', height: 'auto' }} src={edicao}/></button>
+        
 
       </form>
+      
       <div>
         <img src={imag} style={{ width: '100px', height: 'auto'}}/>
+        
         <div id='header2'>
         <TextoElegante2>{name}</TextoElegante2>
         </div>
@@ -157,6 +187,7 @@ return (
         <TextoElegante2>{type}</TextoElegante2>
         </div>
       </div>
+
     </div>
     
   )

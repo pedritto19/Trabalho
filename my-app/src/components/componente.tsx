@@ -6,6 +6,9 @@ import './Header/styles.css'
 import { useNavigate } from 'react-router-dom';
 import seta from './images/seta.png'
 import styled from 'styled-components';
+import {FaTrash} from 'react-icons/fa';
+import { useState, useEffect } from 'react';
+import { api } from '../services/api';
 
 
 const TextoElegante = styled.p`
@@ -19,6 +22,30 @@ const TextoElegante = styled.p`
 
 
   function Mensagem() {
+      interface pokemons {
+        id: string;
+        name: string;
+        imag: string; 
+        type: string; 
+      }
+    
+    
+      const [pokemons, setPokemons] = useState([]);
+    
+      // Efeito para carregar os Pokémon quando o componente for montado
+      useEffect(() => {
+        const fetchPokemons = async () => {
+          const response = await api.get('/pokemons');
+          setPokemons(response.data); // Supondo que a resposta da API seja o array de Pokémon
+        };
+    
+        fetchPokemons();
+      }, []);
+    
+    let isEditingPage=false;
+
+
+
     let navigate = useNavigate();
 
     function handleClick() {
@@ -26,12 +53,13 @@ const TextoElegante = styled.p`
     }
     return (
         <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center" id="header">
+          <div>
         <h3><TextoElegante>Bem Vindo</TextoElegante></h3>
         <p><TextoElegante>Pagina inicial</TextoElegante></p>
-      <button onClick={handleClick}>
+      <button id="meuBotao"    onClick={handleClick}>
       <img src={seta} style={{ width: '30px', height: 'auto' , transform:'scaleX(-1)'}} />
       </button>
-        
+      </div>
       </div>
     );
   }
