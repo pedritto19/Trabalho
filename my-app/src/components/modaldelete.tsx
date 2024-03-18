@@ -63,9 +63,6 @@ const PokemonList = () => {
 
   const handleOpenModal = (pokemon: any) => {
     setSelectedPokemon(pokemon); // Armazena o Pokémon selecionado
-    let name = pokemon.name
-    let type = pokemon.type
-    let imag = pokemon.imag
     setIsModalOpen(true); // Abre o modal
   };
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
