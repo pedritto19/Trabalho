@@ -16,6 +16,7 @@ const TextoElegante = styled.p`
 interface InputProps {
   type: 'text' | 'number' | 'email' | 'password'
   value: string | number
+  defaultValue?: string;
   name: string
   placeholder: string
   error: boolean

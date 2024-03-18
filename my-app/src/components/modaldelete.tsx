@@ -4,7 +4,6 @@ import death from './images/death.png';
 import { FaTrash } from 'react-icons/fa';
 import styled from 'styled-components';
 import Modal from 'react-modal';
-import ModalPokemon from './modalupdate';
 import fechar from './images/fechar.png';
 import editar from './images/editar.png';
 import seta from './images/seta.png'
@@ -64,6 +63,9 @@ const PokemonList = () => {
 
   const handleOpenModal = (pokemon: any) => {
     setSelectedPokemon(pokemon); // Armazena o Pokémon selecionado
+    let name = pokemon.name
+    let type = pokemon.type
+    let imag = pokemon.imag
     setIsModalOpen(true); // Abre o modal
   };
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -166,8 +168,7 @@ const PokemonList = () => {
   }} className="container align-self-center d-flex justify-content-center" id="header4">
       {pokemons.map((pokemon) => (
         <div key={pokemon.id} style={{ marginBottom: '20px' }}> {/* Adiciona um espaço entre os itens */}
-          <TextoElegante>{pokemon.name}</TextoElegante>
-          <img
+            <img
             id="meuBotao"
             style={{ width: '90px', height: 'auto' }}
             src={pokemon.imag}
@@ -177,6 +178,9 @@ const PokemonList = () => {
           <button id="meuBotao" onClick={() => handleDelete(pokemon.id)}>
             <FaTrash size={18} color="red" />
           </button>
+          <TextoElegante>{pokemon.name}</TextoElegante>
+
+
         </div>
       ))}
 
@@ -202,6 +206,7 @@ const PokemonList = () => {
         <Input
         
           type="text"
+          
           value={type}
           name="type"
           error={error1}
