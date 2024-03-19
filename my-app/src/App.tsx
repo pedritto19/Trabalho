@@ -15,6 +15,7 @@ import fundo from './components/images/fundo.jpg'
 function App() {
 
   const GlobalStyle = createGlobalStyle`
+  
   body {
     margin: 0;
     padding: 0;
