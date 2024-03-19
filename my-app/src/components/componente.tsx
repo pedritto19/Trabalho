@@ -56,7 +56,7 @@ const TextoElegante = styled.p`
           <div>
         <h3><TextoElegante>Bem Vindo</TextoElegante></h3>
         <p><TextoElegante>Pagina inicial</TextoElegante></p>
-      <button id="meuBotao"    onClick={handleClick}>
+      <button  id="meuBotao"    onClick={handleClick}>
       <img src={seta} style={{ width: '30px', height: 'auto' , transform:'scaleX(-1)'}} />
       </button>
       </div>

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react'
+import React, { ChangeEvent, FormEvent, useState,DetailedHTMLProps, SelectHTMLAttributes } from 'react'
 import Input from './input'
 import "./Header/styles.css"
 import { useNavigate } from 'react-router-dom';
@@ -11,6 +11,7 @@ import { Createpkmserver } from '../services/Createpkmserver';
 import { api } from '../services/api';
 import { useEffect} from 'react';
 import {FaTrash} from 'react-icons/fa';
+import App from '../App';
 
 
 
@@ -41,13 +42,17 @@ const Cadastro: React.FC = () => {
   }
 
 
+  interface CustomSelectProps extends DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement> {
+    error?: string; // Tornando a propriedade 'error' opcional
+  }
+
   const [pokemons, setPokemons] = useState([]);
 
-  // Efeito para carregar os Pokémon quando o componente for montado
+  
   useEffect(() => {
     const fetchPokemons = async () => {
       const response = await api.get('/pokemons');
-      setPokemons(response.data); // Supondo que a resposta da API seja o array de Pokémon
+      setPokemons(response.data); 
     };
 
     fetchPokemons();
@@ -58,13 +63,13 @@ let isEditingPage=false;
   let navigate = useNavigate();
 
   function handleClick() {
-    navigate('/pagina_cadastro'); // Substitua isso pelo seu caminho desejado
+    navigate('/pagina_cadastro'); 
   }
   function handleClickback() {
-    navigate('/'); // Substitua isso pelo seu caminho desejado
+    navigate('/'); 
   }
   function handleClickedicao() {
-    navigate('/pagina_edicao'); // Substitua isso pelo seu caminho desejado
+    navigate('/pagina_edicao'); 
   }
 
 
@@ -78,7 +83,7 @@ const [error2, setError2] = useState(false)
 const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
   setName(e.target.value)
 }
-const handleTypechange = (e: ChangeEvent<HTMLInputElement>) => {
+const handleTypechange = (e: ChangeEvent<HTMLSelectElement>) => {
   setType(e.target.value)
 }
 const handleImagChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -153,15 +158,33 @@ return (
           onChange={handleNameChange}
           placeholder="Nome"
         />
-        <Input
-        
-          type="text"
-          value={type}
+        <select
           name="type"
-          error={error1}
+          value={type}
           onChange={handleTypechange}
-          placeholder="Tipo"
-        />
+          className={`beautifulInput ${error ? 'error' : ''}`}
+          {...error && <span>{error}</span>}
+        >
+          <option value="" disabled>Escolha um tipo</option> {/* Opção desabilitada que serve como placeholder */}
+          <option value="Normal">Normal</option>
+          <option value="Fire">Fire</option>
+          <option value="Water">Water</option>
+          <option value="Grass">Grass</option>
+          <option value="Flying">Flying</option>
+          <option value="Fighting">Fighting</option>
+          <option value="Electric">Electric</option>
+          <option value="Ground">Ground</option>
+          <option value="Rock">Rock</option>
+          <option value="Psychic">Psychic</option>
+          <option value="Ice">Ice</option>
+          <option value="Bug">Bug</option>
+          <option value="Ghost">Ghost</option>
+          <option value="Steel">Steel</option>
+          <option value="Dragon">Dragon</option>
+          <option value="Dark">Dark</option>
+          <option value="Fairy">Fairy</option>
+          {/* Adicione mais opções conforme necessário */}
+        </select>
         <Input
           type="text"
           value={imag}

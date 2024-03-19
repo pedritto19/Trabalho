@@ -88,14 +88,15 @@ return (
           <img src={home} style={{ width: '30px', height: 'auto'}} />
         </button>
         <button id="meuBotao"  onClick={() => setIsModalOpen(true)} ><img src={editar} style={{ width: '30px', height: 'auto'}} /></button><h3> {pokemons.type}</h3>
-    <Modal
+    <Modal 
         isOpen={isModalOpen} // Passa a propriedade isOpen
         onRequestClose={() => setIsModalOpen(false)} // Opcional: Função para fechar o modal
+        id='header4'
       >
         {/* Conteúdo do Modal aqui */}
         <button id="meuBotao" onClick={() => setIsModalOpen(false)}><img src={fechar} style={{ width: '30px', height: 'auto'}} /></button>
         <PokemonList></PokemonList>
-        <button id="meuBotao" onClick={() => setIsModalOpen(false)}><img src={seta} style={{ width: '50px', height: 'auto'}} /></button>
+        <button id="meuBotao2" onClick={() => setIsModalOpen(false)}><img src={seta} style={{ width: '50px', height: 'auto'}} /></button>
       </Modal>
 
 

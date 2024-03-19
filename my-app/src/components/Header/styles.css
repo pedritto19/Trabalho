@@ -3,7 +3,7 @@
 
 
 #header {
-    background: #13a153;
+    background: linear-gradient(to right, #13a153 0%, #5b88d6 100%);;
     border: 2px solid #225a07;
     border-radius: 100px; /* Isso arredonda os cantos da borda */
 }
@@ -31,13 +31,13 @@
 }
 
 #header3 {
-  background: #9ba39e;
+  background: #8c9291;
   border: 2px solid #000000;
   border-radius: 100px; /* Isso arredonda os cantos da borda */
   transition: background-color 0.3s ease;
 }
 #header3:hover{
-  background-color:rgba(0, 0, 0, 0.1) ;
+  background-color:rgb(59, 55, 55) ;
 }
 
 #header4 {
@@ -55,15 +55,32 @@
   padding: 10px 20px; /* Adiciona um pouco de espaço interno para tornar o botão mais fácil de clicar */
   cursor: pointer; /* Muda o cursor para indicar que é clicável */
   transition: background-color 0.3s ease; /* Adiciona uma transição suave para o background-color */
+  transition: filter;
 }
 
 #meuBotao:hover {
   background-color: rgba(0, 0, 0, 0.1); /* Torna o botão mais escuro quando o cursor está em cima */
+  filter: invert(100%);
+}
+
+#meuBotao2 {
+  border: none; /* Remove a borda */
+  background-color: transparent; /* Torna o fundo transparente */
+  padding: 10px 20px; /* Adiciona um pouco de espaço interno para tornar o botão mais fácil de clicar */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  transition: background-color 0.3s ease; /* Adiciona uma transição suave para o background-color */
+  transition: filter;
+}
+
+#meuBotao2:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Torna o botão mais escuro quando o cursor está em cima */
+  filter:invert(20%)
 }
 
 
 
-.beautifulInput {
+
+.beautifulInput, select.beautifulInput {
     padding: 10px 15px;
     border: 1px solid #ccc;
     border-radius: 55px;
@@ -73,7 +90,7 @@
   }
   
   /* Estilo para quando houver erro */
-  .beautifulInput.error {
+  .beautifulInput.error, select.beautifulInput.error {
     border-color: #ff0000;
   }
   
@@ -81,3 +98,52 @@
   .beautifulInput::placeholder {
     color: #a9a9a9;
   }
+
+  .container {
+    background: linear-gradient(to right, #38b3d1 0%, #4b80dd 100%);
+    color: white;
+    padding: 50px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  h3, p {
+    font-family: 'Arial', sans-serif; /* Define a fonte para Arial */
+  }
+  
+  h3 {
+    color: #d3dadf; /* Cor do texto do título */
+    font-size: 24px; /* Tamanho da fonte do título */
+    text-shadow: 2px 2px 4px #2c3e50; /* Sombra do texto do título */
+    margin-bottom: 10px; /* Espaçamento abaixo do título */
+ 
+    padding-bottom: 5px; /* Espaçamento interno abaixo do título */
+    text-transform: uppercase; /* Transforma o texto do título em maiúsculas */
+  }
+  
+  p {
+    color: #3498db; /* Cor do texto do título */
+    font-size: 24px; /* Tamanho da fonte do título */
+    text-shadow: 2px 2px 4px #2c3e50; /* Sombra do texto do título */
+    margin-bottom: 10px; /* Espaçamento abaixo do título */
+  
+    padding-bottom: 5px; /* Espaçamento interno abaixo do título */
+    text-transform: uppercase; /* Transforma o texto do título em maiúsculas */
+  }
+ 
+  @keyframes rainbow-text {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+
+  .pokemon-name {
+    background: linear-gradient(90deg, rgb(2rgb(0, 0, 0)5, 255), rgb(255,rgb(0, 0, 0) 255), rgb(255rgb(0, 0, 0)5, 255), rgb(25rgb(0, 0, 0)55rgb(255, 255, 255)5), rgb(0, 0, 0), rgb(8, 8, 8)) repeat;
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow-text 5s linear infinite;
+  }
+
+

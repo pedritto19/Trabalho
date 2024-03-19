@@ -40,6 +40,7 @@ const PokemonList = () => {
   const [error, setError] = useState(false)
   const [error1, setError1] = useState(false)
   const [error2, setError2] = useState(false)
+  const [errorType, setErrorType] = useState(false);
   
 
 
@@ -48,8 +49,8 @@ const PokemonList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPokemon, setSelectedPokemon] = useState(null); 
   const [name, setName] = useState(selectedPokemon?.name)
-  const [type, setType] = useState('')
-  const [imag, setImag] = useState('')
+  const [type, setType] = useState(selectedPokemon?.type)
+  const [imag, setImag] = useState(selectedPokemon?.imag)
   
 
   const openModal = (pokemons: any) => {
@@ -68,9 +69,11 @@ const PokemonList = () => {
   };
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value)
+   
   }
-  const handleTypechange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleTypechange = (e: ChangeEvent<HTMLSelectElement>) => {
     setType(e.target.value)
+
   }
   const handleImagChange = (e: ChangeEvent<HTMLInputElement>) => {
     setImag(e.target.value)
@@ -168,7 +171,7 @@ const PokemonList = () => {
       {pokemons.map((pokemon) => (
         <div key={pokemon.id} style={{ marginBottom: '20px' }}> {/* Adiciona um espaço entre os itens */}
             <img
-            id="meuBotao"
+            id="meuBotao2"
             style={{ width: '90px', height: 'auto' }}
             src={pokemon.imag}
             alt={pokemon.name}
@@ -195,26 +198,46 @@ const PokemonList = () => {
         <h3 className="form-title"><TextoElegante>Editar</TextoElegante></h3>
         <Input
           type="text"
-          
+          defaultValue={selectedPokemon?.name}
           value={name}
           name="name"
           error={error}
           onChange={handleNameChange}
           placeholder={selectedPokemon?.name}
         />
-        <Input
-        
-          type="text"
-          
-          value={type}
+        <select
           name="type"
-          error={error1}
+          value={type}
+          
           onChange={handleTypechange}
-          placeholder={selectedPokemon?.type}
-        />
+          className={`beautifulInput ${error ? 'error' : ''}`}
+          
+        >
+          <option value="" disabled>{selectedPokemon?.type}</option> {/* Opção desabilitada que serve como placeholder */}
+          <option value="Normal">Normal</option>
+          <option value="Fire">Fire</option>
+          <option value="Water">Water</option>
+          <option value="Grass">Grass</option>
+          <option value="Flying">Flying</option>
+          <option value="Fighting">Fighting</option>
+          <option value="Electric">Electric</option>
+          <option value="Ground">Ground</option>
+          <option value="Rock">Rock</option>
+          <option value="Psychic">Psychic</option>
+          <option value="Ice">Ice</option>
+          <option value="Bug">Bug</option>
+          <option value="Ghost">Ghost</option>
+          <option value="Steel">Steel</option>
+          <option value="Dragon">Dragon</option>
+          <option value="Dark">Dark</option>
+          <option value="Fairy">Fairy</option>
+          {/* Adicione mais opções conforme necessário */}
+        </select>
         <Input
           type="text"
+          defaultValue={selectedPokemon?.imag}
           value={imag}
+          
           name="imag"
           error={error2}
           onChange={handleImagChange}

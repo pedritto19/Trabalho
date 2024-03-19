@@ -21,6 +21,34 @@ function App() {
     color: #333;
   }
 `;
+
+
+function getColorByType(type: string) {
+  const colors: { [key: string]: string } = {
+    'Normal': "#808080",
+    'Fire': "#FF0000",
+    'Water': "#0000FF",
+    'Grass': "#008000",
+    'Flying': "#ADD8E6",
+    'Fighting': "#FF8C00",
+    'Electric': "#FFFF00",
+    'Ground': "#A52A2A",
+    'Rock': "#654321",
+    'Psychic': "#FFC0CB",
+    'Ice': "#AFEEEE",
+    'Bug': "#006400",
+    'Ghost': "#800080",
+    'Steel': "#C0C0C0",
+    'Dragon': "#FF4500",
+    'Dark': "#000000",
+    'Fairy': "#FFB6C1" 
+    
+  };
+
+  return colors[type] || "#FFB6C1"; // cor padrão se o tipo não for encontrado
+}
+
+
   
   
   interface pokemons {
@@ -33,11 +61,10 @@ function App() {
 
   const [pokemons, setPokemons] = useState([]);
 
-  // Efeito para carregar os Pokémon quando o componente for montado
   useEffect(() => {
     const fetchPokemons = async () => {
       const response = await api.get('/pokemons');
-      setPokemons(response.data); // Supondo que a resposta da API seja o array de Pokémon
+      setPokemons(response.data); 
     };
 
     fetchPokemons();
@@ -76,7 +103,7 @@ let isEditingPage=false;
           <div key={pokemon.id} className="pokemon-container"> 
             <h3>{pokemon.name}</h3> 
             <img style={{ width: '90px', height: 'auto' }} src={pokemon.imag} alt={pokemon.name} /> 
-            <h3>{pokemon.type}</h3>
+            <h2 className="pokemon-name" style={{ color: getColorByType(pokemon.type) }}>{pokemon.type}</h2>
           </div>
         ))}
         

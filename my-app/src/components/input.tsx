@@ -27,6 +27,7 @@ interface InputProps {
 const Input: FC<InputProps> = ({
   type,
   value,
+  defaultValue,
   name,
   placeholder,
   error,
@@ -40,6 +41,7 @@ const Input: FC<InputProps> = ({
         className={`beautifulInput ${error ? 'error' : ''}`}
         type={type}
         value={value}
+        defaultValue={defaultValue}
         name={name}
         placeholder={placeholder}
         onChange={onChange}
