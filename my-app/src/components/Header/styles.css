@@ -117,18 +117,18 @@
     text-shadow: 2px 2px 4px #2c3e50; /* Sombra do texto do título */
     margin-bottom: 10px; /* Espaçamento abaixo do título */
  
-    padding-bottom: 5px; /* Espaçamento interno abaixo do título */
-    text-transform: uppercase; /* Transforma o texto do título em maiúsculas */
+    padding-bottom: 5px; 
+    text-transform: uppercase; 
   }
   
   p {
-    color: #3498db; /* Cor do texto do título */
-    font-size: 24px; /* Tamanho da fonte do título */
-    text-shadow: 2px 2px 4px #2c3e50; /* Sombra do texto do título */
-    margin-bottom: 10px; /* Espaçamento abaixo do título */
+    color: #3498db; 
+    font-size: 24px; 
+    text-shadow: 2px 2px 4px #2c3e50; 
+    margin-bottom: 10px; 
   
-    padding-bottom: 5px; /* Espaçamento interno abaixo do título */
-    text-transform: uppercase; /* Transforma o texto do título em maiúsculas */
+    padding-bottom: 5px; 
+    text-transform: uppercase; 
   }
  
   @keyframes rainbow-text {
