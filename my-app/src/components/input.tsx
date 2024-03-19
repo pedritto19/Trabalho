@@ -12,33 +12,11 @@ const TextoElegante = styled.p`
   letter-spacing: 0.5px;
 
   @media (max-width: 768px) {
-    font-size: 13px; // Tamanho menor para dispositivos com largura até 768px
+    font-size: 13px;
   }
 `;
 
-// Estilos globais para o input
-const GlobalStyle = styled.div`
-  .input-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
 
-  .beautifulInput {
-    font-size: 16px; // Tamanho padrão
-    padding: 10px; // Padding padrão
-
-    @media (max-width: 768px) {
-      font-size: 14px; // Tamanho menor para dispositivos com largura até 768px
-      padding: 8px; // Padding reduzido para dispositivos menores
-    }
-  }
-
-  .error {
-    color: red;
-    margin-top: 5px;
-  }
-`;
 
 interface InputProps {
   type: 'text' | 'number' | 'email' | 'password'
