@@ -86,7 +86,7 @@ const PokemonList = () => {
   useEffect(() => {
     const fetchPokemons = async () => {
       const response = await api.get('/pokemons');
-      setPokemons(response.data); // Supondo que a resposta da API seja o array de Pokémon
+      setPokemons(response.data); 
     };
 
     fetchPokemons();
@@ -95,18 +95,18 @@ const PokemonList = () => {
   const handleDelete = async (pokemonId: string) => {
     try {
       await api.delete(`/pokemons/${pokemonId}`);
-      // Atualiza a lista de pokémons removendo o pokémon deletado
+
       setPokemons(pokemons.filter(pokemon => pokemon.id !== pokemonId));
       window.location.reload(); 
     } catch (error) {
-      // Trata erro caso a requisição falhe
+
       console.error("Erro ao deletar o pokémon:", error);
     }
   };
 
   
   const updatedPokemon = {
-    name: name || selectedPokemon?.name, // Usa o novo valor ou mantém o existente se não houver alteração
+    name: name || selectedPokemon?.name, 
     type: type || selectedPokemon?.type,
     imag: imag || selectedPokemon?.imag,
   };
@@ -119,7 +119,7 @@ const PokemonList = () => {
       return;
     } 
   
-      // Validação para 'type'
+
       if (!type.trim()) {
         setError(false);
         setError1(true);
@@ -127,7 +127,7 @@ const PokemonList = () => {
         return; 
       }
   
-      // Validação para 'Imag'
+
       if (!imag.trim()) {
         setError(false)
         setError1(false)
@@ -143,13 +143,13 @@ const PokemonList = () => {
       e.preventDefault();
       const url = `http://localhost:3333/pokemons/${selectedPokemon?.id}`;
       try {
-        const response = await api.put(`/pokemonsup/${selectedPokemon?.id}`, updatedPokemon); // Certifique-se de que a URL está correta
+        const response = await api.put(`/pokemonsup/${selectedPokemon?.id}`, updatedPokemon);
         if (response.status === 200) {
           console.log('Pokémon atualizado com sucesso:', response.data);
           window.location.reload(); 
-          // Atualize o estado dos pokémons aqui, se necessário
-          setIsModalOpen(false); // Fecha o modal após a atualização
-          // Você pode querer recarregar os pokémons aqui para refletir as mudanças
+        
+          setIsModalOpen(false); 
+       
         }
       } catch (error) {
         console.error('Erro ao atualizar o Pokémon:', error);
@@ -161,21 +161,21 @@ const PokemonList = () => {
 
   return (
   <div style={{ 
-    textAlign: 'center', // Centraliza o texto dentro de cada item.
+    textAlign: 'center', 
     display: 'flex',
-    flexDirection: 'column', // Muda a direção dos itens para coluna.
-    justifyContent: 'center', // Centraliza os itens no eixo principal (agora vertical).
-    alignItems: 'center', // Centraliza os itens no eixo cruzado (agora horizontal).
-    flexWrap: 'wrap', // Permite que os itens sejam envolvidos, útil se você decidir mudar para linha novamente.
+    flexDirection: 'column', 
+    justifyContent: 'center',
+    alignItems: 'center', 
+    flexWrap: 'wrap', 
   }} className="container align-self-center d-flex justify-content-center" id="header4">
       {pokemons.map((pokemon) => (
-        <div key={pokemon.id} style={{ marginBottom: '20px' }}> {/* Adiciona um espaço entre os itens */}
+        <div key={pokemon.id} style={{ marginBottom: '20px' }}>
             <img
             id="meuBotao2"
             style={{ width: '90px', height: 'auto' }}
             src={pokemon.imag}
             alt={pokemon.name}
-            onClick={() => handleOpenModal(pokemon)} // Chama a função para abrir o modal e definir o Pokémon
+            onClick={() => handleOpenModal(pokemon)} 
           />
           <button id="meuBotao" onClick={() => handleDelete(pokemon.id)}>
             <FaTrash size={18} color="red" />
@@ -213,7 +213,7 @@ const PokemonList = () => {
           className={`beautifulInput ${error ? 'error' : ''}`}
           
         >
-          <option value="" disabled>{selectedPokemon?.type}</option> {/* Opção desabilitada que serve como placeholder */}
+          <option value="" disabled>{selectedPokemon?.type}</option>
           <option value="Normal">Normal</option>
           <option value="Fire">Fire</option>
           <option value="Water">Water</option>
@@ -231,7 +231,7 @@ const PokemonList = () => {
           <option value="Dragon">Dragon</option>
           <option value="Dark">Dark</option>
           <option value="Fairy">Fairy</option>
-          {/* Adicione mais opções conforme necessário */}
+         
         </select>
         <Input
           type="text"

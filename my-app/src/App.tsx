@@ -8,16 +8,20 @@ import { api } from './services/api';
 import { useEffect, useState } from 'react';
 import {FaTrash} from 'react-icons/fa';
 import Edicao from './components/pagina_edicao';
+import fundo from './components/images/fundo.jpg'
 
 
 
 function App() {
+
   const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: #f0f0f5;
+    background-image: url(${fundo}); 
+    background-size: cover; 
+    background-position: center; 
     color: #333;
   }
 `;
@@ -45,28 +49,11 @@ function getColorByType(type: string) {
     
   };
 
-  return colors[type] || "#FFB6C1"; // cor padrão se o tipo não for encontrado
+  return colors[type] || "#FFB6C1"; 
 }
 
 
-  
-function dividirNomePokemon(nome: string) {
-  // Calcula o ponto de divisão, que é a metade do comprimento da string
-  let pontoDeDivisao = Math.floor(nome.length / 2);
 
-  // Divide o nome em duas partes
-  let primeiraParte = nome.substring(0, pontoDeDivisao);
-  let segundaParte = nome.substring(pontoDeDivisao);
-
-  // Retorna as duas partes
-  return [primeiraParte, segundaParte];
-}
-  interface pokemons {
-    id: string;
-    name: string;
-    imag: string; 
-    type: string; 
-  }
 
 
   const [pokemons, setPokemons] = useState([]);
@@ -108,12 +95,12 @@ let isEditingPage=false;
         justifyContent: 'center', 
         alignItems: 'center' }} className="container align-self-center d-flex justify-content-center" id="header">
     
-        {/* Renderização dos Pokémon */}
+        
         {pokemons.map((pokemon) => (
           <div key={pokemon.id} className="pokemon-container"> 
             <h3>{pokemon.name}</h3> 
             <img style={{ width: '90px', height: 'auto' }} src={pokemon.imag} alt={pokemon.name} /> 
-            <h2 className="pokemon-name" style={{ color: getColorByType(pokemon.type) }}>{pokemon.type}</h2>
+            <p className="pokemon-name" style={{ color: getColorByType(pokemon.type) }}>{pokemon.type}</p>
           </div>
         ))}
         

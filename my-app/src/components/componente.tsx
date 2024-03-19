@@ -32,11 +32,11 @@ const TextoElegante = styled.p`
     
       const [pokemons, setPokemons] = useState([]);
     
-      // Efeito para carregar os Pokémon quando o componente for montado
+     
       useEffect(() => {
         const fetchPokemons = async () => {
           const response = await api.get('/pokemons');
-          setPokemons(response.data); // Supondo que a resposta da API seja o array de Pokémon
+          setPokemons(response.data);
         };
     
         fetchPokemons();

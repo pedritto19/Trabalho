@@ -43,7 +43,7 @@ const Cadastro: React.FC = () => {
 
 
   interface CustomSelectProps extends DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement> {
-    error?: string; // Tornando a propriedade 'error' opcional
+    error?: string; 
   }
 
   const [pokemons, setPokemons] = useState([]);
@@ -121,16 +121,16 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     setError2(false)
     e.preventDefault();
   if (!name.trim() || !type.trim() || !imag.trim()) {
-    // Sua lógica de validação aqui
+
     return;
   }
   
   try {
-    // Enviando os dados para o backend
+
     const response = await api.post('/pkm', { name, type, imag });
     console.log('Pokemon criado:', response.data);
     window.location.reload(); 
-    // Aqui você pode redirecionar o usuário ou limpar o formulário
+ 
   } catch (error) {
     console.error("Erro ao enviar o Pokémon:", error);
   }
@@ -165,7 +165,7 @@ return (
           className={`beautifulInput ${error ? 'error' : ''}`}
           {...error && <span>{error}</span>}
         >
-          <option value="" disabled>Escolha um tipo</option> {/* Opção desabilitada que serve como placeholder */}
+          <option value="" disabled>Escolha um tipo</option> 
           <option value="Normal">Normal</option>
           <option value="Fire">Fire</option>
           <option value="Water">Water</option>
@@ -183,7 +183,7 @@ return (
           <option value="Dragon">Dragon</option>
           <option value="Dark">Dark</option>
           <option value="Fairy">Fairy</option>
-          {/* Adicione mais opções conforme necessário */}
+       
         </select>
         <Input
           type="text"
