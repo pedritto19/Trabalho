@@ -24,8 +24,12 @@ function App() {
     background-position: center; 
     color: #333;
   }
+  @media (max-width: 768px) {
+    body {
+      padding: 40px;
+    }
+  }
 `;
-
 
 function getColorByType(type: string) {
   const colors: { [key: string]: string } = {
