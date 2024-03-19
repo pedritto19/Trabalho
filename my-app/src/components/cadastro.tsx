@@ -145,7 +145,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 
   
 return (
-    <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center" id="header">
+    <div style={{ textAlign: 'center' }} >
       
       <form onSubmit={handleSubmit}>
         <h3 className="form-title"><TextoElegante>Cadastro</TextoElegante></h3>

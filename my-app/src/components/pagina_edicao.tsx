@@ -78,7 +78,7 @@ const Edicao: React.FC = () => {
 
 
 return (
-    <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center" id="header">
+    <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center" >
     <h3><TextoElegante>Tela de Edicao</TextoElegante></h3>
     <p><TextoElegante></TextoElegante></p>
     <button id="meuBotao"  onClick={handleClickback}>

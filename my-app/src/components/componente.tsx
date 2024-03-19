@@ -52,7 +52,7 @@ const TextoElegante = styled.p`
       navigate('/pagina_cadastro'); 
     }
     return (
-        <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center" id="header">
+        <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center" >
           <div>
         <h3><TextoElegante>Bem Vindo</TextoElegante></h3>
         <p><TextoElegante>Pagina inicial</TextoElegante></p>

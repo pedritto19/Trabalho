@@ -50,7 +50,17 @@ function getColorByType(type: string) {
 
 
   
-  
+function dividirNomePokemon(nome: string) {
+  // Calcula o ponto de divisão, que é a metade do comprimento da string
+  let pontoDeDivisao = Math.floor(nome.length / 2);
+
+  // Divide o nome em duas partes
+  let primeiraParte = nome.substring(0, pontoDeDivisao);
+  let segundaParte = nome.substring(pontoDeDivisao);
+
+  // Retorna as duas partes
+  return [primeiraParte, segundaParte];
+}
   interface pokemons {
     id: string;
     name: string;
@@ -96,7 +106,7 @@ let isEditingPage=false;
         display: 'flex',
         flexWrap: 'wrap', 
         justifyContent: 'center', 
-        alignItems: 'center' }} className="container align-self-center d-flex justify-content-center" id="header3">
+        alignItems: 'center' }} className="container align-self-center d-flex justify-content-center" id="header">
     
         {/* Renderização dos Pokémon */}
         {pokemons.map((pokemon) => (

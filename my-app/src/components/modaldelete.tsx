@@ -193,7 +193,7 @@ const PokemonList = () => {
         <button id="meuBotao" onClick={() => setIsModalOpen(false)}>
           <img src={fechar} style={{ width: '30px', height: 'auto'}} />
         </button>
-        <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center" id="header">
+        <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center" >
       <form onSubmit={handleSubmit}>
         <h3 className="form-title"><TextoElegante>Editar</TextoElegante></h3>
         <Input
@@ -265,7 +265,7 @@ const PokemonList = () => {
     </div>
       
         {selectedPokemon && (
-          <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center" id="header4">
+          <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center" id="header">
             <h2>{selectedPokemon.name}</h2>
             <img src={selectedPokemon.imag} alt={selectedPokemon.name} style={{ width: '100px', height: 'auto'}} />
             <h2>{selectedPokemon.type}</h2>
