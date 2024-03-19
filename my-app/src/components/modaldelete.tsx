@@ -36,9 +36,7 @@ const PokemonList = () => {
 
  
   const [pokemonSelecionado, setPokemonSelecionado] = useState(null);
-  const [name, setName] = useState('')
-  const [type, setType] = useState('')
-  const [imag, setImag] = useState('')
+
   const [error, setError] = useState(false)
   const [error1, setError1] = useState(false)
   const [error2, setError2] = useState(false)
@@ -49,6 +47,9 @@ const PokemonList = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPokemon, setSelectedPokemon] = useState(null); 
+  const [name, setName] = useState(selectedPokemon?.name)
+  const [type, setType] = useState('')
+  const [imag, setImag] = useState('')
   
 
   const openModal = (pokemons: any) => {
@@ -74,11 +75,7 @@ const PokemonList = () => {
   const handleImagChange = (e: ChangeEvent<HTMLInputElement>) => {
     setImag(e.target.value)
   }
-  const updatedPokemon = {
-    name: name || selectedPokemon?.name, // Usa o novo valor ou mantém o existente se não houver alteração
-    type: type || selectedPokemon?.type,
-    imag: imag || selectedPokemon?.imag,
-  };
+
 
 
   const [pokemons, setPokemons] = useState([]);
@@ -104,7 +101,12 @@ const PokemonList = () => {
     }
   };
 
-
+  
+  const updatedPokemon = {
+    name: name || selectedPokemon?.name, // Usa o novo valor ou mantém o existente se não houver alteração
+    type: type || selectedPokemon?.type,
+    imag: imag || selectedPokemon?.imag,
+  };
    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (!name.trim()) {
@@ -238,12 +240,12 @@ const PokemonList = () => {
       </div>
 
     </div>
-        {/* Mostra as informações do Pokémon selecionado no modal */}
+      
         {selectedPokemon && (
           <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center" id="header4">
             <h2>{selectedPokemon.name}</h2>
             <img src={selectedPokemon.imag} alt={selectedPokemon.name} style={{ width: '100px', height: 'auto'}} />
-            {/* Aqui você pode adicionar mais informações do Pokémon se desejar */}
+            <h2>{selectedPokemon.type}</h2>
           </div>
         )}
       </Modal>

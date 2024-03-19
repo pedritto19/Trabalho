@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { createGlobalStyle } from 'styled-components';
 import Pagina from './components/pagina_cadastro';
 import Mensagem from './components/componente';
 import "./components/Header/styles.css"
@@ -11,6 +12,16 @@ import Edicao from './components/pagina_edicao';
 
 
 function App() {
+  const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f5;
+    color: #333;
+  }
+`;
+  
   
   interface pokemons {
     id: string;
@@ -38,7 +49,9 @@ let isEditingPage=false;
   return (
     
     <div>
+      
       <header>
+      <GlobalStyle />
     <Router>
       <Routes>
         <Route path="/" element={<Mensagem />} />

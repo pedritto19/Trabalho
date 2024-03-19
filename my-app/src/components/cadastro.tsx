@@ -13,6 +13,7 @@ import { useEffect} from 'react';
 import {FaTrash} from 'react-icons/fa';
 
 
+
 const TextoElegante = styled.p`
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
@@ -140,6 +141,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
   
 return (
     <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center" id="header">
+      
       <form onSubmit={handleSubmit}>
         <h3 className="form-title"><TextoElegante>Cadastro</TextoElegante></h3>
         <Input
