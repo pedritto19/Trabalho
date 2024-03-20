@@ -17,6 +17,7 @@ import Modal from 'react-modal';
 import PokemonList from './modaldelete';
 import fechar from './images/fechar.png';
 import editar from './images/editar.png';
+import fundo from './images/fundo.jpg'
 
 
 const TextoElegante = styled.p`
@@ -92,11 +93,20 @@ return (
         isOpen={isModalOpen} // Passa a propriedade isOpen
         onRequestClose={() => setIsModalOpen(false)} // Opcional: Função para fechar o modal
         id='header4'
+        style={{
+          content: {
+            backgroundImage: `url(${fundo})`, // Corrigido aqui
+            backgroundSize: 'cover', 
+          },
+          overlay: {
+            // Definições para o overlay, se necessário
+          }
+        }}
       >
         {/* Conteúdo do Modal aqui */}
         <button id="meuBotao" onClick={() => setIsModalOpen(false)}><img src={fechar} style={{ width: '30px', height: 'auto'}} /></button>
         <PokemonList></PokemonList>
-        <button id="meuBotao2" onClick={() => setIsModalOpen(false)}><img src={seta} style={{ width: '50px', height: 'auto'}} /></button>
+        <button id="meuBotao" onClick={() => setIsModalOpen(false)}><img src={seta} style={{ width: '50px', height: 'auto'}} /></button>
       </Modal>
 
 

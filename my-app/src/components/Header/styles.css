@@ -1,124 +1,162 @@
+
+
+
+
+
 #header {
-  background: linear-gradient(to right, #13a153 0%, #5b88d6 100%);
-  border: 0.125rem solid #225a07;
-  border-radius: 6.25rem; /* Isso arredonda os cantos da borda */
+    background: linear-gradient(to right, #13a153 0%, #5b88d6 100%);;
+    border: 2px solid #225a07;
+    border-radius: 100px; /* Isso arredonda os cantos da borda */
 }
 
-#header2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border: 0.125rem;
-  border-radius: 6.25rem; /* Isso arredonda os cantos da borda */
-  width: 8.125rem; /* Largura reduzida */
-  height: 0.938rem; /* Altura reduzida */
-  padding: 0; /* Preenchimento interno reduzido */
-  margin: auto;
-  transition: background-color 0.3s ease;
+#header2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 2px;
+    border-radius: 100px; /* Isso arredonda os cantos da borda */
+    width: 130px; /* Largura reduzida */
+    height: 15px; /* Altura reduzida */
+    padding: 0px; /* Preenchimento interno reduzido */
+    margin: auto;
+    transition: background-color 0.3s ease;
 }
 
-#header2:hover {
-background-color: #ffffff;
+#header2:hover{
+  background-color: #ffffff;
 }
 
 .pokemon-container {
-margin: 3.125rem; /* Ajuste o valor conforme necessário */
+  margin: 50px; /* Ajuste o valor conforme necessário */
 }
 
 #header3 {
-background: #8c9291;
-border: 0.125rem solid #000000;
-border-radius: 6.25rem; /* Isso arredonda os cantos da borda */
-transition: background-color 0.3s ease;
+  background: #8c9291;
+  border: 2px solid #000000;
+  border-radius: 100px; /* Isso arredonda os cantos da borda */
+  transition: background-color 0.3s ease;
 }
-
-#header3:hover {
-background-color: rgb(190, 190, 190);
+#header3:hover{
+  background-color:rgb(190, 190, 190) ;
 }
 
 #header4 {
-background-color: #9aaaa1; /* Cor de fundo como fallback */
-border: 0.125rem solid #000000;
-border-radius: 6.25rem; /* Isso arredonda os cantos da borda */
-background-size: cover; /* Garante que a imagem cubra todo o espaço disponível */
-background-position: center; /* Centraliza a imagem no elemento */
+  /*background-image: url('../images/fundo.png'); /* Adiciona a imagem de fundo */
+  background-color: #9aaaa1; /* Cor de fundo como fallback */
+  border: 2px solid #000000;
+  border-radius: 100px; /* Isso arredonda os cantos da borda */
+  background-size: cover; /* Garante que a imagem cubra todo o espaço disponível */
+  background-position: center; /* Centraliza a imagem no elemento */
 }
 
-#meuBotao, #meuBotao2 {
-border: none; /* Remove a borda */
-background-color: transparent; /* Torna o fundo transparente */
-padding: 0.625rem 1.25rem; /* Adiciona um pouco de espaço interno para tornar o botão mais fácil de clicar */
-cursor: pointer; /* Muda o cursor para indicar que é clicável */
-transition: background-color 0.3s ease, filter 0.3s ease; /* Adiciona uma transição suave */
+#meuBotao {
+  border: none; /* Remove a borda */
+  background-color: transparent; /* Torna o fundo transparente */
+  padding: 10px 20px; /* Adiciona um pouco de espaço interno para tornar o botão mais fácil de clicar */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  transition: background-color 0.3s ease; /* Adiciona uma transição suave para o background-color */
+  transition: filter;
 }
 
-#meuBotao:hover, #meuBotao2:hover {
-background-color: rgba(0, 0, 0, 0.1); /* Torna o botão mais escuro quando o cursor está em cima */
+#meuBotao:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Torna o botão mais escuro quando o cursor está em cima */
+  filter: invert(100%);
+}
+
+#meuBotao2 {
+  border: none; /* Remove a borda */
+  background-color: transparent; /* Torna o fundo transparente */
+  padding: 10px 20px; /* Adiciona um pouco de espaço interno para tornar o botão mais fácil de clicar */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  transition: background-color 0.3s ease; /* Adiciona uma transição suave para o background-color */
+  transition: filter;
 }
 
 #meuBotao2:hover {
-filter: invert(20%);
+  background-color: rgba(0, 0, 0, 0.1); /* Torna o botão mais escuro quando o cursor está em cima */
+  filter:invert(20%)
 }
+
+
+
 
 .beautifulInput, select.beautifulInput {
-  padding: 0.625rem 0.938rem;
-  border: 0.063rem solid #ccc;
-  border-radius: 3.438rem;
-  margin: 0.625rem 0;
-  width: calc(100% - 37.5rem); /* Ajusta a largura considerando o padding */
-  box-sizing: border-box;
-}
-
-@media (max-width: 48em) {
-.beautifulInput, select.beautifulInput {
-  font-size: 0.875rem; 
-  padding: 0.5rem; 
-}
-}
-
-.beautifulInput.error, select.beautifulInput.error {
-border-color: #ff0000;
-}
-
-.beautifulInput::placeholder {
-color: #a9a9a9;
-}
-
-.container {
-background: linear-gradient(to right, #38b3d1 0%, #4b80dd 100%);
-color: white;
-padding: 3.125rem 1.25rem;
-border-radius: 0.625rem;
-box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
-}
-
-h3, p {
-font-family: 'Arial', sans-serif;
-}
-
-h3 {
-color: #d3dadf;
-font-size: 1.5rem;
-text-shadow: 0.125rem 0.125rem 0.25rem #2c3e50;
-margin-bottom: 0.625rem;
-padding-bottom: 0.313rem;
-text-transform: uppercase;
-}
-
-p {
-color: #3498db;
-font-size: 1.5rem;
-text-shadow: 0.125rem 0.125rem 0.25rem #2c3e50;
-margin-bottom: 0.625rem;
-padding-bottom: 0.313rem;
-text-transform: uppercase;
-}
-
-@media (min-width: 37.5em) {
-.container {
-  padding: 2.5rem;
-}
-}
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 55px;
+    margin: 10px 0;
+    width: calc(100% - 600px); /* Ajusta a largura considerando o padding */
+    box-sizing: border-box;
 
 
+    @media (max-width: 768px) {
+      font-size: 14px; 
+      padding: 8px; 
+    }
+  }
+  
+  /* Estilo para quando houver erro */
+  .beautifulInput.error, select.beautifulInput.error {
+    border-color: #ff0000;
+  }
+  
+  /* Estilo para o placeholder */
+  .beautifulInput::placeholder {
+    color: #a9a9a9;
+  }
+
+  .container {
+    background: linear-gradient(to right, #38b3d1 0%, #4b80dd 100%);
+    color: white;
+    padding: 50px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  h3, p {
+    font-family: 'Arial', sans-serif; /* Define a fonte para Arial */
+  }
+  
+  h3 {
+    color: #d3dadf; /* Cor do texto do título */
+    font-size: 24px; /* Tamanho da fonte do título */
+    text-shadow: 2px 2px 4px #2c3e50; /* Sombra do texto do título */
+    margin-bottom: 10px; /* Espaçamento abaixo do título */
+ 
+    padding-bottom: 5px; 
+    text-transform: uppercase; 
+  }
+  
+  p {
+    color: #3498db; 
+    font-size: 24px; 
+    text-shadow: 2px 2px 4px #2c3e50; 
+    margin-bottom: 10px; 
+  
+    padding-bottom: 5px; 
+    text-transform: uppercase; 
+  }
+ 
+  @keyframes rainbow-text {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+
+  .pokemon-name {
+    background: linear-gradient(90deg, rgb(2rgb(0, 0, 0)5, 255), rgb(255,rgb(0, 0, 0) 255), rgb(255rgb(0, 0, 0)5, 255), rgb(25rgb(0, 0, 0)55rgb(255, 255, 255)5), rgb(0, 0, 0), rgb(8, 8, 8)) repeat;
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow-text 5s linear infinite;
+  }
+
+
+
+  @media (min-width: 600px) {
+    .container {
+      padding: 40px;
+    }
+  }

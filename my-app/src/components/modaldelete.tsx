@@ -11,6 +11,7 @@ import Input from './input'
 import confirm from './images/confirm.png'
 import "./Header/styles.css"
 import { PokemonService } from '../services/PokemonService';
+import fundo from './images/fundo.jpg'
 
 const TextoElegante = styled.p`
   font-family: 'Roboto', sans-serif;
@@ -189,7 +190,16 @@ const PokemonList = () => {
 
 
 
-    <Modal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)}>
+    <Modal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)}
+      style={{
+        content: {
+          backgroundImage: `url(${fundo})`, // Corrigido aqui
+          backgroundSize: 'cover', 
+        },
+        overlay: {
+          // Definições para o overlay, se necessário
+        }
+      }}>
         <button id="meuBotao" onClick={() => setIsModalOpen(false)}>
           <img src={fechar} style={{ width: '30px', height: 'auto'}} />
         </button>
@@ -213,7 +223,7 @@ const PokemonList = () => {
           className={`beautifulInput ${error ? 'error' : ''}`}
           
         >
-          <option value="" disabled>{selectedPokemon?.type}</option>
+          <option value={selectedPokemon?.type} >{selectedPokemon?.type}</option>
           <option value="Normal">Normal</option>
           <option value="Fire">Fire</option>
           <option value="Water">Water</option>
