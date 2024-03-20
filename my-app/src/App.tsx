@@ -28,6 +28,8 @@ function App() {
   @media (max-width: 768px) {
     body {
       padding: 40px;
+      background-image: url(${fundo}); 
+      background-size: cover; 
     }
   }
 `;
