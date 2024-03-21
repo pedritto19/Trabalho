@@ -50,7 +50,7 @@ const Cadastro: React.FC = () => {
 
   
   useEffect(() => {
-    const fetchPokemons = async () => {
+    const fetchPokemons = async () => { 
       const response = await api.get('/pokemons');
       setPokemons(response.data); 
     };
