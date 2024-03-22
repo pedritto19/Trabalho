@@ -21,7 +21,7 @@ const start= async() =>{
         
 
     try {
-        await app.listen({ port: 3333, host: '0.0.0.0' });    
+        await app.listen({ port: 3333, host: '0.0.0.0' });
         // Adicionando host: '0.0.0.0' faz com que o servidor aceite conexões em todos os endereços IPv4.
     } catch (err) {
         app.log.error(err);
