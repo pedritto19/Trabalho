@@ -160,10 +160,11 @@ return (
         />
         <select
           name="type"
+
           value={type}
           onChange={handleTypechange}
           className={`beautifulInput ${error ? 'error' : ''}`}
-          {...error && <span>{error}</span>}
+          {...error1 && <span>{error1}</span>}
         >
           <option value="" disabled>Escolha um tipo</option> 
           <option value="Normal">Normal</option>
@@ -197,7 +198,7 @@ return (
           <img src={seta} style={{ width: '30px', height: 'auto'}} />
         </button>
         <button id="meuBotao"   type="submit" onClick={handleClick}><img style={{ width: '30px', height: 'auto' }} src={confirm}/></button>
-        <button id="meuBotao"   onClick={handleClickedicao}><img style={{ width: '30px', height: 'auto' }} src={edicao}/></button>
+        <button id="meuBotao"   onClick={handleClickedicao}><img style={{ width: '30px', height: 'auto' , transform:'scaleX(-1)'}} src={seta}/></button>
         
 
       </form>
