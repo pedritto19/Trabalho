@@ -11,11 +11,16 @@ const app= Fastify({ logger: true})
 
 
 const start= async() =>{
+    const cors = require('cors');
+
+    
     
     
 
 
-    await app.register(cors);
+    await app.register(cors,{
+        origin: 'https://trabalho-2-p875.onrender.com/'
+    });
     await app.register(routes);
     
         
