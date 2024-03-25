@@ -91,6 +91,7 @@ const handleImagChange = (e: ChangeEvent<HTMLInputElement>) => {
 }
 
 const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  
   e.preventDefault()
   if (!name.trim()) {
     setError(true)
@@ -126,6 +127,10 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
   }
   
   try {
+    setIsButtonDisabled(true);
+    setTimeout(() => {
+      setIsButtonDisabled(false);
+    }, 2000);
 
     const response = await api.post('/pkm', { name, type, imag });
     console.log('Pokemon criado:', response.data);
@@ -137,10 +142,11 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     
 
 
-
+  
 
   
 }
+const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
 
   
@@ -197,7 +203,7 @@ return (
         <button id="meuBotao"   onClick={handleClickback}>
           <img src={seta} style={{ width: '30px', height: 'auto'}} />
         </button>
-        <button id="meuBotao"   type="submit" onClick={handleClick}><img style={{ width: '30px', height: 'auto' }} src={confirm}/></button>
+        <button id="meuBotao"   type="submit" disabled={isButtonDisabled} onClick={handleClick}><img style={{ width: '30px', height: 'auto' }} src={confirm}/></button>
         <button id="meuBotao"   onClick={handleClickedicao}><img style={{ width: '30px', height: 'auto' , transform:'scaleX(-1)'}} src={seta}/></button>
         
 
