@@ -70,18 +70,18 @@
 }
 
 #meuBotao2 {
+  display: inline-block; /* Garante que o âncora se comporte como um bloco, mas apenas ao redor da imagem */
   border: none; /* Remove a borda */
   background-color: transparent; /* Torna o fundo transparente */
-  border-radius: 100px; /* Isso arredonda os cantos da borda */
-  padding: 10px 20px; /* Adiciona um pouco de espaço interno para tornar o botão mais fácil de clicar */
+  border-radius: 100px; /* Arredonda os cantos da borda */
+  padding: 10px; /* Adiciona um pouco de espaço interno */
   cursor: pointer; /* Muda o cursor para indicar que é clicável */
-  transition: background-color 0.3s ease; /* Adiciona uma transição suave para o background-color */
-  transition: filter;
+  transition: background-color 0.3s ease, filter 0.3s ease; /* Adiciona transições suaves */
 }
 
 #meuBotao2:hover {
   background-color: rgba(0, 0, 0, 0.1); /* Torna o botão mais escuro quando o cursor está em cima */
-  filter:invert(20%)
+  filter: invert(20%);
 }
 
 

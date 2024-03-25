@@ -195,13 +195,16 @@ const PokemonList = () => {
   }} className="container align-self-center d-flex justify-content-center" id="header4">
       {pokemons.map((pokemon) => (
         <div key={pokemon.id} style={{ marginBottom: '20px' }}>
+         
             <img
+            
             id="meuBotao2"
             style={{ width: '90px', height: 'auto' }}
             src={pokemon.imag}
             alt={pokemon.name}
             onClick={() => handleOpenModal(pokemon)} 
           />
+          
           <button id="meuBotao" onClick={() => handleDelete(pokemon.id)}>
             <FaTrash size={18} color="red" />
           </button>
