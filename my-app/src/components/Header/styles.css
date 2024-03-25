@@ -9,6 +9,10 @@
     border-radius: 100px; /* Isso arredonda os cantos da borda */
 }
 
+
+
+
+
 #header2{
     display: flex;
     justify-content: center;
@@ -53,6 +57,7 @@
 #meuBotao {
   border: none; /* Remove a borda */
   background-color: transparent; /* Torna o fundo transparente */
+  border-radius: 100px; /* Isso arredonda os cantos da borda */
   padding: 10px 20px; /* Adiciona um pouco de espaço interno para tornar o botão mais fácil de clicar */
   cursor: pointer; /* Muda o cursor para indicar que é clicável */
   transition: background-color 0.3s ease; /* Adiciona uma transição suave para o background-color */
@@ -67,6 +72,7 @@
 #meuBotao2 {
   border: none; /* Remove a borda */
   background-color: transparent; /* Torna o fundo transparente */
+  border-radius: 100px; /* Isso arredonda os cantos da borda */
   padding: 10px 20px; /* Adiciona um pouco de espaço interno para tornar o botão mais fácil de clicar */
   cursor: pointer; /* Muda o cursor para indicar que é clicável */
   transition: background-color 0.3s ease; /* Adiciona uma transição suave para o background-color */

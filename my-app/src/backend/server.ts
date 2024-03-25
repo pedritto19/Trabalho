@@ -11,8 +11,7 @@ const app= Fastify({ logger: true})
 
 
 const start= async() =>{
-    
-    
+
 
 
     await app.register(cors);
