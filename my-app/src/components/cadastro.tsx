@@ -12,6 +12,7 @@ import { api } from '../services/api';
 import { useEffect} from 'react';
 import {FaTrash} from 'react-icons/fa';
 import App from '../App';
+import load from './images/load.gif'
 
 
 
@@ -115,7 +116,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
       setError2(true);
       return; 
     }
-  
+
 
     setError(false)
     setError1(false)
@@ -125,12 +126,14 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 
     return;
   }
-  
+
   try {
-    setIsButtonDisabled(true);
+    setIsLoading(true);
+    // Simule uma operação assíncrona, como uma chamada de API
     setTimeout(() => {
-      setIsButtonDisabled(false);
-    }, 2000);
+      setIsLoading(false);
+    }, 2000); // 2 segundos para o exemplo
+
 
     const response = await api.post('/pkm', { name, type, imag });
     console.log('Pokemon criado:', response.data);
@@ -139,17 +142,18 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
   } catch (error) {
     console.error("Erro ao enviar o Pokémon:", error);
   }
-    
 
 
-  
 
-  
+
+
+
 }
 const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+const [isLoading, setIsLoading] = useState(false);
 
 
-  
+
 return (
     <div style={{ textAlign: 'center' }} >
       
@@ -200,11 +204,19 @@ return (
           onChange={handleImagChange}
           placeholder="URL da sprite"
         />
+
+        <div>
         <button id="meuBotao"   onClick={handleClickback}>
           <img src={seta} style={{ width: '30px', height: 'auto'}} />
         </button>
-        <button id="meuBotao"   type="submit" disabled={isButtonDisabled} onClick={handleClick}><img style={{ width: '30px', height: 'auto' }} src={confirm}/></button>
-        <button id="meuBotao"   onClick={handleClickedicao}><img style={{ width: '30px', height: 'auto' , transform:'scaleX(-1)'}} src={seta}/></button>
+      {isLoading && <div id="telaDeCarregamento"> <img src={load} style={{ width: '70px', height: 'auto' }} /> Carregando...</div>}
+      <button id="meuBotao" type="submit" disabled={isButtonDisabled || isLoading} onClick={handleClick}>
+        <img style={{ width: '30px', height: 'auto' }} src={confirm}/>
+      </button>
+      <button id="meuBotao"   onClick={handleClickedicao}><img style={{ width: '30px', height: 'auto' , transform:'scaleX(-1)'}} src={seta}/></button>
+    </div>
+    
+        
         
 
       </form>
