@@ -29,7 +29,25 @@ const TextoElegante2 = styled.p`
   text-align: center;
   letter-spacing: 0.5px;
 `;
-
+const estilos = {
+  lista: {
+    display: 'flex',
+    flexWrap: 'wrap', // Permite que os itens se alinhem em múltiplas linhas
+    justifyContent: 'space-around', // Distribui o espaço igualmente
+    alignItems: 'center' // Centraliza os itens verticalmente
+  },
+  item: {
+    marginBottom: '20px',
+    display: 'flex',
+    flexDirection: 'column', // Organiza o conteúdo em colunas
+    alignItems: 'center', // Centraliza horizontalmente
+    width: '200px' // Define uma largura fixa para cada item
+  },
+  imagem: {
+    width: '90px',
+    height: 'auto'
+  }
+};
 function getColorByType(type: string) {
   const colors: { [key: string]: string } = {
     'Normal': "#808080",
@@ -185,14 +203,7 @@ const PokemonList = () => {
 
 
   return (
-  <div style={{ 
-    textAlign: 'center', 
-    display: 'flex',
-    flexDirection: 'column', 
-    justifyContent: 'center',
-    alignItems: 'center', 
-    flexWrap: 'wrap', 
-  }} className="container align-self-center d-flex justify-content-center" id="header4">
+  <div style={estilos.lista} className="container align-self-center d-flex justify-content-center" id="header4">
       {pokemons.map((pokemon) => (
         <div key={pokemon.id} style={{ marginBottom: '20px' }}>
          
@@ -218,15 +229,20 @@ const PokemonList = () => {
 
 
     <Modal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)}
-      style={{
-        content: {
-          backgroundImage: `url(${fundo})`, // Corrigido aqui
-          backgroundSize: 'cover', 
-        },
-        overlay: {
-          // Definições para o overlay, se necessário
-        }
-      }}>
+        style={{
+          content: {
+            width: '1000px', // Define a largura do modal
+            height: '800px', // Define a altura do modal
+            margin: 'auto', // Centraliza o modal na tela
+            backgroundImage: `url(${fundo})`,
+            backgroundSize: 'cover',
+            filter: 'brightness(100%)', // Ajusta o brilho da imagem
+          },
+          overlay: {
+            backgroundColor: 'rgba(0, 0, 0, 0.20)',
+            
+          }
+        }}><div className="modal-content">
         <button id="meuBotao" onClick={() => setIsModalOpen(false)}>
           <img src={fechar} style={{ width: '30px', height: 'auto'}} />
         </button>
@@ -308,6 +324,7 @@ const PokemonList = () => {
             <p className="pokemon-name" style={{color: getColorByType(selectedPokemon.type)}}>{selectedPokemon.type}</p>
           </div>
         )}
+        </div>
       </Modal>
   </div>
   );

@@ -13,6 +13,8 @@ import { useEffect} from 'react';
 import {FaTrash} from 'react-icons/fa';
 import App from '../App';
 import load from './images/load.gif'
+import home from './images/home.png';
+import editar from './images/editar.png';
 
 
 
@@ -207,13 +209,13 @@ return (
 
         <div>
         <button id="meuBotao"   onClick={handleClickback}>
-          <img src={seta} style={{ width: '30px', height: 'auto'}} />
+          <img src={home} style={{ width: '30px', height: 'auto'}} />
         </button>
       {isLoading && <div id="telaDeCarregamento"> <img src={load} style={{ width: '70px', height: 'auto' }} /> Carregando...</div>}
       <button id="meuBotao" type="submit" disabled={isButtonDisabled || isLoading} onClick={handleClick}>
         <img style={{ width: '30px', height: 'auto' }} src={confirm}/>
       </button>
-      <button id="meuBotao"   onClick={handleClickedicao}><img style={{ width: '30px', height: 'auto' , transform:'scaleX(-1)'}} src={seta}/></button>
+      <button id="meuBotao"   onClick={handleClickedicao}><img style={{ width: '30px', height: 'auto' , transform:'scaleX(-1)'}} src={editar}/></button>
     </div>
     
         

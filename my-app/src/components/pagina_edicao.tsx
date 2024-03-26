@@ -18,6 +18,7 @@ import PokemonList from './modaldelete';
 import fechar from './images/fechar.png';
 import editar from './images/editar.png';
 import fundo from './images/fundo.jpg'
+import cadastro from './images/cadastro.png'
 
 
 const TextoElegante = styled.p`
@@ -79,35 +80,47 @@ const Edicao: React.FC = () => {
 
 
 return (
-    <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center" >
+    <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center " >
     <h3><TextoElegante>Tela de Edicao</TextoElegante></h3>
     <p><TextoElegante></TextoElegante></p>
     <button id="meuBotao"  onClick={handleClickback}>
-          <img src={seta} style={{ width: '40px', height: 'auto'}} />
+          <img src={cadastro} style={{ width: '40px', height: 'auto'}} />
         </button>
         <button id="meuBotao"  onClick={handleClickhome}>
           <img src={home} style={{ width: '30px', height: 'auto'}} />
         </button>
         <button id="meuBotao"  onClick={() => setIsModalOpen(true)} ><img src={editar} style={{ width: '30px', height: 'auto'}} /></button><h3> {pokemons.type}</h3>
+        <div className="modal-content">
     <Modal 
         isOpen={isModalOpen} // Passa a propriedade isOpen
         onRequestClose={() => setIsModalOpen(false)} // Opcional: Função para fechar o modal
         id='header4'
+        
         style={{
           content: {
-            backgroundImage: `url(${fundo})`, // Corrigido aqui
-            backgroundSize: 'cover', 
+            width: '1000px', // Define a largura do modal
+            height: '800px', // Define a altura do modal
+            margin: 'auto', // Centraliza o modal na tela
+            backgroundImage: `url(${fundo})`,
+            backgroundSize: 'cover',
+            
+            filter: 'brightness(100%)', // Ajusta o brilho da imagem
           },
           overlay: {
-            // Definições para o overlay, se necessário
+            backgroundColor: 'rgba(0, 0, 0, 0.20)',
+            
           }
         }}
       >
+        
         {/* Conteúdo do Modal aqui */}
         <button id="meuBotao" onClick={() => setIsModalOpen(false)}><img src={fechar} style={{ width: '30px', height: 'auto'}} /></button>
+        <TextoElegante>Edite seus Pokémons!!</TextoElegante>
         <PokemonList></PokemonList>
         <button id="meuBotao" onClick={() => setIsModalOpen(false)}><img src={seta} style={{ width: '50px', height: 'auto'}} /></button>
+        
       </Modal>
+      </div>
 
 
     

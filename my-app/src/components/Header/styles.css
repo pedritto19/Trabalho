@@ -60,13 +60,25 @@
   border-radius: 100px; /* Isso arredonda os cantos da borda */
   padding: 10px 20px; /* Adiciona um pouco de espaço interno para tornar o botão mais fácil de clicar */
   cursor: pointer; /* Muda o cursor para indicar que é clicável */
-  transition: background-color 0.3s ease; /* Adiciona uma transição suave para o background-color */
-  transition: filter;
+  transition: background-color 0.3s ease, filter 0.3s ease; /* Adiciona uma transição suave para o background-color e o filtro */
+  
 }
 
 #meuBotao:hover {
   background-color: rgba(0, 0, 0, 0.1); /* Torna o botão mais escuro quando o cursor está em cima */
   filter: invert(100%);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Intensifica a sombra no hover para maior efeito de relevo */
+}
+
+.botao-com-texto {
+  display: flex; /* Ativa o flexbox */
+  flex-direction: column; /* Organiza os elementos em coluna */
+  align-items: center; /* Centraliza horizontalmente */
+  justify-content: center; /* Centraliza verticalmente */
+}
+
+#meuBotao span {
+  font-size: 12px; /* Exemplo: tamanho do texto */
 }
 
 #meuBotao2 {
@@ -183,3 +195,42 @@
     font-size: 20px;
     z-index: 1000;
   }
+
+  .menu-opcoes {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    gap: 10px; /* Espaço entre os botões */
+  }
+
+
+  .modal-content {
+    overflow-y: auto; /* Faz com que apenas a vertical tenha scroll, se necessário */
+    max-height: 90vh; /* Limita a altura do modal para não ultrapassar 90% da altura da viewport */
+  }
+/* Para navegadores baseados em WebKit como Chrome, Safari */
+.modal-content::-webkit-scrollbar {
+  width: 10px; /* Largura da barra de rolagem */
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #888; /* Cor da barra de rolagem */
+  border-radius: 5px; /* Arredondamento das bordas da barra de rolagem */
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Cor da barra de rolagem ao passar o mouse */
+}
+
+/* Para o Firefox */
+.modal-content {
+  scrollbar-width: thin; /* "auto" ou "thin" */
+  scrollbar-color: #888 #e0e0e0; /* Cor da barra e do fundo */
+}
+.modal-content {
+  scroll-behavior: smooth; /* Faz com que o scroll seja mais suave */
+}
+
+.no-scroll {
+  overflow: hidden;
+  text-align: center;
+}
