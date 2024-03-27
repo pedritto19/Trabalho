@@ -109,15 +109,29 @@ const PokemonList = () => {
     setSelectedPokemon(pokemon); // Armazena o Pokémon selecionado
     setIsModalOpen(true); // Abre o modal
   };
-
+  useEffect(() => {
+    if (selectedPokemon?.name) {
+      setName(selectedPokemon.name);
+    }
+  }, [selectedPokemon]);
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value)
    
   }
+  useEffect(() => {
+    if (selectedPokemon?.type) {
+      setType(selectedPokemon.type);
+    }
+  }, [selectedPokemon]);
   const handleTypechange = (e: ChangeEvent<HTMLSelectElement>) => {
     setType(e.target.value)
 
   }
+  useEffect(() => {
+    if (selectedPokemon?.imag) {
+      setImag(selectedPokemon.imag);
+    }
+  }, [selectedPokemon]);
   const handleImagChange = (e: ChangeEvent<HTMLInputElement>) => {
     setImag(e.target.value)
   }
@@ -127,6 +141,7 @@ const PokemonList = () => {
   const [pokemons, setPokemons] = useState([]);
 
   useEffect(() => {
+    
     const fetchPokemons = async () => {
       const response = await api.get('/pokemons');
       setPokemons(response.data); 
@@ -199,7 +214,7 @@ const PokemonList = () => {
       }
     };
 
-
+    
 
 
   return (
