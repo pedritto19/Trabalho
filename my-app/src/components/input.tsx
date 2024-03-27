@@ -1,4 +1,4 @@
-import { ChangeEvent, FC } from 'react'
+import { ClipboardEventHandler,ChangeEvent, FC } from 'react'
 import styled from 'styled-components';
 
 
@@ -19,14 +19,15 @@ const TextoElegante = styled.p`
 
 
 interface InputProps {
-  type: 'text' | 'number' | 'email' | 'password'
-  value: string | number
+  type: 'text' | 'number' | 'email' | 'password';
+  value: string | number;
   defaultValue?: string;
-  name: string
-  placeholder: string
-  error: boolean
-  disabled?: boolean
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  name: string;
+  placeholder: string;
+  error: boolean;
+  disabled?: boolean;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onPaste?: ( ClipboardEventHandler<HTMLInputElement>)
 }
 
 const Input: FC<InputProps> = ({
@@ -38,6 +39,7 @@ const Input: FC<InputProps> = ({
   error,
   disabled,
   onChange,
+  onPaste,
 }) => {
   return (
     <div className="input-wrapper">
@@ -51,6 +53,7 @@ const Input: FC<InputProps> = ({
         placeholder={placeholder}
         onChange={onChange}
         disabled={disabled}
+        onPaste={onPaste}
       />
       {error && <p className="error"><TextoElegante>Preencha o Campo!</TextoElegante></p>}
     </div>

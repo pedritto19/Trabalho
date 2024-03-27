@@ -15,6 +15,7 @@ import App from '../App';
 import load from './images/load.gif'
 import home from './images/home.png';
 import editar from './images/editar.png';
+import paste from './images/paste.png';
 
 
 
@@ -59,6 +60,10 @@ function getColorByType(type: string) {
 
   return colors[type] || "#FFB6C1"; 
 }
+
+
+
+
 const Cadastro: React.FC = () => {
   interface pokemons {
     id: string;
@@ -113,8 +118,27 @@ const handleTypechange = (e: ChangeEvent<HTMLSelectElement>) => {
   setType(e.target.value)
 }
 const handleImagChange = (e: ChangeEvent<HTMLInputElement>) => {
-  setImag(e.target.value)
-}
+  // Esta função agora será usada para prevenir a entrada de texto pela digitação
+  e.preventDefault();
+};
+
+const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
+  // Acessa o texto do clipboard
+  const pasteText = e.clipboardData.getData('text');
+  // Atualiza o estado com o texto colado
+  setImag(pasteText);
+};
+
+const handlePaste2 = async () => {
+  try {
+    const text = await navigator.clipboard.readText();
+    setImag(text);
+  } catch (err) {
+    console.error('Falha ao colar o conteúdo: ', err);
+  }
+};
+
+
 
 const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
   
@@ -183,7 +207,9 @@ return (
     <div style={{ textAlign: 'center' }} >
       
       <form onSubmit={handleSubmit}>
+        
         <h3 className="form-title"><TextoElegante>Cadastro</TextoElegante></h3>
+        
         <Input
           type="text"
           
@@ -221,6 +247,7 @@ return (
           <option value="Fairy">Fairy</option>
        
         </select>
+        
         <Input
           type="text"
           value={imag}
@@ -228,8 +255,11 @@ return (
           error={error2}
           onChange={handleImagChange}
           placeholder="URL da sprite"
-        />
-
+          onPaste={handlePaste} // Permitir apenas colar
+          
+        /><button id='meuBotao' onClick={handlePaste2}> <img style={{ width: '30px', height: 'auto' }} src={paste}/><span><TextoElegante2>Colar Url</TextoElegante2></span></button>
+     
+        
         <div>
         <button id="meuBotao"   onClick={handleClickback}>
           <img src={home} style={{ width: '30px', height: 'auto'}} />
@@ -244,8 +274,7 @@ return (
         
         
 
-      </form>
-      
+      </form> 
       <div>
         <img src={imag} style={{ width: '100px', height: 'auto'}}/>
         
