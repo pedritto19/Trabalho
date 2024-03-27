@@ -203,17 +203,17 @@ const PokemonList = () => {
 
 
   return (
-  <div style={estilos.lista} className="container align-self-center d-flex justify-content-center" id="header4">
+  <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', gap: '20px' }} className="container align-self-center d-flex justify-content-center" id="header4">
       {pokemons.map((pokemon) => (
-        <div key={pokemon.id} style={{ marginBottom: '20px' }}>
-         
+    <div key={pokemon.id} style={{ marginBottom: '20px', width: '200px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <button id='meuBotao' onClick={() => handleOpenModal(pokemon)}  ><img src={editar} style={{ width: '30px', height: 'auto'}} /></button>
             <img
             
-            id="meuBotao2"
+         
             style={{ width: '90px', height: 'auto' }}
             src={pokemon.imag}
             alt={pokemon.name}
-            onClick={() => handleOpenModal(pokemon)} 
+           
           />
           
           <button id="meuBotao" onClick={() => handleDelete(pokemon.id)}>
