@@ -35,7 +35,30 @@ const TextoElegante2 = styled.p`
   letter-spacing: 0.5px;
 `;
 
+function getColorByType(type: string) {
+  const colors: { [key: string]: string } = {
+    'Normal': "#808080",
+    'Fire': "#FF0000",
+    'Water': "#0000FF",
+    'Grass': "#008000",
+    'Flying': "#ADD8E6",
+    'Fighting': "#FF8C00",
+    'Electric': "#FFFF00",
+    'Ground': "#A52A2A",
+    'Rock': "#654321",
+    'Psychic': "#FFC0CB",
+    'Ice': "#AFEEEE",
+    'Bug': "#006400",
+    'Ghost': "#800080",
+    'Steel': "#C0C0C0",
+    'Dragon': "#FF4500",
+    'Dark': "#000000",
+    'Fairy': "#FFB6C1" 
+    
+  };
 
+  return colors[type] || "#FFB6C1"; 
+}
 const Cadastro: React.FC = () => {
   interface pokemons {
     id: string;
@@ -230,7 +253,7 @@ return (
         <TextoElegante2>{name}</TextoElegante2>
         </div>
         <div id='header2'>
-        <TextoElegante2>{type}</TextoElegante2>
+        <TextoElegante2 style={{color: getColorByType(type)}}> {type} </TextoElegante2>
         </div>
       </div>
 

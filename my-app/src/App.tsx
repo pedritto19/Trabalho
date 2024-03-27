@@ -12,6 +12,7 @@ import fundo from './components/images/fundo.jpg'
 
 
 
+
 function App() {
 
   const GlobalStyle = createGlobalStyle`

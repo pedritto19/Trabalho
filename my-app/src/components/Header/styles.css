@@ -7,6 +7,8 @@
     background: linear-gradient(to right, #13a153 0%, #5b88d6 100%);;
     border: 2px solid #225a07;
     border-radius: 100px; /* Isso arredonda os cantos da borda */
+    scrollbar-width: thin !important;
+    scrollbar-color: #28e7d7 #92dbd9 !important; /* Cores ajustadas para verde claro e azul claro */
 }
 
 
@@ -22,9 +24,11 @@
     border-radius: 100px; /* Isso arredonda os cantos da borda */
     width: 130px; /* Largura reduzida */
     height: 15px; /* Altura reduzida */
-    padding: 0px; /* Preenchimento interno reduzido */
-    margin: auto;
+    margin: auto; /* Adiciona uma margem ao redor de toda a div */
+    padding: 20px; /* Adiciona espaço entre o conteúdo da div e suas bordas */
     transition: background-color 0.3s ease;
+    scrollbar-width: thin !important;
+    scrollbar-color: #28e7d7 #92dbd9 !important; /* Cores ajustadas para verde claro e azul claro */
 }
 
 #header2:hover{
@@ -33,6 +37,8 @@
 
 .pokemon-container {
   margin: 50px; /* Ajuste o valor conforme necessário */
+  scrollbar-width: thin !important;
+  scrollbar-color: #28e7d7 #92dbd9 !important; /* Cores ajustadas para verde claro e azul claro */
 }
 
 #header3 {
@@ -40,6 +46,8 @@
   border: 2px solid #000000;
   border-radius: 100px; /* Isso arredonda os cantos da borda */
   transition: background-color 0.3s ease;
+  scrollbar-width: thin !important;
+  scrollbar-color: #28e7d7 #92dbd9 !important; /* Cores ajustadas para verde claro e azul claro */
 }
 #header3:hover{
   background-color:rgb(190, 190, 190) ;
@@ -52,7 +60,30 @@
   border-radius: 100px; /* Isso arredonda os cantos da borda */
   background-size: cover; /* Garante que a imagem cubra todo o espaço disponível */
   background-position: center; /* Centraliza a imagem no elemento */
+  scrollbar-width: thin !important;
+  scrollbar-color: #76c1b4 #a7d5d8 !important; /* Cores da barra de rolagem ajustadas */
 }
+
+/* Para navegadores baseados em WebKit como Chrome, Safari, etc. */
+/* Ajustando a barra de rolagem para combinar com verde claro e azul claro */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #a7d5d8; /* Cor de fundo da trilha da barra de rolagem, um azul claro suave */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #76c1b4; /* Cor do controle deslizante da barra de rolagem, um verde claro aquoso */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5da396; /* Um tom um pouco mais escuro para o hover, para melhor interatividade */
+}
+
+
 
 #meuBotao {
   border: none; /* Remove a borda */
@@ -130,6 +161,8 @@
     padding: 50px 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    scrollbar-width: thin !important;
+    scrollbar-color: #28e7d7 #92dbd9 !important; /* Cores ajustadas para verde claro e azul claro */
   }
   
   h3, p {
@@ -144,6 +177,8 @@
  
     padding-bottom: 5px; 
     text-transform: uppercase; 
+    scrollbar-width: thin !important;
+    scrollbar-color: #28e7d7 #92dbd9 !important; /* Cores ajustadas para verde claro e azul claro */
   }
   
   p {
@@ -154,6 +189,8 @@
   
     padding-bottom: 5px; 
     text-transform: uppercase; 
+    scrollbar-width: thin !important;
+    scrollbar-color: #28e7d7 #92dbd9 !important; /* Cores ajustadas para verde claro e azul claro */
   }
  
   @keyframes rainbow-text {
@@ -169,6 +206,8 @@
     background-clip: text;
     color: transparent;
     animation: rainbow-text 5s linear infinite;
+    scrollbar-width: thin !important;
+    scrollbar-color: #28e7d7 #92dbd9 !important; /* Cores ajustadas para verde claro e azul claro */
   }
 
 
@@ -176,6 +215,9 @@
   @media (min-width: 600px) {
     .container {
       padding: 40px;
+      scrollbar-width: thin !important;
+      scrollbar-color: #28e7d7 #92dbd9 !important; /* Cores ajustadas para verde claro e azul claro */
+
     }
   }
 
@@ -203,34 +245,3 @@
   }
 
 
-  .modal-content {
-    overflow-y: auto; /* Faz com que apenas a vertical tenha scroll, se necessário */
-    max-height: 90vh; /* Limita a altura do modal para não ultrapassar 90% da altura da viewport */
-  }
-/* Para navegadores baseados em WebKit como Chrome, Safari */
-.modal-content::-webkit-scrollbar {
-  width: 10px; /* Largura da barra de rolagem */
-}
-
-.modal-content::-webkit-scrollbar-thumb {
-  background: #888; /* Cor da barra de rolagem */
-  border-radius: 5px; /* Arredondamento das bordas da barra de rolagem */
-}
-
-.modal-content::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Cor da barra de rolagem ao passar o mouse */
-}
-
-/* Para o Firefox */
-.modal-content {
-  scrollbar-width: thin; /* "auto" ou "thin" */
-  scrollbar-color: #888 #e0e0e0; /* Cor da barra e do fundo */
-}
-.modal-content {
-  scroll-behavior: smooth; /* Faz com que o scroll seja mais suave */
-}
-
-.no-scroll {
-  overflow: hidden;
-  text-align: center;
-}

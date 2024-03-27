@@ -96,6 +96,7 @@ return (
         onRequestClose={() => setIsModalOpen(false)} // Opcional: Função para fechar o modal
         id='header4'
         
+        
         style={{
           content: {
             width: '1000px', // Define a largura do modal
