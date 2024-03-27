@@ -35,6 +35,15 @@ const TextoElegante2 = styled.p`
   text-align: center;
   letter-spacing: 0.5px;
 `;
+const TextoElegante3 = styled.p`
+  font-family: 'Roboto', sans-serif;
+  font-size: 10px;
+  color: #000000;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.5px;
+`;
+
 
 function getColorByType(type: string) {
   const colors: { [key: string]: string } = {
@@ -247,7 +256,8 @@ return (
           <option value="Fairy">Fairy</option>
        
         </select>
-        
+        <div className='input-group'>
+   
         <Input
           type="text"
           value={imag}
@@ -257,10 +267,17 @@ return (
           placeholder="URL da sprite"
           onPaste={handlePaste} // Permitir apenas colar
           
-        /><button id='meuBotao' onClick={handlePaste2}> <img style={{ width: '30px', height: 'auto' }} src={paste}/><span><TextoElegante2>Colar Url</TextoElegante2></span></button>
+        />
+      <div className='div1'>
+        <button id='meuBotao0' type="button" onClick={handlePaste2}> <img style={{ width: '25px', height: 'auto' }} src={paste}/><span></span></button>
+        </div>
+        </div>
      
         
-        <div>
+        <div className='div2'>
+          <div>   
+            
+          </div>
         <button id="meuBotao"   onClick={handleClickback}>
           <img src={home} style={{ width: '30px', height: 'auto'}} />
         </button>
@@ -268,13 +285,16 @@ return (
       <button id="meuBotao" type="submit" disabled={isButtonDisabled || isLoading} onClick={handleClick}>
         <img style={{ width: '30px', height: 'auto' }} src={confirm}/>
       </button>
+      
       <button id="meuBotao"   onClick={handleClickedicao}><img style={{ width: '30px', height: 'auto' , transform:'scaleX(-1)'}} src={editar}/></button>
+      
     </div>
     
         
         
 
       </form> 
+      
       <div>
         <img src={imag} style={{ width: '100px', height: 'auto'}}/>
         

@@ -26,14 +26,11 @@
     height: 15px; /* Altura reduzida */
     margin: auto; /* Adiciona uma margem ao redor de toda a div */
     padding: 20px; /* Adiciona espaço entre o conteúdo da div e suas bordas */
-    transition: background-color 0.3s ease;
     scrollbar-width: thin !important;
     scrollbar-color: #28e7d7 #92dbd9 !important; /* Cores ajustadas para verde claro e azul claro */
 }
 
-#header2:hover{
-  background-color: #ffffff;
-}
+
 
 .pokemon-container {
   margin: 50px; /* Ajuste o valor conforme necessário */
@@ -84,7 +81,26 @@
 }
 
 
+#meuBotao0 {
+  border: none; /* Remove a borda */
+  background-color: transparent; /* Torna o fundo transparente */
+  border-radius: 100px; /* Isso arredonda os cantos da borda */
+  padding: 5px 10px; /* Adiciona um pouco de espaço interno para tornar o botão mais fácil de clicar */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  transition: background-color 0.3s ease, filter 0.3s ease; /* Adiciona uma transição suave para o background-color e o filtro */
+  
+}
 
+#meuBotao0:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Torna o botão mais escuro quando o cursor está em cima */
+  filter: invert(100%);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Intensifica a sombra no hover para maior efeito de relevo */
+}
+
+
+#meuBotao0 span {
+  font-size: 12px; /* Exemplo: tamanho do texto */
+}
 #meuBotao {
   border: none; /* Remove a borda */
   background-color: transparent; /* Torna o fundo transparente */
@@ -134,7 +150,7 @@
     padding: 10px 15px;
     border: 1px solid #ccc;
     border-radius: 55px;
-    margin: 10px 0;
+    margin: 10px 0px;
     width: calc(100% - 600px); /* Ajusta a largura considerando o padding */
     box-sizing: border-box;
 
@@ -244,4 +260,21 @@
     gap: 10px; /* Espaço entre os botões */
   }
 
+  .input-group {
+    display:block; /* Ativa o Flexbox */
+    align-items: center; /* Alinha os itens verticalmente no centro */
+    gap: 10px; /* Adiciona um espaço entre os itens */
+  }
+
+
+
+  #div1 {
+    padding-bottom: 20px; /* Adiciona espaço dentro da Div 1, na parte inferior */
+  }
+  
+  /* ou */
+  
+  #div2 {
+    padding-top: 20px; /* Adiciona espaço dentro da Div 2, na parte superior */
+  }
 
