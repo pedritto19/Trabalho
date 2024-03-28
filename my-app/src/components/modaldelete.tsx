@@ -13,6 +13,7 @@ import "./Header/styles.css"
 import { PokemonService } from '../services/PokemonService';
 import fundo from './images/fundo.jpg'
 import paste from './images/paste.png';
+import load from './images/load.gif'
 
 const TextoElegante = styled.p`
   font-family: 'Roboto', sans-serif;
@@ -84,6 +85,7 @@ const PokemonList = () => {
   const [error1, setError1] = useState(false)
   const [error2, setError2] = useState(false)
   const [errorType, setErrorType] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   
 
 
@@ -223,7 +225,13 @@ const PokemonList = () => {
       setError2(false)
       e.preventDefault();
       const url = `http://localhost:3333/pokemons/${selectedPokemon?.id}`;
+      
       try {
+        setIsLoading(true);
+        // Simule uma operação assíncrona, como uma chamada de API
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 2000); // 2 segundos para o exemplo
         const response = await api.put(`/pokemonsup/${selectedPokemon?.id}`, updatedPokemon);
         if (response.status === 200) {
           console.log('Pokémon atualizado com sucesso:', response.data);
@@ -346,7 +354,7 @@ const PokemonList = () => {
         {showMessage && <div className="error" style={{color:'red'}}><>Clique aqui para substituir a url!!</></div>}
         </div>
         </div>
-      
+        {isLoading && <div id="telaDeCarregamento"> <img src={load} style={{ width: '70px', height: 'auto' }} /> Carregando...</div>}
         <button id="meuBotao"   type="submit"><img style={{ width: '30px', height: 'auto' }} src={confirm}/></button>
 
         

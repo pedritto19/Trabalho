@@ -28,7 +28,7 @@ interface InputProps {
   disabled?: boolean;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onPaste?: ( ClipboardEventHandler<HTMLInputElement>)
-  onClick: (MouseEventHandler<HTMLInputElement>)
+  onClick?: (MouseEventHandler<HTMLInputElement>)
 }
 
 const Input: FC<InputProps> = ({
