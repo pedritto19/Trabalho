@@ -119,6 +119,7 @@ const [imag, setImag] = useState('')
 const [error, setError] = useState(false)
 const [error1, setError1] = useState(false)
 const [error2, setError2] = useState(false)
+const [showMessage, setShowMessage] = useState(false);
 
 const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
   setName(e.target.value)
@@ -145,6 +146,10 @@ const handlePaste2 = async () => {
   } catch (err) {
     console.error('Falha ao colar o conteúdo: ', err);
   }
+};
+const handleImagClick = () => {
+  setShowMessage(true);
+  setTimeout(() => setShowMessage(false), 3000); // Desativa a mensagem após 3 segundos
 };
 
 
@@ -259,6 +264,7 @@ return (
         <div className='input-group'>
    
         <Input
+          
           type="text"
           value={imag}
           name="imag"
@@ -266,10 +272,15 @@ return (
           onChange={handleImagChange}
           placeholder="URL da sprite"
           onPaste={handlePaste} // Permitir apenas colar
+          onClick={handleImagClick}
           
         />
       <div className='div1'>
-        <button id='meuBotao0' type="button" onClick={handlePaste2}> <img style={{ width: '25px', height: 'auto' }} src={paste}/><span></span></button>
+      <button id='meuBotao0' type="button" onClick={handlePaste2} className={showMessage ? 'shake-animation' : ''}>
+        <img style={{ width: '25px', height: 'auto' }} src={paste}/>
+      </button>
+
+        {showMessage && <div className="error" style={{color:'red'}}><>Clique aqui para colar uma url!!</></div>}
         </div>
         </div>
      

@@ -278,3 +278,16 @@
     padding-top: 20px; /* Adiciona espaço dentro da Div 2, na parte superior */
   }
 
+
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+  }
+  
+  .shake-animation {
+    animation: shake 0.5s; /* Executa a animação de tremor por 0.5 segundos */
+  }
+

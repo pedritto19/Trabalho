@@ -1,4 +1,4 @@
-import { ClipboardEventHandler,ChangeEvent, FC } from 'react'
+import { MouseEventHandler,ClipboardEventHandler,ChangeEvent, FC } from 'react'
 import styled from 'styled-components';
 
 
@@ -28,6 +28,7 @@ interface InputProps {
   disabled?: boolean;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onPaste?: ( ClipboardEventHandler<HTMLInputElement>)
+  onClick: (MouseEventHandler<HTMLInputElement>)
 }
 
 const Input: FC<InputProps> = ({
@@ -40,6 +41,7 @@ const Input: FC<InputProps> = ({
   disabled,
   onChange,
   onPaste,
+  onClick,
 }) => {
   return (
     <div className="input-wrapper">
@@ -54,6 +56,7 @@ const Input: FC<InputProps> = ({
         onChange={onChange}
         disabled={disabled}
         onPaste={onPaste}
+        onClick={onClick}
       />
       {error && <p className="error"><TextoElegante>Preencha o Campo!</TextoElegante></p>}
     </div>
