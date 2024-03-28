@@ -12,6 +12,7 @@ import confirm from './images/confirm.png'
 import "./Header/styles.css"
 import { PokemonService } from '../services/PokemonService';
 import fundo from './images/fundo.jpg'
+import paste from './images/paste.png';
 
 const TextoElegante = styled.p`
   font-family: 'Roboto', sans-serif;
@@ -93,7 +94,7 @@ const PokemonList = () => {
   const [name, setName] = useState(selectedPokemon?.name)
   const [type, setType] = useState(selectedPokemon?.type)
   const [imag, setImag] = useState(selectedPokemon?.imag)
-  
+  const [showMessage, setShowMessage] = useState(false);
 
   const openModal = (pokemons: any) => {
     setPokemonSelecionado(pokemons);
@@ -133,8 +134,30 @@ const PokemonList = () => {
     }
   }, [selectedPokemon]);
   const handleImagChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setImag(e.target.value)
-  }
+    // Esta função agora será usada para prevenir a entrada de texto pela digitação
+    e.preventDefault();
+  };
+  
+  const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
+    // Acessa o texto do clipboard
+    const pasteText = e.clipboardData.getData('text');
+    // Atualiza o estado com o texto colado
+    setImag(pasteText);
+  };
+
+  const handleImagClick = () => {
+    setShowMessage(true);
+    setTimeout(() => setShowMessage(false), 3000); // Desativa a mensagem após 3 segundos
+  };
+  
+  const handlePaste2 = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      setImag(text);
+    } catch (err) {
+      console.error('Falha ao colar o conteúdo: ', err);
+    }
+  };
 
 
 
@@ -301,17 +324,28 @@ const PokemonList = () => {
           <option value="Fairy">Fairy</option>
          
         </select>
+        <div className='input-group'>
+   
         <Input
-          type="text"
-          defaultValue={selectedPokemon?.imag}
-          value={imag}
           
+          type="text"
+          value={imag}
           name="imag"
           error={error2}
           onChange={handleImagChange}
-          placeholder={selectedPokemon?.imag}
+          placeholder="URL da sprite"
+          onPaste={handlePaste} // Permitir apenas colar
+          onClick={handleImagClick}
+          
         />
-        
+      <div className='div1'>
+      <button id='meuBotao0' type="button" onClick={handlePaste2} className={showMessage ? 'shake-animation' : ''}>
+        <img style={{ width: '25px', height: 'auto' }} src={paste}/>
+      </button>
+
+        {showMessage && <div className="error" style={{color:'red'}}><>Clique aqui para substituir a url!!</></div>}
+        </div>
+        </div>
       
         <button id="meuBotao"   type="submit"><img style={{ width: '30px', height: 'auto' }} src={confirm}/></button>
 
