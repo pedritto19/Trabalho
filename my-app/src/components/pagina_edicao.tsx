@@ -29,17 +29,18 @@ const TextoElegante = styled.p`
   text-align: center;
   letter-spacing: 0.5px;
 `;
+interface Pokemon {
+  id: string;
+  name: string;
+  type: string;
+  imag: string; // Certifique-se de que este é o nome correto da propriedade para a imagem. Pode ser que você queria usar 'image' aqui.
+}
 
 const Edicao: React.FC = () => {
-    interface pokemons {
-        id: string;
-        name: string;
-        imag: string; 
-        type: string; 
-      }
+
     
     
-      const [pokemons, setPokemons] = useState([]);
+      const [pokemons, setPokemons] = useState<Pokemon[]>([]);
       const [isModalOpen, setIsModalOpen] = useState(false);
       const [selectedPokemon, setSelectedPokemon] = useState(true);
 
@@ -89,7 +90,7 @@ return (
         <button id="meuBotao"  onClick={handleClickhome}>
           <img src={home} style={{ width: '30px', height: 'auto'}} />
         </button>
-        <button id="meuBotao"  onClick={() => setIsModalOpen(true)} ><img src={editar} style={{ width: '30px', height: 'auto'}} /></button><h3> {pokemons.type}</h3>
+        <button id="meuBotao"  onClick={() => setIsModalOpen(true)} ><img src={editar} style={{ width: '30px', height: 'auto'}} /></button>
         <div className="modal-content">
     <Modal 
         isOpen={isModalOpen} // Passa a propriedade isOpen
@@ -104,7 +105,6 @@ return (
             margin: 'auto', // Centraliza o modal na tela
             backgroundImage: `url(${fundo})`,
             backgroundSize: 'cover',
-            
             filter: 'brightness(100%)', // Ajusta o brilho da imagem
           },
           overlay: {

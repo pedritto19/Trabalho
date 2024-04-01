@@ -50,7 +50,22 @@ const estilos = {
     height: 'auto'
   }
 };
-function getColorByType(type: string) {
+
+
+interface Pokemon {
+  id: string;
+  name: string;
+  type: string;
+  imag: string; // Certifique-se de que este é o nome correto da propriedade para a imagem. Pode ser que você queria usar 'image' aqui.
+}
+interface PokemonS {
+  id: string;
+  name: string;
+  type: string;
+  imag: string;
+}
+
+function getColorByType(type: any) {
   const colors: { [key: string]: string } = {
     'Normal': "#808080",
     'Fire': "#FF0000",
@@ -92,7 +107,7 @@ const PokemonList = () => {
 
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPokemon, setSelectedPokemon] = useState(null); 
+  const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
   const [name, setName] = useState(selectedPokemon?.name)
   const [type, setType] = useState(selectedPokemon?.type)
   const [imag, setImag] = useState(selectedPokemon?.imag)
@@ -163,7 +178,7 @@ const PokemonList = () => {
 
 
 
-  const [pokemons, setPokemons] = useState([]);
+  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
 
   useEffect(() => {
     
@@ -195,7 +210,7 @@ const PokemonList = () => {
   };
    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (!name.trim()) {
+    if (!name?.trim()) {
       setError(true)
       setError1(false)
       setError2(false)
@@ -203,7 +218,7 @@ const PokemonList = () => {
     } 
   
 
-      if (!type.trim()) {
+      if (!type?.trim()) {
         setError(false);
         setError1(true);
         setError2(false)
@@ -211,7 +226,7 @@ const PokemonList = () => {
       }
   
 
-      if (!imag.trim()) {
+      if (!imag?.trim()) {
         setError(false)
         setError1(false)
         setError2(true);

@@ -11,7 +11,12 @@ import Edicao from './components/pagina_edicao';
 import fundo from './components/images/fundo.jpg'
 
 
-
+interface Pokemon {
+  id: number;
+  name: string;
+  type: string;
+  imag: string; // Certifique-se de que este é o nome correto da propriedade para a imagem. Pode ser que você queria usar 'image' aqui.
+}
 
 function App() {
 
@@ -64,7 +69,7 @@ function getColorByType(type: string) {
 
 
 
-  const [pokemons, setPokemons] = useState([]);
+  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
 
   useEffect(() => {
     const fetchPokemons = async () => {
