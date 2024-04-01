@@ -1,17 +1,10 @@
-import React, { ChangeEvent, FormEvent, useState,DetailedHTMLProps, SelectHTMLAttributes } from 'react'
+import React, { ChangeEvent, FormEvent, useState } from 'react'
 import Input from './input'
 import "./Header/styles.css"
 import { useNavigate } from 'react-router-dom';
 import confirm from './images/confirm.png'
-import seta from './images/seta.png'
 import styled from 'styled-components';
-import edicao from './images/edicao.png'
-import prisma from '../prisma/index';
-import { Createpkmserver } from '../services/Createpkmserver';
 import { api } from '../services/api';
-import { useEffect} from 'react';
-import {FaTrash} from 'react-icons/fa';
-import App from '../App';
 import load from './images/load.gif'
 import home from './images/home.png';
 import editar from './images/editar.png';
@@ -35,14 +28,7 @@ const TextoElegante2 = styled.p`
   text-align: center;
   letter-spacing: 0.5px;
 `;
-const TextoElegante3 = styled.p`
-  font-family: 'Roboto', sans-serif;
-  font-size: 10px;
-  color: #000000;
-  line-height: 1.6;
-  text-align: center;
-  letter-spacing: 0.5px;
-`;
+
 
 
 function getColorByType(type: string) {
@@ -74,31 +60,12 @@ function getColorByType(type: string) {
 
 
 const Cadastro: React.FC = () => {
-  interface pokemons {
-    id: string;
-    name: string;
-    imag: string; 
-    type: string; 
-  }
 
 
-  interface CustomSelectProps extends DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement> {
-    error?: string; 
-  }
 
-  const [pokemons, setPokemons] = useState([]);
 
-  
-  useEffect(() => {
-    const fetchPokemons = async () => { 
-      const response = await api.get('/pokemons');
-      setPokemons(response.data); 
-    };
 
-    fetchPokemons();
-  }, []);
 
-let isEditingPage=false;
 
   let navigate = useNavigate();
 
@@ -212,7 +179,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 
 
 }
-const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+
 const [isLoading, setIsLoading] = useState(false);
 
 
@@ -277,7 +244,7 @@ return (
         />
       <div className='div1'>
       <button id='meuBotao0' type="button" onClick={handlePaste2} className={showMessage ? 'shake-animation' : ''}>
-        <img style={{ width: '25px', height: 'auto' }} src={paste}/>
+        <img style={{ width: '25px', height: 'auto' }} src={paste} alt=''/>
       </button>
 
         {showMessage && <div className="error" style={{color:'red'}}><>Clique aqui para colar uma url!!</></div>}
@@ -290,14 +257,14 @@ return (
             
           </div>
         <button id="meuBotao"   onClick={handleClickback}>
-          <img src={home} style={{ width: '30px', height: 'auto'}} />
+          <img src={home} style={{ width: '30px', height: 'auto'}}alt='' />
         </button>
-      {isLoading && <div id="telaDeCarregamento"> <img src={load} style={{ width: '70px', height: 'auto' }} /> Carregando...</div>}
-      <button id="meuBotao" type="submit" disabled={isButtonDisabled || isLoading} onClick={handleClick}>
-        <img style={{ width: '30px', height: 'auto' }} src={confirm}/>
+      {isLoading && <div id="telaDeCarregamento"> <img src={load} style={{ width: '70px', height: 'auto' }} alt=''/> Carregando...</div>}
+      <button id="meuBotao" type="submit"  onClick={handleClick}>
+        <img style={{ width: '30px', height: 'auto' }} src={confirm}alt=''/>
       </button>
       
-      <button id="meuBotao"   onClick={handleClickedicao}><img style={{ width: '30px', height: 'auto' , transform:'scaleX(-1)'}} src={editar}/></button>
+      <button id="meuBotao"   onClick={handleClickedicao}><img style={{ width: '30px', height: 'auto' , transform:'scaleX(-1)'}}alt='' src={editar}/></button>
       
     </div>
     
@@ -307,7 +274,7 @@ return (
       </form> 
       
       <div>
-        <img src={imag} style={{ width: '100px', height: 'auto'}}/>
+        <img src={imag} style={{ width: '100px', height: 'auto'}}alt=''/>
         
         <div id='header2'>
         <TextoElegante2>{name}</TextoElegante2>

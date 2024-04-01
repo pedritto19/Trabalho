@@ -1,14 +1,7 @@
-import React, { Component } from 'react';
-import beagle from './images/beagle.jpg'
-import img from 'react-image'
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import './Header/styles.css'
 import { useNavigate } from 'react-router-dom';
-import seta from './images/seta.png'
 import styled from 'styled-components';
-import {FaTrash} from 'react-icons/fa';
-import { useState, useEffect } from 'react';
-import { api } from '../services/api';
+import { useState } from 'react';
 import edicao from './images/edicao.png'
 import cadastro from './images/cadastro.png'
 import menu from './images/menu.png'
@@ -32,27 +25,11 @@ const TextoElegante2 = styled.p`
 `;
 
   function Mensagem() {
-      interface pokemons {
-        id: string;
-        name: string;
-        imag: string; 
-        type: string; 
-      }
+
     
     
-      const [pokemons, setPokemons] = useState([]);
+
     
-     
-      useEffect(() => {
-        const fetchPokemons = async () => {
-          const response = await api.get('/pokemons');
-          setPokemons(response.data);
-        };
-    
-        fetchPokemons();
-      }, []);
-    
-    let isEditingPage=false;
 
 
 
