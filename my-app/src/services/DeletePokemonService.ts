@@ -1,5 +1,3 @@
-import { PrismaClient } from "@prisma/client";
-import prisma from "../prisma";
 import prismaClient from "../prisma";
 
 export class DeletePokemonService {
