@@ -33,7 +33,7 @@ interface Pokemon {
   id: string;
   name: string;
   type: string;
-  imag: string; // Certifique-se de que este é o nome correto da propriedade para a imagem. Pode ser que você queria usar 'image' aqui.
+  imag: string; 
 }
 
 const Edicao: React.FC = () => {

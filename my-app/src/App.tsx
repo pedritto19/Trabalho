@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 import Pagina from './components/pagina_cadastro';
 import Mensagem from './components/componente';
@@ -6,7 +6,6 @@ import "./components/Header/styles.css"
 import './components/Header/styles.css'
 import { api } from './services/api';
 import { useEffect, useState } from 'react';
-import {FaTrash} from 'react-icons/fa';
 import Edicao from './components/pagina_edicao';
 import fundo from './components/images/fundo.jpg'
 
@@ -80,7 +79,7 @@ function getColorByType(type: string) {
     fetchPokemons();
   }, []);
 
-let isEditingPage=false;
+
 
 
   return (
@@ -99,7 +98,7 @@ let isEditingPage=false;
     </Router>
     </header>
     <div>
-            <img src=''/>  
+            <img src='' alt=''/>  
     </div>
     <div style={{ 
         textAlign: 'center', 

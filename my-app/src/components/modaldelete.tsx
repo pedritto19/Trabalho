@@ -1,16 +1,13 @@
 import React, { useEffect, useState , FormEvent, ChangeEvent} from 'react';
 import { api } from '../services/api';
-import death from './images/death.png';
 import { FaTrash } from 'react-icons/fa';
 import styled from 'styled-components';
 import Modal from 'react-modal';
 import fechar from './images/fechar.png';
 import editar from './images/editar.png';
-import seta from './images/seta.png'
 import Input from './input'
 import confirm from './images/confirm.png'
 import "./Header/styles.css"
-import { PokemonService } from '../services/PokemonService';
 import fundo from './images/fundo.jpg'
 import paste from './images/paste.png';
 import load from './images/load.gif'
@@ -31,25 +28,7 @@ const TextoElegante2 = styled.p`
   text-align: center;
   letter-spacing: 0.5px;
 `;
-const estilos = {
-  lista: {
-    display: 'flex',
-    flexWrap: 'wrap', // Permite que os itens se alinhem em múltiplas linhas
-    justifyContent: 'space-around', // Distribui o espaço igualmente
-    alignItems: 'center' // Centraliza os itens verticalmente
-  },
-  item: {
-    marginBottom: '20px',
-    display: 'flex',
-    flexDirection: 'column', // Organiza o conteúdo em colunas
-    alignItems: 'center', // Centraliza horizontalmente
-    width: '200px' // Define uma largura fixa para cada item
-  },
-  imagem: {
-    width: '90px',
-    height: 'auto'
-  }
-};
+
 
 
 interface Pokemon {
@@ -94,12 +73,11 @@ const PokemonList = () => {
 
 
  
-  const [pokemonSelecionado, setPokemonSelecionado] = useState(null);
+
 
   const [error, setError] = useState(false)
   const [error1, setError1] = useState(false)
   const [error2, setError2] = useState(false)
-  const [errorType, setErrorType] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   
 
@@ -107,21 +85,14 @@ const PokemonList = () => {
 
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
+  const [selectedPokemon, setSelectedPokemon] = useState<PokemonS | null>(null);
   const [name, setName] = useState(selectedPokemon?.name)
   const [type, setType] = useState(selectedPokemon?.type)
   const [imag, setImag] = useState(selectedPokemon?.imag)
   const [showMessage, setShowMessage] = useState(false);
 
-  const openModal = (pokemons: any) => {
-    setPokemonSelecionado(pokemons);
-    setIsModalOpen(true);
-  };
-
-  const selecionarPokemon = ({pokemon}: any) => {
-    setPokemonSelecionado(pokemon);
-    setIsModalOpen(true)
-  };
+ 
+ 
 
   const handleOpenModal = (pokemon: any) => {
     setSelectedPokemon(pokemon); // Armazena o Pokémon selecionado
@@ -239,7 +210,7 @@ const PokemonList = () => {
       setError1(false)
       setError2(false)
       e.preventDefault();
-      const url = `http://localhost:3333/pokemons/${selectedPokemon?.id}`;
+     
       
       try {
         setIsLoading(true);
@@ -267,7 +238,7 @@ const PokemonList = () => {
   <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', gap: '20px' }} className="container align-self-center d-flex justify-content-center" id="header4">
       {pokemons.map((pokemon) => (
     <div key={pokemon.id} style={{ marginBottom: '20px', width: '200px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-    <button id='meuBotao' onClick={() => handleOpenModal(pokemon)}  ><img src={editar} style={{ width: '30px', height: 'auto'}} /></button>
+    <button id='meuBotao' onClick={() => handleOpenModal(pokemon)}  ><img src={editar} alt='' style={{ width: '30px', height: 'auto'}} /></button>
             <img
             
          
@@ -305,7 +276,7 @@ const PokemonList = () => {
           }
         }}><div className="modal-content">
         <button id="meuBotao" onClick={() => setIsModalOpen(false)}>
-          <img src={fechar} style={{ width: '30px', height: 'auto'}} />
+          <img src={fechar} alt='' style={{ width: '30px', height: 'auto'}} />
         </button>
         <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center" >
       <form onSubmit={handleSubmit}>
@@ -324,7 +295,7 @@ const PokemonList = () => {
           value={type}
           
           onChange={handleTypechange}
-          className={`beautifulInput ${error ? 'error' : ''}`}
+          className={`beautifulInput ${error1 ? 'error1' : ''}`}
           
         >
           <option value={selectedPokemon?.type} >{selectedPokemon?.type}</option>
@@ -363,21 +334,21 @@ const PokemonList = () => {
         />
       <div className='div1'>
       <button id='meuBotao0' type="button" onClick={handlePaste2} className={showMessage ? 'shake-animation' : ''}>
-        <img style={{ width: '25px', height: 'auto' }} src={paste}/>
+        <img style={{ width: '25px', height: 'auto' }} alt='' src={paste}/>
       </button>
 
         {showMessage && <div className="error" style={{color:'red'}}><>Clique aqui para substituir a url!!</></div>}
         </div>
         </div>
-        {isLoading && <div id="telaDeCarregamento"> <img src={load} style={{ width: '70px', height: 'auto' }} /> Carregando...</div>}
-        <button id="meuBotao"   type="submit"><img style={{ width: '30px', height: 'auto' }} src={confirm}/></button>
+        {isLoading && <div id="telaDeCarregamento"> <img src={load} style={{ width: '70px', height: 'auto' }} alt='' /> Carregando...</div>}
+        <button id="meuBotao"   type="submit"><img style={{ width: '30px', height: 'auto' }} alt='' src={confirm}/></button>
 
         
 
       </form>
       
       <div>
-        <img src={imag} style={{ width: '100px', height: 'auto'}}/>
+        <img src={imag} style={{ width: '100px', height: 'auto'}} alt=''/>
         
         <div id='header2'>
         <TextoElegante2>{name}</TextoElegante2>
