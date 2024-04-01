@@ -14,7 +14,7 @@ interface Pokemon {
   id: number;
   name: string;
   type: string;
-  imag: string; // Certifique-se de que este é o nome correto da propriedade para a imagem. Pode ser que você queria usar 'image' aqui.
+  imag: string; 
 }
 
 function App() {

@@ -20,10 +20,10 @@ const TextoElegante = styled.p`
 
 interface InputProps {
   type: 'text' | 'number' | 'email' | 'password';
-  value: string | number;
+  value?: string | number;
   defaultValue?: string;
   name: string;
-  placeholder: string;
+  placeholder?: string;
   error: boolean;
   disabled?: boolean;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
