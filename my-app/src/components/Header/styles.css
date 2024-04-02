@@ -104,17 +104,28 @@
 #meuBotao {
   border: none; /* Remove a borda */
   background-color: transparent; /* Torna o fundo transparente */
-  border-radius: 100px; /* Isso arredonda os cantos da borda */
-  padding: 10px 20px; /* Adiciona um pouco de espaço interno para tornar o botão mais fácil de clicar */
+  border-radius: 100px; /* Arredonda os cantos da borda */
+  padding: 10px 10px; /* Aumenta o espaço interno para melhorar a estética e a facilidade de clique */
   cursor: pointer; /* Muda o cursor para indicar que é clicável */
-  transition: background-color 0.3s ease, filter 0.3s ease; /* Adiciona uma transição suave para o background-color e o filtro */
-  
+  transition: background-color 0.3s ease, filter 0.3s ease, transform 0.3s ease; /* Adiciona transições suaves para background-color, filtro e transformação */
+  font-size: 16px; /* Define um tamanho de fonte ideal */
+  font-weight: bold; /* Torna o texto do botão em negrito */
+  color: #007BFF; /* Define a cor do texto do botão */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25); /* Adiciona uma sombra sutil ao texto para melhorar a legibilidade */
+  outline: none; /* Remove o contorno que aparece ao focar em alguns navegadores */
 }
 
-#meuBotao:hover {
-  background-color: rgba(0, 0, 0, 0.1); /* Torna o botão mais escuro quando o cursor está em cima */
+#meuBotao:hover, #meuBotao:focus {
+  background-color: rgba(0, 123, 255, 0.1); /* Muda a cor de fundo ao passar o mouse e focar para dar um feedback visual */
+  filter: brightness(120%); /* Aumenta o brilho ao passar o mouse para destacar o botão */
   filter: invert(100%);
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Intensifica a sombra no hover para maior efeito de relevo */
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Aumenta a sombra para um efeito de elevação mais pronunciado */
+  transform: scale(1.05); /* Aumenta ligeiramente o tamanho do botão para dar uma sensação de interatividade */
+}
+
+#meuBotao:active {
+  transform: scale(0.95); /* Diminui ligeiramente o tamanho do botão quando clicado, simulando um efeito de pressão */
+  background-color: rgba(0, 123, 255, 0.2); /* Escurece o fundo para dar um feedback de ação */
 }
 
 .botao-com-texto {
