@@ -110,9 +110,9 @@ function getColorByType(type: string) {
         
         {pokemons.map((pokemon) => (
           <div key={pokemon.id} className="pokemon-container"> 
-            <h3>{pokemon.name}</h3> 
+            <h3  className="pokemon-name" >{pokemon.name}</h3> 
             <img style={{ width: 'auto', height: '90px' }} src={pokemon.imag} alt={pokemon.name} /> 
-            <p className="pokemon-name" style={{ color: getColorByType(pokemon.type) }}>{pokemon.type}</p>
+            <p style={{ color: getColorByType(pokemon.type) }}>{pokemon.type}</p>
           </div>
         ))}
         
