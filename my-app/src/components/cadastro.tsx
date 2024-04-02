@@ -7,7 +7,6 @@ import styled from 'styled-components';
 import { api } from '../services/api';
 import load from './images/load.gif'
 import home from './images/home.png';
-import editar from './images/editar.png';
 import paste from './images/paste.png';
 
 
@@ -75,9 +74,7 @@ const Cadastro: React.FC = () => {
   function handleClickback() {
     navigate('/'); 
   }
-  function handleClickedicao() {
-    navigate('/pagina_edicao'); 
-  }
+ 
 
 
 const [name, setName] = useState('')
@@ -264,7 +261,7 @@ return (
         <img style={{ width: '30px', height: 'auto' }} src={confirm}alt=''/>
       </button>
       
-      <button id="meuBotao"   onClick={handleClickedicao}><img style={{ width: '30px', height: 'auto' , transform:'scaleX(-1)'}}alt='' src={editar}/></button>
+  
       
     </div>
     

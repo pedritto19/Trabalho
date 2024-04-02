@@ -33,9 +33,15 @@
 
 
 .pokemon-container {
-  margin: 50px; /* Ajuste o valor conforme necessário */
-  scrollbar-width: thin !important;
-  scrollbar-color: #28e7d7 #92dbd9 !important; /* Cores ajustadas para verde claro e azul claro */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px; /* Ajuste conforme necessário */
+  min-width: 150px; /* Ajuste conforme necessário */
+  /*border: 1px solid #ccc; /* Apenas para visualização */
+  margin: 40px;
+  padding: 10px;
 }
 
 #header3 {
@@ -241,7 +247,7 @@
 
   @media (min-width: 600px) {
     .container {
-      padding: 40px;
+      padding: 10px;
       scrollbar-width: thin !important;
       scrollbar-color: #28e7d7 #92dbd9 !important; /* Cores ajustadas para verde claro e azul claro */
 

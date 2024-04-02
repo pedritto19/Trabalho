@@ -1,10 +1,9 @@
 import './Header/styles.css'
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { useState } from 'react';
 import edicao from './images/edicao.png'
 import cadastro from './images/cadastro.png'
-import menu from './images/menu.png'
+
 
 
 const TextoElegante = styled.p`
@@ -43,18 +42,17 @@ const TextoElegante2 = styled.p`
     function handleClick4() {
       navigate('/pagina_edicao'); 
     }
-    const [menuVisivel, setMenuVisivel] = useState(false);
 
-    const toggleMenu = () => {
-      setMenuVisivel(!menuVisivel);
-    };
+
+
+
     return (
-        <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center " >
+        <div style={{ textAlign: 'center' }} className="container" >
           <div>
         <h3><TextoElegante>Bem Vindo</TextoElegante></h3>
         <p><TextoElegante>Pagina inicial</TextoElegante></p>
-        <button id="meuBotao" className='botao-menu' onClick={toggleMenu}><img src={menu} alt="Cadastrar" style={{ width: '30px', height: 'auto', transform: 'scaleX(-1)' }} /></button>
-        {menuVisivel && (
+        
+       
           <div className="menu-opcoes">
             <button className='botao-com-texto' id="meuBotao" onClick={handleClick2}>
               <img src={cadastro} alt="Cadastrar" style={{ width: '30px', height: 'auto', transform: 'scaleX(-1)' }} />
@@ -65,7 +63,7 @@ const TextoElegante2 = styled.p`
               <span><TextoElegante2>Editar Pokémon</TextoElegante2></span>
             </button>
           </div>
-        )}
+   
       </div>
       </div>
     );

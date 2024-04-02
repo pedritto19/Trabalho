@@ -9,7 +9,6 @@ import PokemonList from './modaldelete';
 import fechar from './images/fechar.png';
 import editar from './images/editar.png';
 import fundo from './images/fundo.jpg'
-import cadastro from './images/cadastro.png'
 
 
 const TextoElegante = styled.p`
@@ -26,7 +25,7 @@ const Edicao: React.FC = () => {
 
     
     
-      const [isModalOpen, setIsModalOpen] = useState(false);
+      const [isModalOpen, setIsModalOpen] = useState(true);
 
 
 
@@ -39,10 +38,6 @@ const Edicao: React.FC = () => {
 
 
 
-
-    function handleClickback() {
-        navigate('/pagina_cadastro'); // Substitua isso pelo seu caminho desejado
-      }
       function handleClickhome() {
         navigate('/'); // Substitua isso pelo seu caminho desejado
       }
@@ -53,9 +48,6 @@ return (
     <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center " >
     <h3><TextoElegante>Tela de Edicao</TextoElegante></h3>
     <p><TextoElegante></TextoElegante></p>
-    <button id="meuBotao"  onClick={handleClickback}>
-          <img src={cadastro} style={{ width: '40px', height: 'auto'}} alt='' />
-        </button>
         <button id="meuBotao"  onClick={handleClickhome}>
           <img src={home} style={{ width: '30px', height: 'auto'}}alt='' />
         </button>

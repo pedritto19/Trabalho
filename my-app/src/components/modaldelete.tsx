@@ -237,12 +237,12 @@ const PokemonList = () => {
   return (
   <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', gap: '20px' }} className="container align-self-center d-flex justify-content-center" id="header4">
       {pokemons.map((pokemon) => (
-    <div key={pokemon.id} style={{ marginBottom: '20px', width: '200px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div className="pokemon-container" key={pokemon.id} >
     <button id='meuBotao' onClick={() => handleOpenModal(pokemon)}  ><img src={editar} alt='' style={{ width: '30px', height: 'auto'}} /></button>
             <img
             
          
-            style={{ width: '90px', height: 'auto' }}
+            style={{ width: 'auto', height: '90px' }}
             src={pokemon.imag}
             alt={pokemon.name}
            
