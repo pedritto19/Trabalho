@@ -50,8 +50,9 @@ return (
     <p><TextoElegante></TextoElegante></p>
         <button id="meuBotao"  onClick={handleClickhome}>
           <img src={home} style={{ width: '30px', height: 'auto'}}alt='' />
+          <span className="tooltip">Tela de Inicio</span>
         </button>
-        <button id="meuBotao"  onClick={() => setIsModalOpen(true)} ><img src={editar} style={{ width: '30px', height: 'auto'}} alt=''/></button>
+        <button id="meuBotao"  onClick={() => setIsModalOpen(true)} ><img src={editar} style={{ width: '30px', height: 'auto'}} alt=''/><span className="tooltip">Editar</span></button>
         <div className="modal-content">
     <Modal 
         isOpen={isModalOpen} // Passa a propriedade isOpen

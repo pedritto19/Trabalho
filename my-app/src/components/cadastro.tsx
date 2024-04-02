@@ -241,6 +241,7 @@ return (
         />
       <div className='div1'>
       <button id='meuBotao0' type="button" onClick={handlePaste2} className={showMessage ? 'shake-animation' : ''}>
+        <span className="tooltip">Colar Url</span>
         <img style={{ width: '25px', height: 'auto' }} src={paste} alt=''/>
       </button>
 
@@ -254,10 +255,12 @@ return (
             
           </div>
         <button id="meuBotao"   onClick={handleClickback}>
+          <span className="tooltip">Tela de Inicio</span>
           <img src={home} style={{ width: '30px', height: 'auto'}}alt='' />
         </button>
       {isLoading && <div id="telaDeCarregamento"> <img src={load} style={{ width: '70px', height: 'auto' }} alt=''/> Carregando...</div>}
       <button id="meuBotao" type="submit"  onClick={handleClick}>
+        <span className="tooltip">Salvar</span>
         <img style={{ width: '30px', height: 'auto' }} src={confirm}alt=''/>
       </button>
       

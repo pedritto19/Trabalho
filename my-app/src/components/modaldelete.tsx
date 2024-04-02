@@ -238,7 +238,7 @@ const PokemonList = () => {
   <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', gap: '20px' }} className="container align-self-center d-flex justify-content-center" id="header4">
       {pokemons.map((pokemon) => (
     <div className="pokemon-container" key={pokemon.id} >
-    <button id='meuBotao' onClick={() => handleOpenModal(pokemon)}  ><img src={editar} alt='' style={{ width: '30px', height: 'auto'}} /></button>
+    <button id='meuBotao' onClick={() => handleOpenModal(pokemon)}  ><img src={editar} alt='' style={{ width: '30px', height: 'auto'}} /><span className="tooltip">Editar {pokemon.name}</span></button>
             <img
             
          
@@ -249,6 +249,7 @@ const PokemonList = () => {
           />
           
           <button id="meuBotao" onClick={() => handleDelete(pokemon.id)}>
+          <span style={{color: "#00FFFF"}} className="tooltip">Deletar {pokemon.name}</span>
             <FaTrash size={18} color="red" />
           </button>
           <TextoElegante>{pokemon.name}</TextoElegante>
