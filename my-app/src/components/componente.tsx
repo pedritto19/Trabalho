@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import edicao from './images/edicao.png'
 import cadastro from './images/cadastro.png'
-
+import React, { useState, useEffect } from 'react';
+import topo from './images/topo.png'
 
 
 const TextoElegante = styled.p`
@@ -23,7 +24,30 @@ const TextoElegante2 = styled.p`
   letter-spacing: 0.5px;
 `;
 
-  function Mensagem() {
+
+
+
+    function Mensagem() {
+
+      const [showTopBtn, setShowTopBtn] = useState(false);
+
+      useEffect(() => {
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 0) {
+            setShowTopBtn(true); // Mostrar botão se a rolagem for maior que 300px
+          } else {
+            setShowTopBtn(false); // Esconder botão
+          }
+        });
+      }, []);
+    
+      // Função para voltar ao topo
+      const goToTop = () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth' // Rolagem suave
+        });
+      };
 
     
     
@@ -63,8 +87,14 @@ const TextoElegante2 = styled.p`
               <span><TextoElegante2>Editar Pokémon</TextoElegante2></span>
             </button>
           </div>
+
    
       </div>
+      {showTopBtn && (
+        <button id='meuBotao2' onClick={goToTop} className="meuBotaoAnimado"  style={{ position: 'fixed', top: '20px', left: '48.2%'}}>
+          <img src={topo} alt="Voltar ao topo" style={{ width: '30px', height: 'auto' }} />
+        </button>
+      )}
       </div>
     );
   }
