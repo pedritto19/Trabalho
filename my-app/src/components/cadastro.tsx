@@ -271,12 +271,12 @@ return (
           <div>   
             
           </div>
-        <button style={{ margin: '0 100px' }} id="meuBotaoM"   onClick={handleClickback}>
+        <button id="meuBotaoM"   onClick={handleClickback}>
           <span className="tooltip">Tela de Inicio</span>
           <img src={home} style={{ width: 'auto', height: '40px'}}alt='' />
         </button>
       {isLoading && <div id="telaDeCarregamento"> <img src={load} style={{ width: '70px', height: 'auto' }} alt=''/> Carregando...</div>}
-      <button style={{ margin: '0 100px' }} id="meuBotaoM" type="submit"  onClick={handleClick}>
+      <button id="meuBotaoM" type="submit"  onClick={handleClick}>
         <span className="tooltip">Salvar</span>
         <img style={{ width: 'auto', height: '40px' }} src={confirm}alt=''/>
       </button>

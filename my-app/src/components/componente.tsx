@@ -5,7 +5,6 @@ import edicao from './images/edicao.png'
 import cadastro from './images/cadastro.png'
 import React, { useState, useEffect } from 'react';
 import topo from './images/topo.png'
-import favicon from './images/favicon.png'
 
 const TextoElegante = styled.p`
   font-family: 'Roboto', sans-serif;
@@ -70,12 +69,12 @@ const TextoElegante = styled.p`
           <h3><TextoElegante>Bem Vindo</TextoElegante></h3>
         <p><TextoElegante>Página inicial</TextoElegante></p>
         <div className="menu-opcoes" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <button style={{ margin: '0 100px' }}  id="meuBotaoM" onClick={handleClick2}>
+            <button  id="meuBotaoM" onClick={handleClick2}>
               <img src={cadastro} alt="Cadastrar" style={{ width: 'auto', height: '40px', transform: 'scaleX(-1)' }} />
               <span className="tooltip">Cadastrar Pokémon</span>
             
             </button>
-            <button style={{ margin: '0 100px' }}  id="meuBotaoM" onClick={handleClick4}>
+            <button  id="meuBotaoM" onClick={handleClick4}>
               <img src={edicao} alt="Editar" style={{ width: 'auto', height: '40px', transform: 'scaleX(-1)' }} />
               <span className="tooltip">Editar Pokémon</span>
               

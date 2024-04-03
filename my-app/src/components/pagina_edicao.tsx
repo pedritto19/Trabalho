@@ -11,6 +11,7 @@ import editar from './images/editar.png';
 import fundo from './images/fundo.jpg'
 
 
+
 const TextoElegante = styled.p`
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
@@ -49,11 +50,11 @@ return (
     <h3><TextoElegante>Tela de Edicao</TextoElegante></h3>
     
     <div className="menu-opcoes" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <button style={{ margin: '0 100px' }} id="meuBotaoM"  onClick={handleClickhome}>
+        <button id="meuBotaoM"  onClick={handleClickhome}>
           <img src={home} style={{ width: 'auto', height: '40px'}}alt='' />
           <span className="tooltip">Tela de Inicio</span>
         </button>
-        <button style={{ margin: '0 100px' }} id="meuBotaoM"  onClick={() => setIsModalOpen(true)} ><img src={editar} style={{ width: 'auto', height: '40px'}} alt=''/><span className="tooltip">Editar</span></button>
+        <button id="meuBotaoM"  onClick={() => setIsModalOpen(true)} ><img src={editar} style={{ width: 'auto', height: '40px'}} alt=''/><span className="tooltip">Editar</span></button>
         </div>
         <div className="modal-content">
     <Modal 
