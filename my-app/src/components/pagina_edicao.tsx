@@ -47,12 +47,14 @@ const Edicao: React.FC = () => {
 return (
     <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center " >
     <h3><TextoElegante>Tela de Edicao</TextoElegante></h3>
-    <p><TextoElegante></TextoElegante></p>
-        <button id="meuBotao"  onClick={handleClickhome}>
-          <img src={home} style={{ width: '30px', height: 'auto'}}alt='' />
+    
+    <div className="menu-opcoes" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <button style={{ margin: '0 100px' }} id="meuBotaoM"  onClick={handleClickhome}>
+          <img src={home} style={{ width: 'auto', height: '40px'}}alt='' />
           <span className="tooltip">Tela de Inicio</span>
         </button>
-        <button id="meuBotao"  onClick={() => setIsModalOpen(true)} ><img src={editar} style={{ width: '30px', height: 'auto'}} alt=''/><span className="tooltip">Editar</span></button>
+        <button style={{ margin: '0 100px' }} id="meuBotaoM"  onClick={() => setIsModalOpen(true)} ><img src={editar} style={{ width: 'auto', height: '40px'}} alt=''/><span className="tooltip">Editar</span></button>
+        </div>
         <div className="modal-content">
     <Modal 
         isOpen={isModalOpen} // Passa a propriedade isOpen

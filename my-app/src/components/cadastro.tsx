@@ -250,28 +250,12 @@ return (
         </div>
      
         
-        <div className='div2'>
-          <div>   
-            
-          </div>
-        <button id="meuBotao"   onClick={handleClickback}>
-          <span className="tooltip">Tela de Inicio</span>
-          <img src={home} style={{ width: '30px', height: 'auto'}}alt='' />
-        </button>
-      {isLoading && <div id="telaDeCarregamento"> <img src={load} style={{ width: '70px', height: 'auto' }} alt=''/> Carregando...</div>}
-      <button id="meuBotao" type="submit"  onClick={handleClick}>
-        <span className="tooltip">Salvar</span>
-        <img style={{ width: '30px', height: 'auto' }} src={confirm}alt=''/>
-      </button>
-      
-  
-      
-    </div>
+
     
         
         
 
-      </form> 
+      
       
       <div>
         <img src={imag} style={{ width: '100px', height: 'auto'}}alt=''/>
@@ -283,6 +267,24 @@ return (
         <TextoElegante2 style={{color: getColorByType(type)}}> {type} </TextoElegante2>
         </div>
       </div>
+      <div className="menu-opcoes" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <div>   
+            
+          </div>
+        <button style={{ margin: '0 100px' }} id="meuBotaoM"   onClick={handleClickback}>
+          <span className="tooltip">Tela de Inicio</span>
+          <img src={home} style={{ width: 'auto', height: '40px'}}alt='' />
+        </button>
+      {isLoading && <div id="telaDeCarregamento"> <img src={load} style={{ width: '70px', height: 'auto' }} alt=''/> Carregando...</div>}
+      <button style={{ margin: '0 100px' }} id="meuBotaoM" type="submit"  onClick={handleClick}>
+        <span className="tooltip">Salvar</span>
+        <img style={{ width: 'auto', height: '40px' }} src={confirm}alt=''/>
+      </button>
+      
+  
+      
+    </div>
+    </form> 
 
     </div>
     

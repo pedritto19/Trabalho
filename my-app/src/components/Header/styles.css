@@ -139,8 +139,36 @@
 }
 
 
+#meuBotaoM {
+  border: none; /* Remove a borda */
+  background-color: transparent; /* Torna o fundo transparente */
 
+  padding: 0px 400px; /* Aumenta o espaço interno para melhorar a estética e a facilidade de clique */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  transition: background-color 0.3s ease, filter 0.3s ease, transform 0.3s ease; /* Adiciona transições suaves para background-color, filtro e transformação */
+  font-size: 16px; /* Define um tamanho de fonte ideal */
+  font-weight: bold; /* Torna o texto do botão em negrito */
+  color: #007BFF; /* Define a cor do texto do botão */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25); /* Adiciona uma sombra sutil ao texto para melhorar a legibilidade */
+  outline: none; /* Remove o contorno que aparece ao focar em alguns navegadores */
+}
 
+#meuBotaoM:hover, #meuBotao:focus .tooltip  {
+  background-color: rgba(0, 123, 255, 0.1); /* Muda a cor de fundo ao passar o mouse e focar para dar um feedback visual */
+  filter: brightness(120%); /* Aumenta o brilho ao passar o mouse para destacar o botão */
+  filter: invert(100%);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Aumenta a sombra para um efeito de elevação mais pronunciado */
+  transform: scale(1.05); /* Aumenta ligeiramente o tamanho do botão para dar uma sensação de interatividade */
+  visibility: visible;
+}
+
+#meuBotaoM:active {
+  transform: scale(0.95); /* Diminui ligeiramente o tamanho do botão quando clicado, simulando um efeito de pressão */
+  background-color: rgba(0, 123, 255, 0.2); /* Escurece o fundo para dar um feedback de ação */
+}
+#meuBotaoM span {
+  font-size: 11px; /* Exemplo: tamanho do texto */
+}
 
 #meuBotao {
   border: none; /* Remove a borda */
@@ -316,7 +344,10 @@
   .menu-opcoes {
     display: flex;
     justify-content: center; /* Centraliza horizontalmente */
-    gap: 10px; /* Espaço entre os botões */
+    gap: 0px; /* Espaço entre os botões */
+  }
+  .menu-opcoes button {
+    margin: 0; /* Remove qualquer margem dos botões */
   }
 
   .input-group {

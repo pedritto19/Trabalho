@@ -5,7 +5,7 @@ import edicao from './images/edicao.png'
 import cadastro from './images/cadastro.png'
 import React, { useState, useEffect } from 'react';
 import topo from './images/topo.png'
-
+import favicon from './images/favicon.png'
 
 const TextoElegante = styled.p`
   font-family: 'Roboto', sans-serif;
@@ -15,14 +15,7 @@ const TextoElegante = styled.p`
   text-align: center;
   letter-spacing: 0.5px;
 `;
-const TextoElegante2 = styled.p`
-  font-family: 'Roboto', sans-serif;
-  font-size: 15px;
-  color: #000000;
-  line-height: 1.6;
-  text-align: center;
-  letter-spacing: 0.5px;
-`;
+
 
 
 
@@ -73,20 +66,23 @@ const TextoElegante2 = styled.p`
     return (
         <div style={{ textAlign: 'center' }} className="container" >
           <div>
-        <h3><TextoElegante>Bem Vindo</TextoElegante></h3>
-        <p><TextoElegante>Pagina inicial</TextoElegante></p>
-        
-       
-          <div className="menu-opcoes">
-            <button className='botao-com-texto' id="meuBotao" onClick={handleClick2}>
-              <img src={cadastro} alt="Cadastrar" style={{ width: '30px', height: 'auto', transform: 'scaleX(-1)' }} />
-              <span><TextoElegante2>Cadastrar Pokémon</TextoElegante2></span>
+          
+          <h3><TextoElegante>Bem Vindo</TextoElegante></h3>
+        <p><TextoElegante>Página inicial</TextoElegante></p>
+        <div className="menu-opcoes" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <button style={{ margin: '0 100px' }}  id="meuBotaoM" onClick={handleClick2}>
+              <img src={cadastro} alt="Cadastrar" style={{ width: 'auto', height: '40px', transform: 'scaleX(-1)' }} />
+              <span className="tooltip">Cadastrar Pokémon</span>
+            
             </button>
-            <button className='botao-com-texto' id="meuBotao" onClick={handleClick4}>
-              <img src={edicao} alt="Editar" style={{ width: '30px', height: 'auto', transform: 'scaleX(-1)' }} />
-              <span><TextoElegante2>Editar Pokémon</TextoElegante2></span>
+            <button style={{ margin: '0 100px' }}  id="meuBotaoM" onClick={handleClick4}>
+              <img src={edicao} alt="Editar" style={{ width: 'auto', height: '40px', transform: 'scaleX(-1)' }} />
+              <span className="tooltip">Editar Pokémon</span>
+              
             </button>
           </div>
+        
+
 
    
       </div>
