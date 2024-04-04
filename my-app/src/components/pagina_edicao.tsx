@@ -61,7 +61,7 @@ return (
         isOpen={isModalOpen} // Passa a propriedade isOpen
         onRequestClose={() => setIsModalOpen(false)} // Opcional: Função para fechar o modal
         id='header4'
-        
+        shouldCloseOnOverlayClick={false} // Impede que o modal feche ao clicar fora
         
         style={{
           content: {
