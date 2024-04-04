@@ -80,10 +80,10 @@ return (
       >
         
         {/* Conteúdo do Modal aqui */}
-        <button id="meuBotao" onClick={() => setIsModalOpen(false)}><img src={fechar} style={{ width: '30px', height: 'auto'}} alt=''/></button>
+        <button id="meuBotao" onClick={handleClickhome}><img src={fechar} style={{ width: '30px', height: 'auto'}} alt=''/></button>
         <TextoElegante>Edite seus Pokémons!!</TextoElegante>
         <PokemonList></PokemonList>
-        <button id="meuBotao" onClick={() => setIsModalOpen(false)}><img src={seta} style={{ width: '50px', height: 'auto'}}alt='' /></button>
+        <button id="meuBotao" onClick={handleClickhome}><img src={seta} style={{ width: '50px', height: 'auto'}}alt='' /></button>
         
       </Modal>
       </div>

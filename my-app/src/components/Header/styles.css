@@ -252,6 +252,23 @@
     color: #a9a9a9;
   }
 
+  .container1 {
+    background: linear-gradient(to right, #38b3d1 0%, #4b80dd 100%);
+    color: white;
+    padding: 50px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    scrollbar-width: thin !important;
+    scrollbar-color: #28e7d7 #92dbd9 !important;
+    /* Novos estilos */
+    max-width: 70%; /* ou uma largura específica */
+    max-height: auto; /* limita a altura */
+    margin: auto; /* útil para centralização em alguns casos */
+  }
+
+
+
+
   .container {
     background: linear-gradient(to right, #38b3d1 0%, #4b80dd 100%);
     color: white;
@@ -259,9 +276,12 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     scrollbar-width: thin !important;
-    scrollbar-color: #28e7d7 #92dbd9 !important; /* Cores ajustadas para verde claro e azul claro */
+    scrollbar-color: #28e7d7 #92dbd9 !important;
+    /* Novos estilos */
+    max-width: 70%; /* ou uma largura específica */
+    max-height: auto; /* limita a altura */
+    margin: auto; /* útil para centralização em alguns casos */
   }
-  
   h3, p {
     font-family: 'Arial', sans-serif; /* Define a fonte para Arial */
   }

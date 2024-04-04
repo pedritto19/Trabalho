@@ -8,6 +8,7 @@ import { api } from './services/api';
 import { useEffect, useState } from 'react';
 import Edicao from './components/pagina_edicao';
 import fundo from './components/images/fundo.jpg'
+import topo from './components/images/topo.png'
 
 
 interface Pokemon {
@@ -69,6 +70,26 @@ function getColorByType(type: string) {
 
 
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+  const [showTopBtn, setShowTopBtn] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 0) {
+        setShowTopBtn(true); // Mostrar botão se a rolagem for maior que 300px
+      } else {
+        setShowTopBtn(false); // Esconder botão
+      }
+    });
+  }, []);
+
+  // Função para voltar ao topo
+  const goToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // Rolagem suave
+    });
+  };
+
 
   useEffect(() => {
     const fetchPokemons = async () => {
@@ -118,7 +139,11 @@ function getColorByType(type: string) {
         
       
     </div>
-
+    {showTopBtn && (
+        <button id='meuBotao2' onClick={goToTop} className="meuBotaoAnimado"  style={{ position: 'fixed', top: '20px', left: '48.2%'}}>
+          <img src={topo} alt="Voltar ao topo" style={{ width: '30px', height: 'auto' }} />
+        </button>
+      )}
     </div>
   );
 }

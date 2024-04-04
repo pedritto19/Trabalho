@@ -63,7 +63,7 @@ const TextoElegante = styled.p`
 
 
     return (
-        <div style={{ textAlign: 'center' }} className="container" >
+        <div style={{ textAlign: 'center' }} className="container1" >
           <div>
           
           <h3><TextoElegante>Bem Vindo</TextoElegante></h3>
