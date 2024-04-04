@@ -255,15 +255,16 @@
   .container1 {
     background: linear-gradient(to right, #38b3d1 0%, #4b80dd 100%);
     color: white;
-    padding: 50px 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px; /* Ajustado para uma altura menor */
+    border-radius: 0px; /* Removido para a barra superior */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     scrollbar-width: thin !important;
     scrollbar-color: #28e7d7 #92dbd9 !important;
-    /* Novos estilos */
-    max-width: 70%; /* ou uma largura específica */
-    max-height: auto; /* limita a altura */
-    margin: auto; /* útil para centralização em alguns casos */
+    width: 100%; /* Ajustado para ocupar toda a largura da tela */
+    height: 60px; /* Altura fixa para a barra superior */
+    display: flex; /* Usa flexbox para alinhar os itens */
+    justify-content: space-between; /* Espaço entre os itens */
+    align-items: center; /* Centraliza os itens verticalmente */
   }
 
 
