@@ -54,7 +54,7 @@ return (
           <img src={home} style={{ width: 'auto', height: '40px'}}alt='' />
           <span className="tooltip">Tela de Inicio</span>
         </button>
-        <button id="meuBotaoM"  onClick={() => setIsModalOpen(true)} ><img src={editar} style={{ width: 'auto', height: '40px'}} alt=''/><span className="tooltip">Editar</span></button>
+        <button id="meuBotaoT"  onClick={() => setIsModalOpen(true)} ><img src={editar} style={{ width: 'auto', height: '40px'}} alt=''/><span className="tooltip">Editar</span></button>
         </div>
         <div className="modal-content">
     <Modal 
@@ -80,10 +80,10 @@ return (
       >
         
         {/* Conteúdo do Modal aqui */}
-        <button id="meuBotao" onClick={handleClickhome}><img src={fechar} style={{ width: '30px', height: 'auto'}} alt=''/></button>
+        <button id="meuBotaoT" onClick={handleClickhome}><img src={fechar} style={{ width: '30px', height: 'auto'}} alt=''/></button>
         <TextoElegante>Edite seus Pokémons!!</TextoElegante>
         <PokemonList></PokemonList>
-        <button id="meuBotao" onClick={handleClickhome}><img src={seta} style={{ width: '50px', height: 'auto'}}alt='' /></button>
+        <button id="meuBotaoT" onClick={handleClickhome}><img src={seta} style={{ width: '50px', height: 'auto'}}alt='' /></button>
         
       </Modal>
       </div>

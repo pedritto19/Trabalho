@@ -138,12 +138,38 @@
   animation: slideDown 0.5s ease-out; /* Aplica a animação com duração de 0.5 segundos */
 }
 
+#meuBotaoT {
+  border: none; /* Remove a borda */
+  background-color: transparent; /* Torna o fundo transparente */
 
+  padding: 0px 0px; /* Aumenta o espaço interno para melhorar a estética e a facilidade de clique */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  transition: background-color 0.3s ease, filter 0.3s ease, transform 0.3s ease; /* Adiciona transições suaves para background-color, filtro e transformação */
+  font-size: 16px; /* Define um tamanho de fonte ideal */
+  font-weight: bold; /* Torna o texto do botão em negrito */
+  color: #007BFF; /* Define a cor do texto do botão */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25); /* Adiciona uma sombra sutil ao texto para melhorar a legibilidade */
+  outline: none; /* Remove o contorno que aparece ao focar em alguns navegadores */
+}
+
+#meuBotaoT:hover, #meuBotao:focus .tooltip  {
+  filter: brightness(120%); /* Aumenta o brilho ao passar o mouse para destacar o botão */
+  filter: invert(100%);
+  visibility: visible;
+}
+
+#meuBotaoT:active {
+  transform: scale(0.95); /* Diminui ligeiramente o tamanho do botão quando clicado, simulando um efeito de pressão */
+  background-color: rgba(0, 123, 255, 0.2); /* Escurece o fundo para dar um feedback de ação */
+}
+#meuBotaoT span {
+  font-size: 11px; /* Exemplo: tamanho do texto */
+}
 #meuBotaoM {
   border: none; /* Remove a borda */
   background-color: transparent; /* Torna o fundo transparente */
 
-  padding: 0px 400px; /* Aumenta o espaço interno para melhorar a estética e a facilidade de clique */
+  padding: 0px 40px; /* Aumenta o espaço interno para melhorar a estética e a facilidade de clique */
   cursor: pointer; /* Muda o cursor para indicar que é clicável */
   transition: background-color 0.3s ease, filter 0.3s ease, transform 0.3s ease; /* Adiciona transições suaves para background-color, filtro e transformação */
   font-size: 16px; /* Define um tamanho de fonte ideal */
@@ -154,11 +180,8 @@
 }
 
 #meuBotaoM:hover, #meuBotao:focus .tooltip  {
-  background-color: rgba(0, 123, 255, 0.1); /* Muda a cor de fundo ao passar o mouse e focar para dar um feedback visual */
   filter: brightness(120%); /* Aumenta o brilho ao passar o mouse para destacar o botão */
   filter: invert(100%);
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Aumenta a sombra para um efeito de elevação mais pronunciado */
-  transform: scale(1.05); /* Aumenta ligeiramente o tamanho do botão para dar uma sensação de interatividade */
   visibility: visible;
 }
 
@@ -263,7 +286,7 @@
     width: 100%; /* Ajustado para ocupar toda a largura da tela */
     height: 60px; /* Altura fixa para a barra superior */
     display: flex; /* Usa flexbox para alinhar os itens */
-    justify-content: space-between; /* Espaço entre os itens */
+   
     align-items: center; /* Centraliza os itens verticalmente */
   }
 

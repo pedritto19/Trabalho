@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import edicao from './images/edicao.png'
 import cadastro from './images/cadastro.png'
+import favicon from './images/favicon.png'
 
 
 const TextoElegante = styled.p`
@@ -45,17 +46,17 @@ const TextoElegante = styled.p`
     return (
         <div style={{ textAlign: 'center' }} className="container1" >
         
-          
-          <h3><TextoElegante>Bem Vindo</TextoElegante></h3>
-        <p><TextoElegante>Página inicial</TextoElegante></p>
         
-            <button  id="meuBotaoM" onClick={handleClick2}>
+          <h3 style={{ margin: '10px 0' }}><img src={favicon} style={{ width: 'auto', height: '40px'}}alt='' /></h3>
+        <h3 style={{ padding: '0px', margin: '0 0px' }}><TextoElegante>ポケモン</TextoElegante></h3>
+        
+            <button  id="meuBotaoT" onClick={handleClick2} style={{ padding: '0px', margin: '0 50px' }}>
               <img src={cadastro} alt="Cadastrar" style={{ width: 'auto', height: '40px', transform: 'scaleX(-1)' }} />
               <span className="tooltip">Cadastrar Pokémon</span>
             
             </button>
-            <button  id="meuBotaoM" onClick={handleClick4}>
-              <img src={edicao} alt="Editar" style={{ width: 'auto', height: '40px', transform: 'scaleX(-1)' }} />
+            <button  id="meuBotaoT" onClick={handleClick4} style={{ padding: '0px', margin: '0 1px' }}>
+              <img src={edicao} alt="Editar" style={{ width: 'auto', height: '35px', transform: 'scaleX(-1)' }} />
               <span className="tooltip">Editar Pokémon</span>
               
             </button>
