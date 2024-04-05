@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import edicao from './images/edicao.png'
 import cadastro from './images/cadastro.png'
 import favicon from './images/favicon.png'
-
+import pesquisa from './images/pesquisa.png'
 
 const TextoElegante = styled.p`
   font-family: 'Roboto', sans-serif;
@@ -49,9 +49,9 @@ const TextoElegante = styled.p`
         
           <h3 style={{ margin: '10px 0' }}><img src={favicon} style={{ width: 'auto', height: '40px'}}alt='' /></h3>
         <h3 style={{ padding: '0px', margin: '0 0px' }}><TextoElegante>ポケモン</TextoElegante></h3>
-        
-            <button  id="meuBotaoT" onClick={handleClick2} style={{ padding: '0px', margin: '0 50px' }}>
-              <img src={cadastro} alt="Cadastrar" style={{ width: 'auto', height: '40px', transform: 'scaleX(-1)' }} />
+        <div style={{ padding: '0px', margin: '0 20px' }}>
+            <button  id="meuBotaoT" onClick={handleClick2} style={{ padding: '0px', margin: '10px 50px 0 50px' }}>
+              <img src={cadastro} alt="Cadastrar" style={{ width: 'auto', height: '35px', transform: 'scaleX(-1)' }} />
               <span className="tooltip">Cadastrar Pokémon</span>
             
             </button>
@@ -60,6 +60,11 @@ const TextoElegante = styled.p`
               <span className="tooltip">Editar Pokémon</span>
               
             </button>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', padding: '100px', gap: '10px', marginLeft: 'auto' }}>
+              <button id='meuBotaoT' style={{ padding: '0px' }}><img style={{ width: 'auto', height: '30px' }} src={pesquisa}alt=''/></button>
+              <input className={'beautifulInput'} type="search" placeholder="Pesquisar Pokémon..." style={{ padding: '10px', width: '200px' }} />
+            </div>
        
         
 

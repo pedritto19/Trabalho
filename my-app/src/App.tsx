@@ -45,7 +45,7 @@ function getColorByType(type: string) {
     'Normal': "#808080",
     'Fire': "#FF0000",
     'Water': "#0000FF",
-    'Grass': "#008000",
+    'Grass': "#90EE90",
     'Flying': "#ADD8E6",
     'Fighting': "#FF8C00",
     'Electric': "#FFFF00",
