@@ -425,3 +425,9 @@
     animation: shake 0.5s; /* Executa a animação de tremor por 0.5 segundos */
   }
 
+  .modal-content2 { /* Este seletor é um exemplo, ajuste conforme a sua estrutura */
+    height: 100vh; /* 100% da altura da viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

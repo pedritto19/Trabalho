@@ -5,6 +5,11 @@ import edicao from './images/edicao.png'
 import cadastro from './images/cadastro.png'
 import favicon from './images/favicon.png'
 import pesquisa from './images/pesquisa.png'
+import Modal from 'react-modal';
+import fundo from './images/fundo.jpg'
+import fechar from './images/fechar.png';
+import React, { ChangeEvent, useState, useEffect } from 'react'
+import { api } from '../services/api';
 
 const TextoElegante = styled.p`
   font-family: 'Roboto', sans-serif;
@@ -14,15 +19,59 @@ const TextoElegante = styled.p`
   text-align: center;
   letter-spacing: 0.5px;
 `;
+function getColorByType(type: any) {
+  const colors: { [key: string]: string } = {
+    'Normal': "#808080",
+    'Fire': "#FF0000",
+    'Water': "#0000FF",
+    'Grass': "#008000",
+    'Flying': "#ADD8E6",
+    'Fighting': "#FF8C00",
+    'Electric': "#FFFF00",
+    'Ground': "#A52A2A",
+    'Rock': "#654321",
+    'Psychic': "#FFC0CB",
+    'Ice': "#AFEEEE",
+    'Bug': "#006400",
+    'Ghost': "#800080",
+    'Steel': "#C0C0C0",
+    'Dragon': "#FF4500",
+    'Dark': "#000000",
+    'Fairy': "#FFB6C1" 
+    
+  };
 
+  return colors[type] || "#FFB6C1"; 
+}
+
+
+interface Pokemon {
+  id: string;
+  name: string;
+  type: string;
+  imag: string; 
+}
 
 
 
 
     function Mensagem() {
+      const [isModalOpen, setIsModalOpen] = useState(false);
+      const [name, setName] = useState('')
+      const [pokemons, setPokemons] = useState<Pokemon[]>([]);
 
-
+      useEffect(() => {
     
+        const fetchPokemons = async () => {
+          const response = await api.get('/pokemons');
+          setPokemons(response.data); 
+        };
+    
+        fetchPokemons();
+      }, []);
+    
+      // Encontrar o Pokémon pelo nome
+    const pokemon = pokemons.find(p => p.name.toLowerCase() === name.toLowerCase());
     
 
     
@@ -39,6 +88,11 @@ const TextoElegante = styled.p`
     function handleClick4() {
       navigate('/pagina_edicao'); 
     }
+
+    const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
+      setName(e.target.value)
+    }
+    
 
 
 
@@ -62,9 +116,48 @@ const TextoElegante = styled.p`
             </button>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', padding: '100px', gap: '10px', marginLeft: 'auto' }}>
-              <button id='meuBotaoT' style={{ padding: '0px' }}><img style={{ width: 'auto', height: '30px' }} src={pesquisa}alt=''/></button>
-              <input className={'beautifulInput'} type="search" placeholder="Pesquisar Pokémon..." style={{ padding: '10px', width: '200px' }} />
+              
+              <input   
+          value={name}
+          name="name"
+          className={'beautifulInput'}
+          type="search"
+          placeholder="Pesquisar Pokémon..."
+          onChange={handleNameChange}
+          style={{ padding: '10px', width: '200px' }} /><button onClick={() => setIsModalOpen(true)} id='meuBotaoT' style={{ padding: '0px' }}><img style={{ width: 'auto', height: '30px' }} src={pesquisa}alt=''/></button>
             </div>
+            <Modal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)}
+        style={{
+          content: {
+            width: '1000px', // Define a largura do modal
+            height: '800px', // Define a altura do modal
+            margin: 'auto', // Centraliza o modal na tela
+            backgroundImage: `url(${fundo})`,
+            backgroundSize: 'cover',
+            filter: 'brightness(100%)', // Ajusta o brilho da imagem
+          },
+          overlay: {
+            backgroundColor: 'rgba(0, 0, 0, 0.20)',
+            
+          }
+        }}><button style={{position: 'fixed'}} id="meuBotaoT" onClick={() => setIsModalOpen(false)}><img src={fechar} style={{ width: '30px', height: 'auto'}} alt=''/></button>
+        
+        
+        <div style={{ textAlign: 'center' }} className='modal-content2'>
+          {pokemon ? (
+            <div>
+              <h2>{pokemon.name}</h2>
+              <img src={pokemon.imag} alt='' style={{ width: '500px', height: 'auto'}} />
+              <p className="pokemon-name" style={{color: getColorByType(pokemon.type)}}>{pokemon.type}</p>
+            </div>
+          ) : (
+            <div>Pokémon não encontrado.</div>
+          )}
+        </div>
+                
+        
+      
+        </Modal>
        
         
 
