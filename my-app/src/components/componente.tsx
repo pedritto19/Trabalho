@@ -47,16 +47,16 @@ const TextoElegante = styled.p`
         <div style={{ textAlign: 'center' }} className="container1" >
         
         
-          <h3 style={{ margin: '10px 0' }}><img src={favicon} style={{ width: 'auto', height: '40px'}}alt='' /></h3>
-        <h3 style={{ padding: '0px', margin: '0 0px' }}><TextoElegante>ポケモン</TextoElegante></h3>
-        <div style={{ padding: '0px', margin: '0 20px' }}>
-            <button  id="meuBotaoT" onClick={handleClick2} style={{ padding: '0px', margin: '10px 50px 0 50px' }}>
-              <img src={cadastro} alt="Cadastrar" style={{ width: 'auto', height: '35px', transform: 'scaleX(-1)' }} />
+          <h3 style={{display: 'flex', alignItems: 'center', margin: '10px 0' }}><img src={favicon} style={{ width: 'auto', height: '40px'}}alt='' /></h3>
+        <h3 style={{display: 'flex', alignItems: 'center', padding: '0px', margin: '0 0px' }}><TextoElegante>ポケモン</TextoElegante></h3>
+        <div style={{ display: 'flex', alignItems: 'center',padding: '0px', margin: '0 20px' }}>
+            <button  id="meuBotaoT" onClick={handleClick2} style={{ padding: '0px', margin: '0px 50px 0 50px' }}>
+              <img src={cadastro} alt="Cadastrar" style={{ width: 'auto', height: '35px'}} />
               <span className="tooltip">Cadastrar Pokémon</span>
             
             </button>
             <button  id="meuBotaoT" onClick={handleClick4} style={{ padding: '0px', margin: '0 1px' }}>
-              <img src={edicao} alt="Editar" style={{ width: 'auto', height: '35px', transform: 'scaleX(-1)' }} />
+              <img src={edicao} alt="Editar" style={{ width: 'auto', height: '35px' }} />
               <span className="tooltip">Editar Pokémon</span>
               
             </button>

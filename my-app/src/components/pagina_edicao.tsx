@@ -80,7 +80,7 @@ return (
       >
         
         {/* Conteúdo do Modal aqui */}
-        <button id="meuBotaoT" onClick={handleClickhome}><img src={fechar} style={{ width: '30px', height: 'auto'}} alt=''/></button>
+        <button style={{position: 'fixed'}} id="meuBotaoT" onClick={handleClickhome}><img src={fechar} style={{ width: '30px', height: 'auto'}} alt=''/></button>
         <TextoElegante>Edite seus Pokémons!!</TextoElegante>
         <PokemonList></PokemonList>
         <button id="meuBotaoT" onClick={handleClickhome}><img src={seta} style={{ width: '50px', height: 'auto'}}alt='' /></button>
