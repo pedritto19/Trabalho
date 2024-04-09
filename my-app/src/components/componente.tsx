@@ -73,7 +73,11 @@ interface Pokemon {
       // Encontrar o Pokémon pelo nome
     const pokemon = pokemons.find(p => p.name.toLowerCase() === name.toLowerCase());
     
-
+    const handleButtonClick = () => {
+      if (name.trim() !== "") { // Verifica se o input não está vazio
+        setIsModalOpen(true); // Abre o modal apenas se o input não estiver vazio
+      }
+    };
     
 
 
@@ -124,7 +128,7 @@ interface Pokemon {
           type="search"
           placeholder="Pesquisar Pokémon..."
           onChange={handleNameChange}
-          style={{ padding: '10px', width: '200px' }} /><button onClick={() => setIsModalOpen(true)} id='meuBotaoT' style={{ padding: '0px' }}><img style={{ width: 'auto', height: '30px' }} src={pesquisa}alt=''/></button>
+          style={{ padding: '10px', width: '200px' }} /><button onClick={handleButtonClick} id='meuBotaoT' style={{ padding: '0px' }}><img style={{ width: 'auto', height: '30px' }} src={pesquisa}alt=''/></button>
             </div>
             <Modal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)}
         style={{
