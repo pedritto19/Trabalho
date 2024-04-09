@@ -281,7 +281,7 @@ const PokemonList = () => {
         <button id="meuBotao" onClick={() => setIsModalOpen(false)}>
           <img src={fechar} alt='' style={{ width: '30px', height: 'auto'}} />
         </button>
-        <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center" >
+        <div style={{ textAlign: 'center' }} className="container2 " >
       <form onSubmit={handleSubmit}>
         <h3 className="form-title"><TextoElegante>Editar</TextoElegante></h3>
         <Input
