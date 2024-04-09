@@ -128,7 +128,23 @@ interface Pokemon {
           type="search"
           placeholder="Pesquisar Pokémon..."
           onChange={handleNameChange}
-          style={{ padding: '10px', width: '200px' }} /><button onClick={handleButtonClick} id='meuBotaoT' style={{ padding: '0px' }}><img style={{ width: 'auto', height: '30px' }} src={pesquisa}alt=''/></button>
+          style={{ padding: '10px', width: '200px' }}
+          list="pokemon-options" />
+          <datalist id="pokemon-options">
+          {pokemons.map((pokemon) => (
+             
+           
+           
+              <option key={pokemon.id }value={pokemon.name}> {pokemon.name}</option>
+    
+           
+           
+          ))}
+          </datalist>
+          
+          
+          
+          <button onClick={handleButtonClick} id='meuBotaoT' style={{ padding: '0px' }}><img style={{ width: 'auto', height: '30px' }} src={pesquisa}alt=''/></button>
             </div>
             <Modal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)}
         style={{
