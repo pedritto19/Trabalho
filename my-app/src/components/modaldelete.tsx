@@ -36,6 +36,14 @@ const TextoElegante3 = styled.p`
   text-align: center;
   letter-spacing: 0.5px;
 `;
+const TextoElegante4 = styled.p`
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  color: #90EE90;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.5px;
+`;
 
 
 
@@ -86,6 +94,7 @@ const PokemonList = () => {
   const [error1, setError1] = useState(false)
   const [error2, setError2] = useState(false)
   const [isLoading, setIsLoading] = useState(false);
+
   
 
 
@@ -98,6 +107,7 @@ const PokemonList = () => {
   const [imag, setImag] = useState(selectedPokemon?.imag)
   const [showMessage, setShowMessage] = useState(false);
   const [isModalOpen2, setIsModalOpen2] = useState(false);
+  const [isModalOpen3, setIsModalOpen3] = useState(false);
 
  
  
@@ -177,10 +187,17 @@ const PokemonList = () => {
 
   const handleDelete = async (pokemonId: any) => {
     try {
+      setIsLoading(true);
+      // Simule uma operação assíncrona, como uma chamada de API
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000); // 2 segundos para o exemplo
       await api.delete(`/pokemons/${pokemonId}`);
 
       setPokemons(pokemons.filter(pokemon => pokemon.id !== pokemonId));
-      window.location.reload(); 
+      //window.location.reload(); 
+      setIsModalOpen2(false)
+      setIsModalOpen3(true); // Abre o modal
     } catch (error) {
 
       console.error("Erro ao deletar o pokémon:", error);
@@ -235,8 +252,8 @@ const PokemonList = () => {
         const response = await api.put(`/pokemonsup/${selectedPokemon?.id}`, updatedPokemon);
         if (response.status === 200) {
           console.log('Pokémon atualizado com sucesso:', response.data);
-          window.location.reload(); 
-        
+          //window.location.reload(); 
+          
           setIsModalOpen(false); 
        
         }
@@ -308,6 +325,7 @@ const PokemonList = () => {
           <img src={selectedPokemon?.imag} style={{ width: '100px', height: 'auto', display: 'block', margin: 'auto',objectFit: 'cover', maxHeight: '150px' }} alt=''/>
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>
+        {isLoading && <div id="telaDeCarregamento"> <img src={load} style={{ width: '70px', height: 'auto' }} alt=''/> Carregando...</div>}
           <button id='meuBotaoT' style={{ margin: '10px' }} onClick={() => handleDelete(selectedPokemon?.id)}>
             <TextoElegante3>SIM</TextoElegante3>
           </button>
@@ -318,6 +336,34 @@ const PokemonList = () => {
 
         </div>
       </Modal>
+
+      <Modal isOpen={isModalOpen3} onRequestClose={() => setIsModalOpen3(false)}
+      style={{
+          content: {
+            width: '328px', // Define a largura do modal
+            height: '262px', // Define a altura do modal
+            margin: 'auto', // Centraliza o modal na tela
+            backgroundColor: '#38b3d1',
+            backgroundSize: 'cover',
+            filter: 'brightness(100%)', // Ajusta o brilho da imagem
+            overflow: 'hidden',
+          },
+          overlay: {
+            backgroundColor: 'rgba(0, 0, 0, 0.20)',
+            
+          }
+        }}>
+
+          <div style={{ textAlign: 'center' }}><TextoElegante>{selectedPokemon?.name} Deletado com sucesso!!</TextoElegante></div>
+
+          <div style={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>
+          <button id='meuBotaoT' style={{ margin: '10px' }} onClick={() => setIsModalOpen3(false)}> 
+            <TextoElegante4>OK</TextoElegante4>
+          </button>
+          </div>
+
+
+             </Modal>
 
 
 
