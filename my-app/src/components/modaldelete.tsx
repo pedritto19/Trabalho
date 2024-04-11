@@ -277,7 +277,7 @@ const PokemonList = () => {
             backgroundColor: 'rgba(0, 0, 0, 0.20)',
             
           }
-        }}><div className="modal-content">
+        }}><div className="modal-content3">
         <button id="meuBotao" onClick={() => setIsModalOpen(false)}>
           <img src={fechar} alt='' style={{ width: '30px', height: 'auto'}} />
         </button>
@@ -346,7 +346,7 @@ const PokemonList = () => {
         {isLoading && <div id="telaDeCarregamento"> <img src={load} style={{ width: '70px', height: 'auto' }} alt='' /> Carregando...</div>}
         <button id="meuBotao"   type="submit"><img style={{ width: '30px', height: 'auto' }} alt='' src={confirm}/></button>
 
-        
+
 
       </form>
       
@@ -362,14 +362,6 @@ const PokemonList = () => {
       </div>
 
     </div>
-      
-        {selectedPokemon && (
-          <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center" id="header">
-            <h2>{selectedPokemon.name}</h2>
-            <img src={selectedPokemon.imag} alt={selectedPokemon.name} style={{ width: '100px', height: 'auto'}} />
-            <p className="pokemon-name" style={{color: getColorByType(selectedPokemon.type)}}>{selectedPokemon.type}</p>
-          </div>
-        )}
         </div>
       </Modal>
   </div>
