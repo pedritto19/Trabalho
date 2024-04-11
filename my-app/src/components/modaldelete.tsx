@@ -28,6 +28,14 @@ const TextoElegante2 = styled.p`
   text-align: center;
   letter-spacing: 0.5px;
 `;
+const TextoElegante3 = styled.p`
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  color: red;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.5px;
+`;
 
 
 
@@ -71,7 +79,6 @@ function getColorByType(type: any) {
 const PokemonList = () => {
   
 
-
  
 
 
@@ -90,6 +97,7 @@ const PokemonList = () => {
   const [type, setType] = useState(selectedPokemon?.type)
   const [imag, setImag] = useState(selectedPokemon?.imag)
   const [showMessage, setShowMessage] = useState(false);
+  const [isModalOpen2, setIsModalOpen2] = useState(false);
 
  
  
@@ -98,6 +106,12 @@ const PokemonList = () => {
     setSelectedPokemon(pokemon); // Armazena o Pokémon selecionado
     setIsModalOpen(true); // Abre o modal
   };
+  const handleOpenModal2 = (pokemon: any) => {
+    setSelectedPokemon(pokemon); // Armazena o Pokémon selecionado
+    setIsModalOpen2(true); // Abre o modal
+  };
+
+
   useEffect(() => {
     if (selectedPokemon?.name) {
       setName(selectedPokemon.name);
@@ -161,7 +175,7 @@ const PokemonList = () => {
     fetchPokemons();
   }, []);
 
-  const handleDelete = async (pokemonId: string) => {
+  const handleDelete = async (pokemonId: any) => {
     try {
       await api.delete(`/pokemons/${pokemonId}`);
 
@@ -249,7 +263,7 @@ const PokemonList = () => {
            
           />
           
-          <button id="meuBotaoT" onClick={() => handleDelete(pokemon.id)}>
+          <button id="meuBotaoT" onClick={() => handleOpenModal2(pokemon)}>
           <span style={{color: "#00FFFF"}} className="tooltip">Deletar {pokemon.name}</span>
             <FaTrash size={18} color="red" />
           </button>
@@ -259,6 +273,52 @@ const PokemonList = () => {
 
         </div>
       ))}
+
+
+      <Modal isOpen={isModalOpen2} onRequestClose={() => setIsModalOpen2(false)}
+      style={{
+          content: {
+            width: '328px', // Define a largura do modal
+            height: '262px', // Define a altura do modal
+            margin: 'auto', // Centraliza o modal na tela
+            backgroundColor: '#38b3d1',
+            backgroundSize: 'cover',
+            filter: 'brightness(100%)', // Ajusta o brilho da imagem
+            overflow: 'hidden',
+          },
+          overlay: {
+            backgroundColor: 'rgba(0, 0, 0, 0.20)',
+            
+          }
+        }}> 
+        
+        <div style={{ 
+    width: '328px', // Largura fixa
+    height: '262px', // Altura fixa
+    margin: 'auto', // Centraliza a div
+    display: 'flex', // Utiliza flexbox para organizar o conteúdo
+    flexDirection: 'column', // Organiza os filhos em coluna
+    justifyContent: 'center', // Centraliza os itens na vertical
+    alignItems: 'center', // Centraliza os itens na horizontal
+    textAlign: 'center', // Centraliza o texto
+    backgroundColor: '#38b3d1', // Um exemplo de cor de fundo
+}}>
+         <div style={{ textAlign: 'center' }}><TextoElegante>Deseja realmente deletar {selectedPokemon?.name}?</TextoElegante></div>
+        <div>
+          <img src={selectedPokemon?.imag} style={{ width: '100px', height: 'auto', display: 'block', margin: 'auto',objectFit: 'cover', maxHeight: '150px' }} alt=''/>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>
+          <button id='meuBotaoT' style={{ margin: '10px' }} onClick={() => handleDelete(selectedPokemon?.id)}>
+            <TextoElegante3>SIM</TextoElegante3>
+          </button>
+          <button id='meuBotaoT' style={{ margin: '10px' }} onClick={() => setIsModalOpen2(false)}> 
+            <TextoElegante>NÃO</TextoElegante>
+          </button>
+        </div>
+
+        </div>
+      </Modal>
+
 
 
 
