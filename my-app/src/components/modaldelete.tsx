@@ -252,7 +252,7 @@ const PokemonList = () => {
         const response = await api.put(`/pokemonsup/${selectedPokemon?.id}`, updatedPokemon);
         if (response.status === 200) {
           console.log('Pokémon atualizado com sucesso:', response.data);
-          //window.location.reload(); 
+          window.location.reload(); 
           
           setIsModalOpen(false); 
        
@@ -290,6 +290,8 @@ const PokemonList = () => {
 
         </div>
       ))}
+
+
 
 
       <Modal isOpen={isModalOpen2} onRequestClose={() => setIsModalOpen2(false)}
@@ -456,6 +458,7 @@ const PokemonList = () => {
 
       </form>
       
+
       <div>
         <img src={imag} style={{ width: '100px', height: 'auto'}} alt=''/>
         

@@ -22,22 +22,29 @@ const TextoElegante = styled.p`
 `;
 
 
+
+
 const Edicao: React.FC = () => {
 
     
     
       const [isModalOpen, setIsModalOpen] = useState(true);
+      
+      function handleckickb() { 
+        var modal = document.getElementById('modalId'); // Certifique-se de que 'modalId' é o ID correto da sua modal
+        if (modal) {
+          modal.scrollTop = modal.scrollHeight;
+        }
+      }
+      function handleGoToTop() { 
+        var modal = document.getElementById('modalId'); // Certifique-se de que 'modalId' é o ID correto da sua modal
+        if (modal) {
+          modal.scrollTop = 0; // Define o scrollTop para 0, rolando a modal para o topo
+        }
+      }
 
-
-
-    
-
-
-
-
-
-
-
+ 
+ 
 
       function handleClickhome() {
         navigate('/'); // Substitua isso pelo seu caminho desejado
@@ -60,7 +67,7 @@ return (
     <Modal 
         isOpen={isModalOpen} // Passa a propriedade isOpen
         onRequestClose={() => setIsModalOpen(false)} // Opcional: Função para fechar o modal
-        id='header4'
+        id='modalId'
         shouldCloseOnOverlayClick={false} // Impede que o modal feche ao clicar fora
         
         style={{
@@ -78,12 +85,21 @@ return (
           }
         }}
       >
-        
+        <div className="modalContent"  >
         {/* Conteúdo do Modal aqui */}
         <button style={{position: 'fixed'}} id="meuBotaoT" onClick={handleClickhome}><img src={fechar} style={{ width: '30px', height: 'auto'}} alt=''/></button>
+
         <TextoElegante>Edite seus Pokémons!!</TextoElegante>
+        <button id='meuBotaoT' onClick={handleckickb} style={{  textAlign: 'end' }}>
+        <img src={seta} style={{ width: '50px', height: 'auto', transform: 'rotate(270deg)'}} alt="" />
+        </button> 
         <PokemonList></PokemonList>
+
         <button id="meuBotaoT" onClick={handleClickhome}><img src={seta} style={{ width: '50px', height: 'auto'}}alt='' /></button>
+        <button id='meuBotaoT' onClick={handleGoToTop} style={{  textAlign: 'end' }}>
+        <img src={seta} style={{ width: '50px', height: 'auto', transform: 'rotate(90deg)'}} alt="" />
+        </button> 
+        </div>
         
       </Modal>
       </div>
