@@ -90,15 +90,29 @@ return (
         <button style={{position: 'fixed'}} id="meuBotaoT" onClick={handleClickhome}><img src={fechar} style={{ width: '30px', height: 'auto'}} alt=''/></button>
 
         <TextoElegante>Edite seus Pokémons!!</TextoElegante>
+
+        <div style={{ display: 'flex', alignItems: 'start', justifyContent: 'space-between' }}>
+        <PokemonList></PokemonList>
         <button id='meuBotaoT' onClick={handleckickb} style={{  textAlign: 'end' }}>
         <img src={seta} style={{ width: '50px', height: 'auto', transform: 'rotate(270deg)'}} alt="" />
-        </button> 
-        <PokemonList></PokemonList>
+        </button>
+
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <button id='meuBotaoT' onClick={handleGoToTop} style={{ textAlign: 'end' }}>
+            <img src={seta} style={{ width: '50px', height: 'auto', transform: 'rotate(90deg)' }} alt="" />
+          </button>
+        </div>
+
+
+
+       
+
+
 
         <button id="meuBotaoT" onClick={handleClickhome}><img src={seta} style={{ width: '50px', height: 'auto'}}alt='' /></button>
-        <button id='meuBotaoT' onClick={handleGoToTop} style={{  textAlign: 'end' }}>
-        <img src={seta} style={{ width: '50px', height: 'auto', transform: 'rotate(90deg)'}} alt="" />
-        </button> 
+
+
         </div>
         
       </Modal>
