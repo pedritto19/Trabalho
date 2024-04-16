@@ -1,10 +1,8 @@
 import { showpkm } from './../controller/showpkm';
 
 import {FastifyInstance, FastifyPluginOptions, FastifyRequest, FastifyReply} from "fastify"
-import cors from '@fastify/cors'
 import { Createpkmcontroler } from "../controller/Createpkmcontroler";
 import { DeletePokemonService } from '../services/DeletePokemonService';
-import { PokemonController } from '../controller/PokemonController';
 import { PokemonService } from '../services/PokemonService';
 
 

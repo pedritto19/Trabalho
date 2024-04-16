@@ -84,6 +84,11 @@ const [error, setError] = useState(false)
 const [error1, setError1] = useState(false)
 const [error2, setError2] = useState(false)
 const [showMessage, setShowMessage] = useState(false);
+const [isLoading, setIsLoading] = useState(false);
+
+
+
+
 
 const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
   setName(e.target.value)
@@ -118,7 +123,7 @@ const handleImagClick = () => {
 
 
 
-const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+const handleSubmit = async (e: FormEvent<HTMLFormElement>) => { // submissao do form
   
   e.preventDefault()
   if (!name.trim()) {
@@ -156,15 +161,15 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 
   try {
     setIsLoading(true);
-    // Simule uma operação assíncrona, como uma chamada de API
+   
     setTimeout(() => {
       setIsLoading(false);
     }, 2000); // 2 segundos para o exemplo
 
-
+    //cria im pokemon no banco
     const response = await api.post('/pkm', { name, type, imag });
     console.log('Pokemon criado:', response.data);
-    window.location.reload(); 
+    window.location.reload();
  
   } catch (error) {
     console.error("Erro ao enviar o Pokémon:", error);
@@ -177,7 +182,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 
 }
 
-const [isLoading, setIsLoading] = useState(false);
+
 
 
 

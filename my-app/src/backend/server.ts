@@ -1,9 +1,6 @@
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import { routes} from './routes'
-import React from 'react';
-import ReactDOM  from 'react-dom';
-import App from '../App';
 
 
 

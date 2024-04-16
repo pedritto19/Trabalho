@@ -27,17 +27,18 @@ const TextoElegante = styled.p`
 const Edicao: React.FC = () => {
 
     
-    
+     // definicao de estado para o modal
       const [isModalOpen, setIsModalOpen] = useState(true);
-      
+     //definicao da funcao que rola o modal para cima
       function handleckickb() { 
         var modal = document.getElementById('modalId'); // Certifique-se de que 'modalId' é o ID correto da sua modal
         if (modal) {
           modal.scrollTop = modal.scrollHeight;
         }
       }
+      // Definição da função handleGoToTop para manipular o evento de rolagem
       function handleGoToTop() { 
-        var modal = document.getElementById('modalId'); // Certifique-se de que 'modalId' é o ID correto da sua modal
+        var modal = document.getElementById('modalId'); 
         if (modal) {
           modal.scrollTop = 0; // Define o scrollTop para 0, rolando a modal para o topo
         }

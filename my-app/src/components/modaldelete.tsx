@@ -108,7 +108,7 @@ const PokemonList = () => {
   const [showMessage, setShowMessage] = useState(false);
   const [isModalOpen2, setIsModalOpen2] = useState(false);
   const [isModalOpen3, setIsModalOpen3] = useState(false);
-
+  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
  
  
 
@@ -173,7 +173,7 @@ const PokemonList = () => {
 
 
 
-  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+
 
   useEffect(() => {
     
