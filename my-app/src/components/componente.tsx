@@ -1,4 +1,4 @@
-import './Header/styles.css'
+import "../styles.css"
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import edicao from './images/edicao.png'

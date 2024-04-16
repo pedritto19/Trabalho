@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./Header/styles.css";
+import "../styles.css"
 import { useNavigate } from 'react-router-dom';
 import seta from './images/seta.png'
 import styled from 'styled-components';
@@ -46,9 +46,9 @@ const Edicao: React.FC = () => {
 
  
  
-
+      // funcao para navegar para tela inicial
       function handleClickhome() {
-        navigate('/'); // Substitua isso pelo seu caminho desejado
+        navigate('/');
       }
     let navigate = useNavigate();
 

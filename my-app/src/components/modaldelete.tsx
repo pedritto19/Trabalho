@@ -7,7 +7,7 @@ import fechar from './images/fechar.png';
 import editar from './images/editar.png';
 import Input from './input'
 import confirm from './images/confirm.png'
-import "./Header/styles.css"
+import "../styles.css"
 import fundo from './images/fundo.jpg'
 import paste from './images/paste.png';
 import load from './images/load.gif'
@@ -99,7 +99,7 @@ const PokemonList = () => {
 
 
 
-
+  //estados
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPokemon, setSelectedPokemon] = useState<PokemonS | null>(null);
   const [name, setName] = useState(selectedPokemon?.name)
@@ -111,17 +111,18 @@ const PokemonList = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
  
  
-
+  //abrir modal com um pokemon
   const handleOpenModal = (pokemon: any) => {
     setSelectedPokemon(pokemon); // Armazena o Pokémon selecionado
     setIsModalOpen(true); // Abre o modal
   };
+  //abrir segundo modal com pokemon
   const handleOpenModal2 = (pokemon: any) => {
     setSelectedPokemon(pokemon); // Armazena o Pokémon selecionado
     setIsModalOpen2(true); // Abre o modal
   };
 
-
+  // efeito de selecionar nome do pokemon
   useEffect(() => {
     if (selectedPokemon?.name) {
       setName(selectedPokemon.name);
@@ -131,6 +132,7 @@ const PokemonList = () => {
     setName(e.target.value)
    
   }
+  //efeito de selecionar tipo do pokemon
   useEffect(() => {
     if (selectedPokemon?.type) {
       setType(selectedPokemon.type);
@@ -149,19 +151,19 @@ const PokemonList = () => {
     // Esta função agora é usada para prevenir a entrada de texto pela digitação
     e.preventDefault();
   };
-  
+  // colar da area de transferencia
   const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
     // Acessa o texto do clipboard
     const pasteText = e.clipboardData.getData('text');
     // Atualiza o estado com o texto colado
     setImag(pasteText);
   };
-
+// mensagem de erro da url
   const handleImagClick = () => {
     setShowMessage(true);
     setTimeout(() => setShowMessage(false), 3000); // Desativa a mensagem após 3 segundos
   };
-  
+  // salvar texto colado
   const handlePaste2 = async () => {
     try {
       const text = await navigator.clipboard.readText();
@@ -174,7 +176,7 @@ const PokemonList = () => {
 
 
 
-
+ // efeito para pegar pokemons do banco 
   useEffect(() => {
     
     const fetchPokemons = async () => {
@@ -184,7 +186,7 @@ const PokemonList = () => {
 
     fetchPokemons();
   }, []);
-
+  // deleta pokemons do banco a partir do seu id
   const handleDelete = async (pokemonId: any) => {
     try {
       setIsLoading(true);
@@ -210,6 +212,7 @@ const PokemonList = () => {
     type: type || selectedPokemon?.type,
     imag: imag || selectedPokemon?.imag,
   };
+  // submissao do formulario
    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (!name?.trim()) {

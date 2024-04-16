@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
 import Input from './input'
-import "./Header/styles.css"
+import "../styles.css"
 import { useNavigate } from 'react-router-dom';
 import confirm from './images/confirm.png'
 import styled from 'styled-components';
