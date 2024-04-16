@@ -30,7 +30,7 @@ const TextoElegante2 = styled.p`
 
 
 
-function getColorByType(type: string) {
+function getColorByType(type: string) { //funcao para mudar a cor do texto com base no tipo selecionado
   const colors: { [key: string]: string } = {
     'Normal': "#808080",
     'Fire': "#FF0000",
@@ -92,18 +92,18 @@ const handleTypechange = (e: ChangeEvent<HTMLSelectElement>) => {
   setType(e.target.value)
 }
 const handleImagChange = (e: ChangeEvent<HTMLInputElement>) => {
-  // Esta função agora será usada para prevenir a entrada de texto pela digitação
+  // Esta função é usada para prevenir a entrada de texto pela digitação
   e.preventDefault();
 };
 
-const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
+const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {//ler conteudo da area de transferencia quando clicar no botao
   // Acessa o texto do clipboard
   const pasteText = e.clipboardData.getData('text');
   // Atualiza o estado com o texto colado
   setImag(pasteText);
 };
 
-const handlePaste2 = async () => {
+const handlePaste2 = async () => { //colar conteudo da area de transferencia quando clicar no botao
   try {
     const text = await navigator.clipboard.readText();
     setImag(text);
@@ -271,7 +271,7 @@ return (
           <div>   
             
           </div>
-        <button id="meuBotaoM"   onClick={handleClickback}>
+        <button id="meuBotaoM"   onClick={handleClickback}> 
           <span className="tooltip">Tela de Inicio</span>
           <img src={home} style={{ width: 'auto', height: '40px'}}alt='' />
         </button>

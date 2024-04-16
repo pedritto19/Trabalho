@@ -60,7 +60,7 @@ interface PokemonS {
   imag: string;
 }
 
-function getColorByType(type: any) {
+function getColorByType(type: any) {//funcao para mudar a cor do texto com base no tipo selecionado
   const colors: { [key: string]: string } = {
     'Normal': "#808080",
     'Fire': "#FF0000",
@@ -146,7 +146,7 @@ const PokemonList = () => {
     }
   }, [selectedPokemon]);
   const handleImagChange = (e: ChangeEvent<HTMLInputElement>) => {
-    // Esta função agora será usada para prevenir a entrada de texto pela digitação
+    // Esta função agora é usada para prevenir a entrada de texto pela digitação
     e.preventDefault();
   };
   

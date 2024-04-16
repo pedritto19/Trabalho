@@ -10,7 +10,7 @@ import Edicao from './components/pagina_edicao';
 import fundo from './components/images/fundo.jpg'
 import topo from './components/images/topo.png'
 
-
+// Definição da interface para tipar os dados de um Pokémon
 interface Pokemon {
   id: number;
   name: string;
@@ -19,7 +19,7 @@ interface Pokemon {
 }
 
 function App() {
-
+  // Estilização global aplicada ao body do documento
   const GlobalStyle = createGlobalStyle`
   
   body {
@@ -40,7 +40,7 @@ function App() {
   }
 `;
 
-function getColorByType(type: string) {
+function getColorByType(type: string) {//funcao para mudar a cor do texto com base no tipo selecionado
   const colors: { [key: string]: string } = {
     'Normal': "#808080",
     'Fire': "#FF0000",
@@ -68,7 +68,7 @@ function getColorByType(type: string) {
 
 
 
-
+  // Estado para armazenar a lista de Pokémons e controle do botão de voltar ao topo
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [showTopBtn, setShowTopBtn] = useState(false);
 
@@ -90,7 +90,7 @@ function getColorByType(type: string) {
     });
   };
 
-
+  // Efeito para buscar os dados dos Pokémons da API
   useEffect(() => {
     const fetchPokemons = async () => {
       const response = await api.get('/pokemons');
@@ -111,6 +111,7 @@ function getColorByType(type: string) {
       <GlobalStyle />
     <Router>
       <Routes>
+          {/* Definição das rotas para as diferentes páginas do app */}
         <Route path="/" element={<Mensagem />} />
         <Route path="/pagina_cadastro" element={<Pagina/>} />
         <Route path="/pagina_edicao" element={<Edicao/>} />
@@ -128,8 +129,9 @@ function getColorByType(type: string) {
         justifyContent: 'center', 
         alignItems: 'center' }} className="container align-self-center d-flex justify-content-center" id="header">
     
-        
+        {/* Mapeamento e exibição dos Pokémons */}
         {pokemons.map((pokemon) => (
+          
           <div key={pokemon.id} className="pokemon-container"> 
             <h3  className="pokemon-name" >{pokemon.name}</h3> 
             <img style={{ width: 'auto', height: '90px' }} src={pokemon.imag} alt={pokemon.name} /> 
@@ -139,6 +141,7 @@ function getColorByType(type: string) {
         
       
     </div>
+    {/* Botão de voltar ao topo */}
     {showTopBtn && (
         <button id='meuBotao2' onClick={goToTop} className="meuBotaoAnimado"  style={{ position: 'fixed', top: '20px', left: '48.2%'}}>
           <img src={topo} alt="Voltar ao topo" style={{ width: '40px', height: 'auto' }} />
