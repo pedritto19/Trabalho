@@ -76,8 +76,8 @@ const Cadastro: React.FC = () => {
   }
  
 
-
-const [name, setName] = useState('')
+//estados
+const [name, setName] = useState('') 
 const [type, setType] = useState('')
 const [imag, setImag] = useState('')
 const [error, setError] = useState(false)

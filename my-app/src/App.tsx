@@ -40,6 +40,7 @@ function App() {
   }
 `;
 
+//atribuir aos componentes, a função ou a const
 function getColorByType(type: string) {//funcao para mudar a cor do texto com base no tipo selecionado
   const colors: { [key: string]: string } = {
     'Normal': "#808080",

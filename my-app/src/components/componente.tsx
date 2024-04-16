@@ -11,7 +11,10 @@ import fechar from './images/fechar.png';
 import React, { ChangeEvent, useState, useEffect } from 'react'
 import { api } from '../services/api';
 
-const TextoElegante = styled.p`
+
+
+//constante para deixar o texto bonito
+const TextoElegante = styled.p` 
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   color: #000000;
@@ -19,7 +22,7 @@ const TextoElegante = styled.p`
   text-align: center;
   letter-spacing: 0.5px;
 `;
-function getColorByType(type: any) {
+function getColorByType(type: any) {//funcao para mudar a cor do texto com base no tipo selecionado
   const colors: { [key: string]: string } = {
     'Normal': "#808080",
     'Fire': "#FF0000",
@@ -44,7 +47,7 @@ function getColorByType(type: any) {
   return colors[type] || "#FFB6C1"; 
 }
 
-
+// Definição da interface para tipar os dados de um Pokémon
 interface Pokemon {
   id: string;
   name: string;
@@ -56,10 +59,17 @@ interface Pokemon {
 
 
     function Mensagem() {
+
+
+      //estados
       const [isModalOpen, setIsModalOpen] = useState(false);
       const [name, setName] = useState('')
       const [pokemons, setPokemons] = useState<Pokemon[]>([]);
 
+
+
+
+      //efeito para ler pokemons do banco
       useEffect(() => {
     
         const fetchPokemons = async () => {
@@ -73,6 +83,8 @@ interface Pokemon {
       // Encontrar o Pokémon pelo nome
     const pokemon = pokemons.find(p => p.name.toLowerCase() === name.toLowerCase());
     
+
+    // verifica o botao de pesquisa e abre o modal caso tenha conteúdo
     const handleButtonClick = () => {
       if (name.trim() !== "") { // Verifica se o input não está vazio
         setIsModalOpen(true); // Abre o modal apenas se o input não estiver vazio
@@ -84,15 +96,15 @@ interface Pokemon {
 
     let navigate = useNavigate();
 
-
+    // funcao que direciona para pagina de cadastro
     function handleClick2() {
       navigate('/pagina_cadastro'); 
     }
-
+    //funcao que direciona para pagina de edicao
     function handleClick4() {
       navigate('/pagina_edicao'); 
     }
-
+    //evento que atribui valor ao nome
     const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
       setName(e.target.value)
     }
