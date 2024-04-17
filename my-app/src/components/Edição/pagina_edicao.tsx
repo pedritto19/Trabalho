@@ -2,24 +2,13 @@ import React, { useState } from 'react';
 import "../../styles.css"
 import { useNavigate } from 'react-router-dom';
 import seta from '../images/seta.png'
-import styled from 'styled-components';
 import home from '../images/home.png';
 import Modal from 'react-modal';
 import PokemonList from './modaldelete';
 import fechar from '../images/fechar.png';
 import editar from '../images/editar.png';
 import fundo from '../images/fundo.jpg'
-
-
-
-const TextoElegante = styled.p`
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  color: #000000;
-  line-height: 1.6;
-  text-align: center;
-  letter-spacing: 0.5px;
-`;
+import { TextoElegante } from '../../App';
 
 
 

@@ -1,7 +1,6 @@
 import React, { useEffect, useState , FormEvent, ChangeEvent} from 'react';
 import { api } from '../../services/api';
 import { FaTrash } from 'react-icons/fa';
-import styled from 'styled-components';
 import Modal from 'react-modal';
 import fechar from '../images/fechar.png';
 import editar from '../images/editar.png';
@@ -12,43 +11,15 @@ import fundo from '../images/fundo.jpg'
 import paste from '../images/paste.png';
 import load from '../images/load.gif'
 import { getColorByType } from '../../App';
+import { TextoElegante } from '../../App';
+import { TextoElegante2 } from '../../App';
+import { TextoElegante3 } from '../../App';
+import { TextoElegante4 } from '../../App';
 
 
 
 
 
-const TextoElegante = styled.p`
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  color: #000000;
-  line-height: 1.6;
-  text-align: center;
-  letter-spacing: 0.5px;
-`;
-const TextoElegante2 = styled.p`
-  font-family: 'Roboto', sans-serif;
-  font-size: 15px;
-  color: #000000;
-  line-height: 1.6;
-  text-align: center;
-  letter-spacing: 0.5px;
-`;
-const TextoElegante3 = styled.p`
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  color: red;
-  line-height: 1.6;
-  text-align: center;
-  letter-spacing: 0.5px;
-`;
-const TextoElegante4 = styled.p`
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  color: #90EE90;
-  line-height: 1.6;
-  text-align: center;
-  letter-spacing: 0.5px;
-`;
 
 
 

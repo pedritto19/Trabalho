@@ -1,6 +1,5 @@
 import "../../styles.css"
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
 import edicao from '../images/edicao.png'
 import cadastro from '../images/cadastro.png'
 import favicon from '../images/favicon.png'
@@ -11,17 +10,7 @@ import fechar from '../images/fechar.png';
 import React, { ChangeEvent, useState, useEffect } from 'react'
 import { api } from '../../services/api';
 import { getColorByType } from "../../App";
-
-
-//constante para deixar o texto bonito
-const TextoElegante = styled.p` 
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  color: #000000;
-  line-height: 1.6;
-  text-align: center;
-  letter-spacing: 0.5px;
-`;
+import { TextoElegante } from "../../App";
 
 
 // Definição da interface para tipar os dados de um Pokémon

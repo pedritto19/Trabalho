@@ -9,27 +9,8 @@ import load from '../images/load.gif'
 import home from '../images/home.png';
 import paste from '../images/paste.png';
 import { getColorByType } from '../../App';
-
-
-
-
-const TextoElegante = styled.p`
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  color: #000000;
-  line-height: 1.6;
-  text-align: center;
-  letter-spacing: 0.5px;
-`;
-const TextoElegante2 = styled.p`
-  font-family: 'Roboto', sans-serif;
-  font-size: 15px;
-  color: #000000;
-  line-height: 1.6;
-  text-align: center;
-  letter-spacing: 0.5px;
-`;
-
+import { TextoElegante } from '../../App';
+import { TextoElegante2 } from '../../App';
 
 
 

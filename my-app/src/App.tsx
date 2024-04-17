@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import Edicao from './components/Edição/pagina_edicao';
 import fundo from './components/images/fundo.jpg'
 import topo from './components/images/topo.png'
-
+import styled from 'styled-components';
 // Definição da interface para tipar os dados de um Pokémon
 interface Pokemon {
   id: number;
@@ -16,6 +16,43 @@ interface Pokemon {
   type: string;
   imag: string; 
 }
+
+
+export const TextoElegante = styled.p`
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  color: #000000;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.5px;
+`;
+export const TextoElegante2 = styled.p`
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  color: #000000;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.5px;
+`;
+export const TextoElegante3 = styled.p`
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  color: red;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.5px;
+`;
+export const TextoElegante4 = styled.p`
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  color: #90EE90;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.5px;
+`;
+
+
+
 export function getColorByType(type: any) { //funcao para mudar a cor do texto com base no tipo selecionado
   const colors: { [key: string]: string } = {
     'Normal': "#808080",
