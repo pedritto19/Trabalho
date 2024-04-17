@@ -8,7 +8,7 @@ import { api } from '../../services/api';
 import load from '../images/load.gif'
 import home from '../images/home.png';
 import paste from '../images/paste.png';
-
+import { getColorByType } from '../../App';
 
 
 
@@ -32,30 +32,7 @@ const TextoElegante2 = styled.p`
 
 
 
-function getColorByType(type: string) { //funcao para mudar a cor do texto com base no tipo selecionado
-  const colors: { [key: string]: string } = {
-    'Normal': "#808080",
-    'Fire': "#FF0000",
-    'Water': "#0000FF",
-    'Grass': "#008000",
-    'Flying': "#ADD8E6",
-    'Fighting': "#FF8C00",
-    'Electric': "#FFFF00",
-    'Ground': "#A52A2A",
-    'Rock': "#654321",
-    'Psychic': "#FFC0CB",
-    'Ice': "#AFEEEE",
-    'Bug': "#006400",
-    'Ghost': "#800080",
-    'Steel': "#C0C0C0",
-    'Dragon': "#FF4500",
-    'Dark': "#000000",
-    'Fairy': "#FFB6C1" 
-    
-  };
 
-  return colors[type] || "#FFB6C1"; 
-}
 
 
 

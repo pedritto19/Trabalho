@@ -16,36 +16,12 @@ interface Pokemon {
   type: string;
   imag: string; 
 }
-
-function App() {
-  // Estilização global aplicada ao body do documento
-  const GlobalStyle = createGlobalStyle`
-  
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
-    background-image: url(${fundo}); 
-    background-size: cover; 
-    background-position: center; 
-    color: #333;
-  }
-  @media (max-width: 768px) {
-    body {
-      padding: 40px;
-      background-image: url(${fundo}); 
-      background-size: cover; 
-    }
-  }
-`;
-
-//atribuir aos componentes, a função ou a const
-function getColorByType(type: string) {//funcao para mudar a cor do texto com base no tipo selecionado
+export function getColorByType(type: any) { //funcao para mudar a cor do texto com base no tipo selecionado
   const colors: { [key: string]: string } = {
     'Normal': "#808080",
     'Fire': "#FF0000",
     'Water': "#0000FF",
-    'Grass': "#90EE90",
+    'Grass': "#008000",
     'Flying': "#ADD8E6",
     'Fighting': "#FF8C00",
     'Electric': "#FFFF00",
@@ -64,6 +40,34 @@ function getColorByType(type: string) {//funcao para mudar a cor do texto com ba
 
   return colors[type] || "#FFB6C1"; 
 }
+
+function App() {
+  // Estilização global aplicada ao body do documento
+  const GlobalStyle = createGlobalStyle`
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-image: url(${fundo}); 
+    background-size: cover; 
+    background-position: center; 
+    color: #333;
+  }
+  
+  @media (max-width: 768px) {
+    body {
+      padding: 40px;
+      background-image: url(${fundo}); 
+      background-size: cover; 
+    }
+  }
+`;
+
+
+
+
+
 
 
 
