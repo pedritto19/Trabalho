@@ -1,15 +1,15 @@
-import "../styles.css"
+import "../../styles.css"
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import edicao from './images/edicao.png'
-import cadastro from './images/cadastro.png'
-import favicon from './images/favicon.png'
-import pesquisa from './images/pesquisa.png'
+import edicao from '../images/edicao.png'
+import cadastro from '../images/cadastro.png'
+import favicon from '../images/favicon.png'
+import pesquisa from '../images/pesquisa.png'
 import Modal from 'react-modal';
-import fundo from './images/fundo.jpg'
-import fechar from './images/fechar.png';
+import fundo from '../images/fundo.jpg'
+import fechar from '../images/fechar.png';
 import React, { ChangeEvent, useState, useEffect } from 'react'
-import { api } from '../services/api';
+import { api } from '../../services/api';
 
 
 

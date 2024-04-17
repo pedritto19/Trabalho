@@ -1,16 +1,16 @@
 import React, { useEffect, useState , FormEvent, ChangeEvent} from 'react';
-import { api } from '../services/api';
+import { api } from '../../services/api';
 import { FaTrash } from 'react-icons/fa';
 import styled from 'styled-components';
 import Modal from 'react-modal';
-import fechar from './images/fechar.png';
-import editar from './images/editar.png';
-import Input from './input'
-import confirm from './images/confirm.png'
-import "../styles.css"
-import fundo from './images/fundo.jpg'
-import paste from './images/paste.png';
-import load from './images/load.gif'
+import fechar from '../images/fechar.png';
+import editar from '../images/editar.png';
+import Input from '../input'
+import confirm from '../images/confirm.png'
+import "../../styles.css"
+import fundo from '../images/fundo.jpg'
+import paste from '../images/paste.png';
+import load from '../images/load.gif'
 
 const TextoElegante = styled.p`
   font-family: 'Roboto', sans-serif;

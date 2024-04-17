@@ -1,11 +1,11 @@
 import "./styles.css"
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
-import Pagina from './components/pagina_cadastro';
-import Mensagem from './components/componente';
+import Pagina from './components/Cadastro/pagina_cadastro';
+import Mensagem from './components/Home/componente';
 import { api } from './services/api';
 import { useEffect, useState } from 'react';
-import Edicao from './components/pagina_edicao';
+import Edicao from './components/Edição/pagina_edicao';
 import fundo from './components/images/fundo.jpg'
 import topo from './components/images/topo.png'
 

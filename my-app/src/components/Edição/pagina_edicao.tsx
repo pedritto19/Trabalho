@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import "../styles.css"
+import "../../styles.css"
 import { useNavigate } from 'react-router-dom';
-import seta from './images/seta.png'
+import seta from '../images/seta.png'
 import styled from 'styled-components';
-import home from './images/home.png';
+import home from '../images/home.png';
 import Modal from 'react-modal';
 import PokemonList from './modaldelete';
-import fechar from './images/fechar.png';
-import editar from './images/editar.png';
-import fundo from './images/fundo.jpg'
+import fechar from '../images/fechar.png';
+import editar from '../images/editar.png';
+import fundo from '../images/fundo.jpg'
 
 
 
@@ -44,7 +44,7 @@ const Edicao: React.FC = () => {
         }
       }
 
- 
+
  
       // funcao para navegar para tela inicial
       function handleClickhome() {
