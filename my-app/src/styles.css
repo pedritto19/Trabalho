@@ -262,20 +262,6 @@
     animation: shake 0.5s; /* Executa a animação de tremor por 0.5 segundos */
   }
 
-  .modal-content2 { /* Este seletor é um exemplo, ajuste conforme a sua estrutura */
-    height: 100vh; /* 100% da altura da viewport */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .modal-content3 {
-    max-width: 90vw;
-    max-height: 90vh;
-    overflow: auto;
-    padding: 20px;
-  }
-
 
   .container2 {
     background: linear-gradient(to right, #38b3d1 0%, #4b80dd 100%);
@@ -300,23 +286,4 @@
     .container2 {
       padding: 20px; /* Ajuste para espaços menores */
     }
-  }
-
-  .modalContent {
-    overflow-y: auto; /* Habilita a rolagem vertical se necessário */
-    max-height: 100%; /* Garante que a div não exceda a altura do modal */
-    scrollbar-width: thin !important;
-    scrollbar-color: #28e7d7 #92dbd9 !important; /* Cores ajustadas para verde claro e azul claro */
-    
-  
-    
-    /* Garantindo que o texto não ultrapasse a div */
-    white-space: nowrap; /* Impede que o texto vá para a próxima linha */
-    overflow:visible; /* Esconde qualquer parte do texto que ultrapasse a div */
-    text-overflow: ellipsis; /* Adiciona "..." ao final do texto que não couber na div */
-  }
-
-
-  #modalId {
-    scroll-behavior: smooth;
   }

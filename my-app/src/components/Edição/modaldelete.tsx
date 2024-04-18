@@ -15,7 +15,7 @@ import { TextoElegante } from '../../App';
 import { TextoElegante2 } from '../../App';
 import { TextoElegante3 } from '../../App';
 import { TextoElegante4 } from '../../App';
-
+import { createGlobalStyle } from 'styled-components';
 
 
 
@@ -36,7 +36,26 @@ interface PokemonS {
   imag: string;
 }
 
+export const GlobalStyle = createGlobalStyle`
+.modalContent {
+  overflow-y: auto; /* Habilita a rolagem vertical se necessário */
+  max-height: 100%; /* Garante que a div não exceda a altura do modal */
+  scrollbar-width: thin !important;
+  scrollbar-color: #28e7d7 #92dbd9 !important; /* Cores ajustadas para verde claro e azul claro */
+  
 
+  
+  /* Garantindo que o texto não ultrapasse a div */
+  white-space: nowrap; /* Impede que o texto vá para a próxima linha */
+  overflow:visible; /* Esconde qualquer parte do texto que ultrapasse a div */
+  text-overflow: ellipsis; /* Adiciona "..." ao final do texto que não couber na div */
+}
+
+
+#modalId {
+  scroll-behavior: smooth;
+}
+`;
 const PokemonList = () => {
   
 
@@ -226,6 +245,7 @@ const PokemonList = () => {
       {pokemons.map((pokemon) => (
     <div className="pokemon-container" key={pokemon.id} >
       <div>
+        <GlobalStyle/>
     <button id='meuBotaoT' onClick={() => handleOpenModal(pokemon)}  ><img src={editar} alt='' style={{ width: '30px', height: 'auto'}} /><span className="tooltip">Editar {pokemon.name}</span></button>
             <img
             
