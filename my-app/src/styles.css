@@ -204,24 +204,6 @@
     100% {background-position: 0% 50%;}
   }
 
-  .pokemon-name {
-    background: linear-gradient(90deg, rgb(255, 255, 255), rgb(148, 147, 147)) repeat;
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: rainbow-text 5s linear infinite;
-    scrollbar-width: thin !important;
-    scrollbar-color: #28e7d7 #92dbd9 !important; /* Cores ajustadas para verde claro e azul claro */
-    
-
-    
-    /* Garantindo que o texto não ultrapasse a div */
-    white-space: nowrap; /* Impede que o texto vá para a próxima linha */
-    overflow: hidden; /* Esconde qualquer parte do texto que ultrapasse a div */
-    text-overflow: ellipsis; /* Adiciona "..." ao final do texto que não couber na div */
-  }
-
-
 
   @media (min-width: 600px) {
     .container {

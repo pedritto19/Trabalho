@@ -408,7 +408,7 @@ const PokemonList = () => {
         </div>
         </div>
         {isLoading && <div id="telaDeCarregamento"> <img src={load} style={{ width: '70px', height: 'auto' }} alt='' /> Carregando...</div>}
-        <button id="meuBotaoT"   type="submit"><img style={{ width: '30px', height: 'auto' }} alt='' src={confirm}/></button>
+        <button style={{paddingTop: 30}} id="meuBotaoT"   type="submit"><img style={{ width: '30px', height: 'auto' }} alt='' src={confirm}/></button>
 
 
 
