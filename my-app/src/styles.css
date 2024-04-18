@@ -1,19 +1,25 @@
-
-
-
-
-
-#header {
-    background: linear-gradient(to right, #13a153 0%, #5b88d6 100%);;
-    border: 2px solid #225a07;
-    border-radius: 100px; /* Isso arredonda os cantos da borda */
-    scrollbar-width: thin !important;
-    scrollbar-color: #28e7d7 #92dbd9 !important; /* Cores ajustadas para verde claro e azul claro */
+:root {
+  --scrollbar-thin: thin !important;
+  --scrollbar-color-main: #28e7d7 #92dbd9 !important;
+  --border-radius-large: 100px;
+  --transition-bg-color: background-color 0.3s ease;
 }
 
+/* Estilos comuns para headers */
+.header-common {
+  border-radius: var(--border-radius-large);
+  scrollbar-width: var(--scrollbar-thin);
+  scrollbar-color: var(--scrollbar-color-main);
+  border: 2px solid #225a07; /* Este valor pode ser ajustado individualmente se necessário */
+  transition: var(--transition-bg-color);
+}
+
+#header {
+  background: linear-gradient(to right, #13a153 0%, #5b88d6 100%);
+}
 
 .tooltip {
-  visibility:visible;
+  visibility: visible;
   width: 120px;
   background-color: black;
   color: white;
@@ -27,78 +33,63 @@
   margin-left: -60px;
 }
 
-
-
-#header2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border: 2px;
-    border-radius: 100px; /* Isso arredonda os cantos da borda */
-    width: 130px; /* Largura reduzida */
-    height: 15px; /* Altura reduzida */
-    margin: auto; /* Adiciona uma margem ao redor de toda a div */
-    padding: 20px; /* Adiciona espaço entre o conteúdo da div e suas bordas */
-    scrollbar-width: thin !important;
-    scrollbar-color: #28e7d7 #92dbd9 !important; /* Cores ajustadas para verde claro e azul claro */
+#header2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 130px;
+  height: 15px;
+  margin: auto;
+  padding: 20px;
 }
-
-
 
 .pokemon-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 200px; /* Ajuste conforme necessário */
-  min-width: 300px; /* Ajuste conforme necessário */
-  /*border: 1px solid #ccc; /* Apenas para visualização */
+  min-height: 200px;
+  min-width: 300px;
   margin: 40px;
   padding: 10px;
-
 }
 
-#header3 {
-  background: #8c9291;
-  border: 2px solid #000000;
-  border-radius: 100px; /* Isso arredonda os cantos da borda */
-  transition: background-color 0.3s ease;
-  scrollbar-width: thin !important;
-  scrollbar-color: #28e7d7 #92dbd9 !important; /* Cores ajustadas para verde claro e azul claro */
+/* Aplicando estilos específicos com a classe comum */
+#header, #header2, #header3, #header4 {
+  border: 0px solid; /* A cor da borda pode ser ajustada individualmente */
 }
-#header3:hover{
-  background-color:rgb(190, 190, 190) ;
+
+#header3, #header4 {
+  background-color: #8c9291; /* Cor padrão, ajustável individualmente */
+}
+
+#header3:hover {
+  background-color: rgb(190, 190, 190);
 }
 
 #header4 {
-  /*background-image: url('../images/fundo.png'); /* Adiciona a imagem de fundo */
-  background-color: #9aaaa1; /* Cor de fundo como fallback */
-  border: 2px solid #000000;
-  border-radius: 100px; /* Isso arredonda os cantos da borda */
-  background-size: cover; /* Garante que a imagem cubra todo o espaço disponível */
-  background-position: center; /* Centraliza a imagem no elemento */
-  scrollbar-width: thin !important;
-  scrollbar-color: #76c1b4 #a7d5d8 !important; /* Cores da barra de rolagem ajustadas */
+  background-color: #9aaaa1;
+  background-size: cover;
+  background-position: center;
 }
 
-/* Para navegadores baseados em WebKit como Chrome, Safari, etc. */
-/* Ajustando a barra de rolagem para combinar com verde claro e azul claro */
+/* Estilos para a barra de rolagem personalizada no WebKit */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #a7d5d8; /* Cor de fundo da trilha da barra de rolagem, um azul claro suave */
+  background: #a7d5d8;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #76c1b4; /* Cor do controle deslizante da barra de rolagem, um verde claro aquoso */
+  background: #76c1b4;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #5da396; /* Um tom um pouco mais escuro para o hover, para melhor interatividade */
+  background: #5da396;
 }
 
 
@@ -248,33 +239,6 @@
 }
 
 
-
-
-.beautifulInput, select.beautifulInput {
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    border-radius: 55px;
-    margin: 10px 0px;
-    width: calc(100% - 600px); /* Ajusta a largura considerando o padding */
-    box-sizing: border-box;
-
-
-    @media (max-width: 768px) {
-      font-size: 14px; 
-      padding: 8px; 
-    }
-  }
-  
-  /* Estilo para quando houver erro */
-  .beautifulInput.error, select.beautifulInput.error {
-    border-color: #ff0000;
-  }
-  
-  /* Estilo para o placeholder */
-  .beautifulInput::placeholder {
-    color: #a9a9a9;
-  }
-
   .container1 {
     background: linear-gradient(to right, #38b3d1 0%, #4b80dd 100%);
     color: white;
@@ -402,15 +366,6 @@
 
 
 
-  #div1 {
-    padding-bottom: 20px; /* Adiciona espaço dentro da Div 1, na parte inferior */
-  }
-  
-  /* ou */
-  
-  #div2 {
-    padding-top: 20px; /* Adiciona espaço dentro da Div 2, na parte superior */
-  }
 
 
   @keyframes shake {

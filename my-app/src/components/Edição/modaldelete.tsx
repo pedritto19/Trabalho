@@ -222,7 +222,7 @@ const PokemonList = () => {
 
 
   return (
-  <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', gap: '20px' }} className="container align-self-center d-flex justify-content-center" id="header4">
+  <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', gap: '20px' }} className="container" id="header4">
       {pokemons.map((pokemon) => (
     <div className="pokemon-container" key={pokemon.id} >
       <div>

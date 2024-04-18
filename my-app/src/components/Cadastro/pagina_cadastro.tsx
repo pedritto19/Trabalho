@@ -7,7 +7,7 @@ function Pagina(){
 
 
     return (
-      <div className="container align-self-center d-flex justify-content-center" id="container-home">
+      <div className="container" id="container-home">
         
         <Cadastro></Cadastro>
         <div style={{ textAlign: 'center' }}>

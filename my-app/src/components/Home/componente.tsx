@@ -11,7 +11,7 @@ import React, { ChangeEvent, useState, useEffect } from 'react'
 import { api } from '../../services/api';
 import { getColorByType } from "../../App";
 import { TextoElegante } from "../../App";
-
+import { GlobalStyle } from "../input";
 
 // Definição da interface para tipar os dados de um Pokémon
 interface Pokemon {
@@ -97,6 +97,7 @@ interface Pokemon {
               
             </button>
             </div>
+            <GlobalStyle/>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', padding: '100px', gap: '10px', marginLeft: 'auto' }}>
               
               <input   

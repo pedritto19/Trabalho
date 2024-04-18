@@ -78,6 +78,9 @@ export function getColorByType(type: any) { //funcao para mudar a cor do texto c
   return colors[type] || "#FFB6C1"; 
 }
 
+
+
+
 function App() {
   // Estilização global aplicada ao body do documento
   const GlobalStyle = createGlobalStyle`
@@ -168,7 +171,7 @@ function App() {
         display: 'flex',
         flexWrap: 'wrap', 
         justifyContent: 'center', 
-        alignItems: 'center' }} className="container align-self-center d-flex justify-content-center" id="header">
+        alignItems: 'center' }} className="container" id="header">
     
         {/* Mapeamento e exibição dos Pokémons */}
         {pokemons.map((pokemon) => (

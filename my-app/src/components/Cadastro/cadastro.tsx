@@ -3,7 +3,6 @@ import Input from '../input'
 import '../../styles.css'
 import { useNavigate } from 'react-router-dom';
 import confirm from '../images/confirm.png'
-import styled from 'styled-components';
 import { api } from '../../services/api';
 import load from '../images/load.gif'
 import home from '../images/home.png';

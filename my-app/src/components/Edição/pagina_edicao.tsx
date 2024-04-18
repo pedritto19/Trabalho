@@ -43,7 +43,7 @@ const Edicao: React.FC = () => {
 
 
 return (
-    <div style={{ textAlign: 'center' }} className="container align-self-center d-flex justify-content-center " >
+    <div style={{ textAlign: 'center' }} className="container" >
     <h3><TextoElegante>Tela de Edicao</TextoElegante></h3>
     
     <div className="menu-opcoes" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
