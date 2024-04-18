@@ -204,7 +204,7 @@ return (
           
         />
       <div className='div1'>
-      <button id='meuBotaoM' type="button" onClick={handlePaste2} className={showMessage ? 'shake-animation' : ''}>
+      <button id='meuBotaoT' type="button" onClick={handlePaste2} className={showMessage ? 'shake-animation' : ''}>
         <span className="tooltip">Colar Url</span>
         <img style={{ width: '25px', height: 'auto' }} src={paste} alt=''/>
       </button>
@@ -235,12 +235,12 @@ return (
           <div>   
             
           </div>
-        <button id="meuBotaoM"   onClick={handleClickback}> 
+        <button style={{paddingRight:80}} id="meuBotaoT"   onClick={handleClickback}> 
           <span className="tooltip">Tela de Inicio</span>
           <img src={home} style={{ width: 'auto', height: '40px'}}alt='' />
         </button>
       {isLoading && <div id="telaDeCarregamento"> <img src={load} style={{ width: '70px', height: 'auto' }} alt=''/> Carregando...</div>}
-      <button id="meuBotaoM" type="submit"  onClick={handleClick}>
+      <button style={{paddingRight: 2}} id="meuBotaoT" type="submit"  onClick={handleClick}>
         <span className="tooltip">Salvar</span>
         <img style={{ width: 'auto', height: '40px' }} src={confirm}alt=''/>
       </button>

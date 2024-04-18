@@ -187,7 +187,7 @@ function App() {
     </div>
     {/* Botão de voltar ao topo */}
     {showTopBtn && (
-        <button id='meuBotao2' onClick={goToTop} className="meuBotaoAnimado"  style={{ position: 'fixed', top: '20px', left: '48.2%'}}>
+        <button id='meuBotaoT' onClick={goToTop} className="meuBotaoAnimado"  style={{ position: 'fixed', top: '20px', left: '48.2%'}}>
           <img src={topo} alt="Voltar ao topo" style={{ width: '40px', height: 'auto' }} />
         </button>
       )}

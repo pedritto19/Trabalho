@@ -342,7 +342,7 @@ const PokemonList = () => {
             
           }
         }}><div className="modal-content3">
-        <button id="meuBotao" onClick={() => setIsModalOpen(false)}>
+        <button id="meuBotaoT" onClick={() => setIsModalOpen(false)}>
           <img src={fechar} alt='' style={{ width: '30px', height: 'auto'}} />
         </button>
         <div style={{ textAlign: 'center' }} className="container2 " >
@@ -400,7 +400,7 @@ const PokemonList = () => {
           
         />
       <div className='div1'>
-      <button id='meuBotao0' type="button" onClick={handlePaste2} className={showMessage ? 'shake-animation' : ''}>
+      <button id='meuBotaoT' type="button" onClick={handlePaste2} className={showMessage ? 'shake-animation' : ''}>
         <img style={{ width: '25px', height: 'auto' }} alt='' src={paste}/>
       </button>
 
@@ -408,7 +408,7 @@ const PokemonList = () => {
         </div>
         </div>
         {isLoading && <div id="telaDeCarregamento"> <img src={load} style={{ width: '70px', height: 'auto' }} alt='' /> Carregando...</div>}
-        <button id="meuBotao"   type="submit"><img style={{ width: '30px', height: 'auto' }} alt='' src={confirm}/></button>
+        <button id="meuBotaoT"   type="submit"><img style={{ width: '30px', height: 'auto' }} alt='' src={confirm}/></button>
 
 
 
