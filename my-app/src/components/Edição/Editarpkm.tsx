@@ -12,11 +12,6 @@ import { TextoElegante } from '../../App';
 import { TextoElegante2 } from '../../App';
 
 
-
-
-
-
-
   interface PokemonS {
     id: string;
     name: string;
@@ -24,8 +19,8 @@ import { TextoElegante2 } from '../../App';
     imag: string;
   }
   
-//todo: qual é variavel1? variavel2?
-function Editarpkm({ closeModal, variavel1, variavel2, variavel3,variavel4 }: any){
+//todo: qual é nomepkm? tipopkm?
+function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
 
    
 //todo: um tipo de erro
@@ -39,10 +34,10 @@ function Editarpkm({ closeModal, variavel1, variavel2, variavel3,variavel4 }: an
 
 
   //estados
-  const [selectedPokemon] = useState<PokemonS | null>(variavel4);
-  const [name, setName] = useState(variavel1)
-  const [type, setType] = useState(variavel2)
-  const [imag, setImag] = useState(variavel3)
+  const [selectedPokemon] = useState<PokemonS | null>(pkm);
+  const [name, setName] = useState(nomepkm)
+  const [type, setType] = useState(tipopkm)
+  const [imag, setImag] = useState(imagempkm)
   const [showMessage, setShowMessage] = useState(false);
  
  
@@ -193,6 +188,7 @@ function Editarpkm({ closeModal, variavel1, variavel2, variavel3,variavel4 }: an
           onChange={handleNameChange}
           placeholder={selectedPokemon?.name}
         />
+        {/*todo: componetizar o select */}
         <select
           name="type"
           value={type}
@@ -250,6 +246,7 @@ function Editarpkm({ closeModal, variavel1, variavel2, variavel3,variavel4 }: an
 
       </form>
       <div>
+                {/*todo: nomear melhor imports, como imag */}
         <img src={imag} style={{ width: '100px', height: 'auto'}} alt=''/>
         
         <div id='header2'>

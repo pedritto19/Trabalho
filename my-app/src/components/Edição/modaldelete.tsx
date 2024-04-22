@@ -236,10 +236,10 @@ const PokemonList = () => {
           }
         }}>  <Editarpkm
         closeModal={() => setIsModalOpen(false)}
-        variavel1={selectedPokemon?.name}
-        variavel2={selectedPokemon?.type}
-        variavel3={selectedPokemon?.imag}
-        variavel4={selectedPokemon}
+        nomepkm={selectedPokemon?.name}
+        tipopkm={selectedPokemon?.type}
+        imagempkm={selectedPokemon?.imag}
+        pkm={selectedPokemon}
       />
       </Modal>
   </div>

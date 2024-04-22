@@ -5,7 +5,6 @@ import Pagina from './components/Cadastro/pagina_cadastro';
 import Mensagem from './components/Home/componente';
 import { api } from './services/api';
 import { useEffect, useState } from 'react';
-import Edicao from './components/Edição/pagina_edicao';
 import fundo from './components/images/fundo.jpg'
 import topo from './components/images/topo.png'
 import styled from 'styled-components';
@@ -157,8 +156,6 @@ function App() {
           {/* Definição das rotas para as diferentes páginas do app */}
         <Route path="/" element={<Mensagem />} />
         <Route path="/pagina_cadastro" element={<Pagina/>} />
-        <Route path="/pagina_edicao" element={<Edicao/>} />
-        
       </Routes>
     </Router>
     </header>
