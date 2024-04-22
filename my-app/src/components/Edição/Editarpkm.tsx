@@ -1,4 +1,4 @@
-import React, { useEffect, useState , FormEvent, ChangeEvent} from 'react';
+import React, { useState , FormEvent, ChangeEvent} from 'react';
 import { api } from '../../services/api';
 import fechar from '../images/fechar.png';
 import Input from '../input'
@@ -45,30 +45,19 @@ function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
 
   // efeito de selecionar nome do pokemon
   //todo: passar via parâmetro ao abrir modal
-  useEffect(() => {
-    if (selectedPokemon?.name) {
-      setName(selectedPokemon.name);
-    }
-  }, [selectedPokemon]);
+
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value)
    
   }
   //efeito de selecionar tipo do pokemon
-  useEffect(() => {
-    if (selectedPokemon?.type) {
-      setType(selectedPokemon.type);
-    }
-  }, [selectedPokemon]);
+
   const handleTypechange = (e: ChangeEvent<HTMLSelectElement>) => {
     setType(e.target.value)
 
   }
-  useEffect(() => {
-    if (selectedPokemon?.imag) {
-      setImag(selectedPokemon.imag);
-    }
-  }, [selectedPokemon]);
+
+
 
 
   //todo: otimizar o ato de colar imagem e a mensagem de erro
