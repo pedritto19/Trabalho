@@ -24,11 +24,11 @@ import { TextoElegante2 } from '../../App';
     imag: string;
   }
   
-
+//todo: qual é variavel1? variavel2?
 function Editarpkm({ closeModal, variavel1, variavel2, variavel3,variavel4 }: any){
 
    
-
+//todo: um tipo de erro
   const [error, setError] = useState(false)
   const [error1, setError1] = useState(false)
   const [error2, setError2] = useState(false)
@@ -49,6 +49,7 @@ function Editarpkm({ closeModal, variavel1, variavel2, variavel3,variavel4 }: an
 
 
   // efeito de selecionar nome do pokemon
+  //todo: passar via parâmetro ao abrir modal
   useEffect(() => {
     if (selectedPokemon?.name) {
       setName(selectedPokemon.name);
@@ -73,6 +74,9 @@ function Editarpkm({ closeModal, variavel1, variavel2, variavel3,variavel4 }: an
       setImag(selectedPokemon.imag);
     }
   }, [selectedPokemon]);
+
+
+  //todo: otimizar o ato de colar imagem e a mensagem de erro
   const handleImagChange = (e: ChangeEvent<HTMLInputElement>) => {
     // Esta função agora é usada para prevenir a entrada de texto pela digitação
     e.preventDefault();
@@ -85,6 +89,7 @@ function Editarpkm({ closeModal, variavel1, variavel2, variavel3,variavel4 }: an
     setImag(pasteText);
   };
 // mensagem de erro da url
+//todo: melhorar visualização e inserir botão de limpar o input
   const handleImagClick = () => {
     setShowMessage(true);
     setTimeout(() => setShowMessage(false), 3000); // Desativa a mensagem após 3 segundos
@@ -99,7 +104,7 @@ function Editarpkm({ closeModal, variavel1, variavel2, variavel3,variavel4 }: an
     }
   };
 
-
+//todo: verificar se a imagem é válida (se tem output)
 
   
   const updatedPokemon = {
@@ -135,21 +140,17 @@ function Editarpkm({ closeModal, variavel1, variavel2, variavel3,variavel4 }: an
     
 
       
-      setError(false)
-      setError1(false)
-      setError2(false)
-      e.preventDefault();
+
      
       
       try {
         setIsLoading(true);
         // Simule uma operação assíncrona, como uma chamada de API
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 2000); // 2 segundos para o exemplo
+
         const response = await api.put(`/pokemonsup/${selectedPokemon?.id}`, updatedPokemon);
         if (response.status === 200) {
           console.log('Pokémon atualizado com sucesso:', response.data);
+          //todo: remover reload(), tentar outra chamada da api ou melhor
           window.location.reload(); 
           
        
@@ -157,6 +158,8 @@ function Editarpkm({ closeModal, variavel1, variavel2, variavel3,variavel4 }: an
       } catch (error) {
         console.error('Erro ao atualizar o Pokémon:', error);
       }
+      setIsLoading(false);
+
     };
 
 
@@ -169,11 +172,8 @@ function Editarpkm({ closeModal, variavel1, variavel2, variavel3,variavel4 }: an
         backgroundSize: 'cover',
         filter: 'brightness(100%)', // Ajusta o brilho da imagem
         position: 'fixed', // Faz a div se comportar como um modal
-        left: 0,
-        right: 0,
-        top: 0,
-        bottom: 0,
-        zIndex: 9999, // Garante que a div fique acima de outros elementos
+
+        zIndex: 2, // Garante que a div fique acima de outros elementos
         overflow: 'auto', // Adiciona scroll se necessário
         backgroundColor: 'rgba(0, 0, 0, 0.20)', // Fundo escurecido
       }}>

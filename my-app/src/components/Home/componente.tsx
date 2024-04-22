@@ -12,6 +12,7 @@ import { api } from '../../services/api';
 import { getColorByType } from "../../App";
 import { TextoElegante } from "../../App";
 import { GlobalStyle } from "../input";
+import Edicao from "../Edição/pagina_edicao";
 
 // Definição da interface para tipar os dados de um Pokémon
 interface Pokemon {
@@ -31,6 +32,7 @@ interface Pokemon {
       const [isModalOpen, setIsModalOpen] = useState(false);
       const [name, setName] = useState('')
       const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+      const [isModalOpen2, setIsModalOpen2] = useState(false);
 
 
 
@@ -56,7 +58,10 @@ interface Pokemon {
         setIsModalOpen(true); // Abre o modal apenas se o input não estiver vazio
       }
     };
-    
+    const handleOpenModal2 = (pokemon: any) => {
+      setIsModalOpen2(true); // Abre o modal
+    };
+  
 
 
 
@@ -65,10 +70,6 @@ interface Pokemon {
     // funcao que direciona para pagina de cadastro
     function handleClick2() {
       navigate('/pagina_cadastro'); 
-    }
-    //funcao que direciona para pagina de edicao
-    function handleClick4() {
-      navigate('/pagina_edicao'); 
     }
     //evento que atribui valor ao nome
     const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -91,7 +92,7 @@ interface Pokemon {
               <span className="tooltip">Cadastrar Pokémon</span>
             
             </button>
-            <button  id="meuBotaoT" onClick={handleClick4} style={{ padding: '0px', margin: '0 1px' }}>
+            <button  id="meuBotaoT" onClick={handleOpenModal2} style={{ padding: '0px', margin: '0 1px' }}>
               <img src={edicao} alt="Editar" style={{ width: 'auto', height: '35px' }} />
               <span className="tooltip">Editar Pokémon</span>
               
@@ -159,7 +160,31 @@ interface Pokemon {
         </Modal>
        
         
+        <Modal 
+        isOpen={isModalOpen2} // Passa a propriedade isOpen
+        onRequestClose={() => setIsModalOpen2(false)} // Opcional: Função para fechar o modal
+        id='modalId'
+        shouldCloseOnOverlayClick={false} // Impede que o modal feche ao clicar fora
+        
+        style={{
+          content: {
+            width: '1000px', // Define a largura do modal
+            height: '800px', // Define a altura do modal
+            margin: 'auto', // Centraliza o modal na tela
+            backgroundImage: `url(${fundo})`,
+            backgroundSize: 'cover',
+            filter: 'brightness(100%)', // Ajusta o brilho da imagem
+          },
+          overlay: {
+            backgroundColor: 'rgba(0, 0, 0, 0.20)',
+            
+          }
+        }}
+      >
 
+        <Edicao closeModal={() => setIsModalOpen2(false)} />
+
+      </Modal>
 
    
       

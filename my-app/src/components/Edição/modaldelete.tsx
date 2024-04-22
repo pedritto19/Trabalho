@@ -15,19 +15,13 @@ import Editarpkm from './Editarpkm';
 
 
 
-
+//todo: PokemonS e Pokemon são a mesma coisa
 
 interface Pokemon {
   id: string;
   name: string;
   type: string;
   imag: string; 
-}
-interface PokemonS {
-  id: string;
-  name: string;
-  type: string;
-  imag: string;
 }
 
 export const GlobalStyle = createGlobalStyle`
@@ -65,7 +59,7 @@ const PokemonList = () => {
 
   //estados
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPokemon, setSelectedPokemon] = useState<PokemonS | null>(null);
+  const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
   const [isModalOpen2, setIsModalOpen2] = useState(false);
   const [isModalOpen3, setIsModalOpen3] = useState(false);
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
@@ -88,7 +82,7 @@ const PokemonList = () => {
 
  // efeito para pegar pokemons do banco 
   useEffect(() => {
-    
+    //todo: usar return() do useEffect com AbortController(), ver documentação do axios
     const fetchPokemons = async () => {
       const response = await api.get('/pokemons');
       setPokemons(response.data); 
@@ -101,17 +95,17 @@ const PokemonList = () => {
     try {
       setIsLoading(true);
       // Simule uma operação assíncrona, como uma chamada de API
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 1000); // 2 segundos para o exemplo
-      await api.delete(`/pokemons/${pokemonId}`);
 
+      await api.delete(`/pokemons/${pokemonId}`);
+      //todo: só refazer a chamada de api fetchPokemons()
       setPokemons(pokemons.filter(pokemon => pokemon.id !== pokemonId));
-      //window.location.reload(); 
+      //todo: nomear melhor as modais
       setIsModalOpen2(false)
       setIsModalOpen3(true); // Abre o modal
-    } catch (error) {
+      setIsLoading(false);
 
+    } catch (error) {
+      //todo: mensagem de erro para o usuário
       console.error("Erro ao deletar o pokémon:", error);
     }
   };
@@ -148,7 +142,7 @@ const PokemonList = () => {
 
 
 
-
+{/* todo: componentizar modal */}
       <Modal isOpen={isModalOpen2} onRequestClose={() => setIsModalOpen2(false)}
       style={{
           content: {
@@ -193,7 +187,7 @@ const PokemonList = () => {
 
         </div>
       </Modal>
-
+{/* todo: componentizar modal */}
       <Modal isOpen={isModalOpen3} onRequestClose={() => setIsModalOpen3(false)}
       style={{
           content: {
@@ -225,7 +219,7 @@ const PokemonList = () => {
 
 
 
-
+{/* todo: componentizar modal */}
     <Modal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)}
         style={{
           content: {

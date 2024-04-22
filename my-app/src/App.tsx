@@ -17,7 +17,6 @@ interface Pokemon {
   imag: string; 
 }
 
-
 export const TextoElegante = styled.p`
   font-family: 'Roboto', sans-serif;
   font-size: 20px;

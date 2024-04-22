@@ -15,7 +15,7 @@ import { TextoElegante2 } from '../../App';
 
 
 
-
+//todo: ver todos da página de edição e aplicar aqui
 
 const Cadastro: React.FC = () => {
 
@@ -117,22 +117,21 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => { // submissao do 
 
     return;
   }
+  setIsLoading(true);
 
   try {
-    setIsLoading(true);
    
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000); // 2 segundos para o exemplo
+
 
     //cria im pokemon no banco
     const response = await api.post('/pkm', { name, type, imag });
     console.log('Pokemon criado:', response.data);
+    //todo: remover reload(), tentar outra chamada da api ou melhor
     window.location.reload();
- 
   } catch (error) {
     console.error("Erro ao enviar o Pokémon:", error);
   }
+  setIsLoading(false);
 
 
 
@@ -151,7 +150,7 @@ return (
       <form onSubmit={handleSubmit}>
         
         <h3 className="form-title"><TextoElegante>Cadastro</TextoElegante></h3>
-        
+        {/* todo: componentizar input */}
         <Input
           type="text"
           
