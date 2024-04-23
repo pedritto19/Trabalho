@@ -10,7 +10,7 @@ import paste from '../images/paste.png';
 import { getColorByType } from '../../App';
 import { TextoElegante } from '../../App';
 import { TextoElegante2 } from '../../App';
-
+import clear from '../images/clear.png';
 
 
 
@@ -202,6 +202,23 @@ return (
           onClick={handleImagClick}
           
         />
+              {imag && (
+        <button
+          onClick={() => setImag('')}
+          
+          style={{
+            position: 'absolute',
+            right: '551px',
+            top: '24%',
+            transform: 'translateY(-50%)',
+            cursor: 'pointer',
+            background: 'transparent',
+            border: 'none',
+          }}
+        >
+          <img style={{ width: '25px', height: 'auto' }} src={clear} alt='limpar conteudo'/>
+        </button>
+      )}
       <div className='div1'>
       <button id='meuBotaoT' type="button" onClick={handlePaste2} className={showMessage ? 'shake-animation' : ''}>
         <span className="tooltip">Colar Url</span>

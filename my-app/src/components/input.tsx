@@ -1,7 +1,6 @@
 import { MouseEventHandler,ClipboardEventHandler,ChangeEvent, FC } from 'react'
 import styled, { createGlobalStyle } from 'styled-components';
 
-
 const TextoElegante = styled.p`
   font-family: 'Roboto Mono', monospace;
   font-size: 15px; // Tamanho padrão
@@ -41,10 +40,10 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-
+//todo: criar pasta interface e guardar la todas interfaces do código
 
 interface InputProps {
-  type: 'text' | 'number' | 'email' | 'password';
+  type: 'text' | 'number' | 'email' | 'password' | 'search';
   value?: string | number;
   defaultValue?: string;
   name: string;
@@ -68,6 +67,7 @@ const Input: FC<InputProps> = ({
   onPaste,
   onClick,
 }) => {
+
   return (
     <div className="input-wrapper">
      <GlobalStyle/>
@@ -84,6 +84,7 @@ const Input: FC<InputProps> = ({
         onClick={onClick}
       />
       {error && <p className="error"><TextoElegante>Preencha o Campo!</TextoElegante></p>}
+      
     </div>
   )
 }

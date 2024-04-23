@@ -10,6 +10,7 @@ import load from '../images/load.gif'
 import { getColorByType } from '../../App';
 import { TextoElegante } from '../../App';
 import { TextoElegante2 } from '../../App';
+import clear from '../images/clear.png';
 
 
   interface PokemonS {
@@ -19,17 +20,15 @@ import { TextoElegante2 } from '../../App';
     imag: string;
   }
   
-//todo: qual é nomepkm? tipopkm?
+//todo: qual é nomepkm? tipopkm? CC
 function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
 
    
-//todo: um tipo de erro
+//todo: um tipo de erro CC
   const [error, setError] = useState(false)
-  const [error1, setError1] = useState(false)
-  const [error2, setError2] = useState(false)
   const [isLoading, setIsLoading] = useState(false);
 
-  
+
 
 
 
@@ -44,7 +43,7 @@ function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
 
 
   // efeito de selecionar nome do pokemon
-  //todo: passar via parâmetro ao abrir modal
+  //todo: passar via parâmetro ao abrir modal CC
 
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value)
@@ -60,17 +59,19 @@ function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
 
 
 
-  //todo: otimizar o ato de colar imagem e a mensagem de erro
-  const handleImagChange = (e: ChangeEvent<HTMLInputElement>) => {
-    // Esta função agora é usada para prevenir a entrada de texto pela digitação
-    e.preventDefault();
-  };
-  // colar da area de transferencia
-  const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
-    // Acessa o texto do clipboard
-    const pasteText = e.clipboardData.getData('text');
-    // Atualiza o estado com o texto colado
-    setImag(pasteText);
+  //todo: otimizar o ato de colar imagem e a mensagem de erro CC
+ const handlePastechange = (e: ChangeEvent<HTMLInputElement> | React.ClipboardEvent<HTMLInputElement>) => {
+    // Verifica se o evento é de colagem
+    if (e.type === 'paste') {
+      e.preventDefault();
+      const event = e as React.ClipboardEvent<HTMLInputElement>;
+      const pasteText = event.clipboardData.getData('text');
+      setImag(pasteText);
+    }
+    // Se não for evento de colagem (ou seja, é evento de mudança de input), prevenir a ação padrão
+    else if (e.type === 'change') {
+      e.preventDefault();
+    }
   };
 // mensagem de erro da url
 //todo: melhorar visualização e inserir botão de limpar o input
@@ -101,24 +102,18 @@ function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
     e.preventDefault()
     if (!name?.trim()) {
       setError(true)
-      setError1(false)
-      setError2(false)
       return;
     } 
   
 
       if (!type?.trim()) {
-        setError(false);
-        setError1(true);
-        setError2(false)
+        setError(true);
         return; 
       }
   
 
       if (!imag?.trim()) {
-        setError(false)
-        setError1(false)
-        setError2(true);
+        setError(true)
         return; 
       }
     
@@ -183,7 +178,7 @@ function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
           value={type}
           
           onChange={handleTypechange}
-          className={`beautifulInput ${error1 ? 'error1' : ''}`}
+          className={`beautifulInput ${error ? 'error' : 'Preencha o campo!!'}`}
           
         >
           <option value={selectedPokemon?.type} >{selectedPokemon?.type}</option>
@@ -213,13 +208,30 @@ function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
           type="text"
           value={imag}
           name="imag"
-          error={error2}
-          onChange={handleImagChange}
+          error={error}
+          onChange={handlePastechange}
           placeholder="URL da sprite"
-          onPaste={handlePaste} // Permitir apenas colar
+          onPaste={handlePastechange} // Permitir apenas colar
           onClick={handleImagClick}
           
         />
+                      {imag && (
+        <button
+          onClick={() => setImag('')}
+          style={{
+            position: 'absolute',
+            right: '28.5%',
+            top: '39.5%',
+            transform: 'translateY(-50%)',
+            cursor: 'pointer',
+            background: 'transparent',
+            border: 'none',
+          }}
+        >
+          <img style={{ width: '25px', height: 'auto' }} alt='' src={clear}/>
+        </button>
+      )}
+
       <div className='div1'>
       <button id='meuBotaoT' type="button" onClick={handlePaste2} className={showMessage ? 'shake-animation' : ''}>
         <img style={{ width: '25px', height: 'auto' }} alt='' src={paste}/>
