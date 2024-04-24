@@ -1,19 +1,8 @@
 import { MouseEventHandler,ClipboardEventHandler,ChangeEvent, FC } from 'react'
-import styled, { createGlobalStyle } from 'styled-components';
+import  { createGlobalStyle } from 'styled-components';
+import { CSSProperties } from 'react';
 
-const TextoElegante = styled.p`
-  font-family: 'Roboto Mono', monospace;
-  font-size: 15px; // Tamanho padrão
-  font-weight: 700;
-  color: #db5151;
-  line-height: 1.6;
-  text-align: center;
-  letter-spacing: 0.5px;
 
-  @media (max-width: 768px) {
-    font-size: 13px;
-  }
-`;
 export const GlobalStyle = createGlobalStyle`
   .beautifulInput, select.beautifulInput {
     padding: 10px 15px;
@@ -53,6 +42,7 @@ interface InputProps {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onPaste?: ( ClipboardEventHandler<HTMLInputElement>)
   onClick?: (MouseEventHandler<HTMLInputElement>)
+  style?:  (CSSProperties) | undefined
 }
 
 const Input: FC<InputProps> = ({
@@ -66,6 +56,7 @@ const Input: FC<InputProps> = ({
   onChange,
   onPaste,
   onClick,
+  style,
 }) => {
 
   return (
@@ -82,8 +73,9 @@ const Input: FC<InputProps> = ({
         disabled={disabled}
         onPaste={onPaste}
         onClick={onClick}
+        style={style}
       />
-      {error && <p className="error"><TextoElegante>Preencha o Campo!</TextoElegante></p>}
+     
       
     </div>
   )

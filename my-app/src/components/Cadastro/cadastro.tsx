@@ -40,8 +40,6 @@ const [name, setName] = useState('')
 const [type, setType] = useState('')
 const [imag, setImag] = useState('')
 const [error, setError] = useState(false)
-const [error1, setError1] = useState(false)
-const [error2, setError2] = useState(false)
 const [showMessage, setShowMessage] = useState(false);
 const [isLoading, setIsLoading] = useState(false);
 
@@ -87,32 +85,23 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => { // submissao do 
   e.preventDefault()
   if (!name.trim()) {
     setError(true)
-    setError1(false)
-    setError2(false)
     return;
   } 
 
     // Validação para 'type'
     if (!type.trim()) {
-      setError(false)
-      setError1(true);
-      setError2(false)
+      setError(true)
       return; 
     }
 
     // Validação para 'Imag'
     if (!imag.trim()) {
-      setError(false)
-      setError1(false)
-      setError2(true);
+      setError(true)
       return; 
     }
 
 
-    setError(false)
-    setError1(false)
-    setError2(false)
-    e.preventDefault();
+
   if (!name.trim() || !type.trim() || !imag.trim()) {
 
     return;
@@ -156,7 +145,7 @@ return (
           
           value={name}
           name="name"
-          error={error}
+          error={!name && error}
           onChange={handleNameChange}
           placeholder="Nome"
         />
@@ -165,8 +154,8 @@ return (
 
           value={type}
           onChange={handleTypechange}
-          className={`beautifulInput ${error ? 'error' : ''}`}
-          {...error1 && <span>{error1}</span>}
+          className={`beautifulInput ${!type && error ? 'error' : ''}`}
+          {...error && <span>{error}</span>}
         >
           <option value="" disabled>Escolha um tipo</option> 
           <option value="Normal">Normal</option>
@@ -189,36 +178,36 @@ return (
        
         </select>
         <div className='input-group'>
-   
-        <Input
-          
-          type="text"
-          value={imag}
-          name="imag"
-          error={error2}
-          onChange={handleImagChange}
-          placeholder="URL da sprite"
-          onPaste={handlePaste} // Permitir apenas colar
-          onClick={handleImagClick}
-          
-        />
-              {imag && (
+        <div style={{ position: 'relative', width: '737px', left: '300px' }}>
+      <Input
+        type="text"
+        value={imag}
+        name="imag"
+        error={!imag && error}
+        onChange={handleImagChange}
+        placeholder="URL da sprite"
+        onPaste={handlePaste}
+        onClick={handleImagClick}
+        style={{ width: '100%', boxSizing: 'border-box' }} // Garante que o Input ocupe todo o contêiner
+      />
+      {imag && (
         <button
           onClick={() => setImag('')}
-          
           style={{
             position: 'absolute',
-            right: '551px',
-            top: '24%',
+            right: '6px', // Ajuste conforme necessário para manter o botão dentro do Input
+            top: '52%',
             transform: 'translateY(-50%)',
             cursor: 'pointer',
             background: 'transparent',
             border: 'none',
+            padding: 0,
           }}
         >
-          <img style={{ width: '25px', height: 'auto' }} src={clear} alt='limpar conteudo'/>
+          <img style={{ width: '25px', height: 'auto' }} src={clear} alt='limpar conteúdo'/>
         </button>
       )}
+    </div>
       <div className='div1'>
       <button id='meuBotaoT' type="button" onClick={handlePaste2} className={showMessage ? 'shake-animation' : ''}>
         <span className="tooltip">Colar Url</span>

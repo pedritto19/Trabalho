@@ -168,7 +168,7 @@ function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
           defaultValue={selectedPokemon?.name}
           value={name}
           name="name"
-          error={error}
+          error={!name && error}
           onChange={handleNameChange}
           placeholder={selectedPokemon?.name}
         />
@@ -178,7 +178,7 @@ function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
           value={type}
           
           onChange={handleTypechange}
-          className={`beautifulInput ${error ? 'error' : 'Preencha o campo!!'}`}
+          className={`beautifulInput ${!type && error ? 'error' : 'Preencha o campo!!'}`}
           
         >
           <option value={selectedPokemon?.type} >{selectedPokemon?.type}</option>
@@ -202,13 +202,13 @@ function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
          
         </select>
         <div className='input-group'>
-   
+        <div style={{ position: 'relative', width: '960px', left: '2px' }}>
         <Input
           
           type="text"
           value={imag}
           name="imag"
-          error={error}
+          error={!imag && error}
           onChange={handlePastechange}
           placeholder="URL da sprite"
           onPaste={handlePastechange} // Permitir apenas colar
@@ -220,8 +220,8 @@ function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
           onClick={() => setImag('')}
           style={{
             position: 'absolute',
-            right: '28.5%',
-            top: '39.5%',
+            right: '27.5%',
+            top: '52%',
             transform: 'translateY(-50%)',
             cursor: 'pointer',
             background: 'transparent',
@@ -230,7 +230,7 @@ function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
         >
           <img style={{ width: '25px', height: 'auto' }} alt='' src={clear}/>
         </button>
-      )}
+      )}</div>
 
       <div className='div1'>
       <button id='meuBotaoT' type="button" onClick={handlePaste2} className={showMessage ? 'shake-animation' : ''}>
