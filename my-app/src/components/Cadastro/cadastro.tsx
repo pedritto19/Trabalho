@@ -53,16 +53,18 @@ const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
 const handleTypechange = (e: ChangeEvent<HTMLSelectElement>) => {
   setType(e.target.value)
 }
-const handleImagChange = (e: ChangeEvent<HTMLInputElement>) => {
-  // Esta função é usada para prevenir a entrada de texto pela digitação
-  e.preventDefault();
-};
-
-const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {//ler conteudo da area de transferencia quando clicar no botao
-  // Acessa o texto do clipboard
-  const pasteText = e.clipboardData.getData('text');
-  // Atualiza o estado com o texto colado
-  setImag(pasteText);
+const handlePastechange = (e: ChangeEvent<HTMLInputElement> | React.ClipboardEvent<HTMLInputElement>) => {
+  // Verifica se o evento é de colagem
+  if (e.type === 'paste') {
+    e.preventDefault();
+    const event = e as React.ClipboardEvent<HTMLInputElement>;
+    const pasteText = event.clipboardData.getData('text');
+    setImag(pasteText);
+  }
+  // Se não for evento de colagem (ou seja, é evento de mudança de input), prevenir a ação padrão
+  else if (e.type === 'change') {
+    e.preventDefault();
+  }
 };
 
 const handlePaste2 = async () => { //colar conteudo da area de transferencia quando clicar no botao
@@ -140,9 +142,9 @@ return (
         
         <h3 className="form-title"><TextoElegante>Cadastro</TextoElegante></h3>
         {/* todo: componentizar input */}
+        <div style={{textAlign: 'center' }}>
         <Input
           type="text"
-          
           value={name}
           name="name"
           error={!name && error}
@@ -184,9 +186,9 @@ return (
         value={imag}
         name="imag"
         error={!imag && error}
-        onChange={handleImagChange}
+        onChange={handlePastechange}
         placeholder="URL da sprite"
-        onPaste={handlePaste}
+        onPaste={handlePastechange}
         onClick={handleImagClick}
         style={{ width: '100%', boxSizing: 'border-box' }} // Garante que o Input ocupe todo o contêiner
       />
@@ -207,6 +209,8 @@ return (
           <img style={{ width: '25px', height: 'auto' }} src={clear} alt='limpar conteúdo'/>
         </button>
       )}
+
+    </div>
     </div>
       <div className='div1'>
       <button id='meuBotaoT' type="button" onClick={handlePaste2} className={showMessage ? 'shake-animation' : ''}>
