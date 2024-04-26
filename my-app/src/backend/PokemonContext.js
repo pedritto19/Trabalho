@@ -15,8 +15,12 @@ export const PokemonProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    fetchPokemons(); // Chama a função sempre que o estado 'pokemons' for alterado
-  }, [pokemons]); // Dependência 'pokemons' indica que o efeito reage às suas mudanças
+    const interval = setInterval(() => {
+      fetchPokemons(); // Agora com lógica de comparação
+    }, 86400000); // Atualiza a cada 5 segundos
+  
+    return () => clearInterval(interval); // Limpa o intervalo quando o componente é desmontado
+  }, [pokemons]); // Dependência adicionada para reagir às mudanças de 'pokemons'
 
   return (
     <PokemonContext.Provider value={{ pokemons, fetchPokemons }}>
