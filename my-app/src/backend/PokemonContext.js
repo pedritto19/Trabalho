@@ -15,16 +15,12 @@ export const PokemonProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    // Chamando 'fetchPokemons' dentro do useEffect
-    fetchPokemons();
-  }, []);
-  useEffect(() => {
-  const interval = setInterval(() => {
-    fetchPokemons(); // Sua função que busca os Pokémons
-  }, 5000); // Atualiza a cada 5 segundos
-
-  return () => clearInterval(interval); // Limpa o intervalo quando o componente é desmontado
-}, []);
+    const interval = setInterval(() => {
+      fetchPokemons(); // Agora com lógica de comparação
+    }); // Atualiza a cada 5 segundos
+  
+    return () => clearInterval(interval); // Limpa o intervalo quando o componente é desmontado
+  }, [pokemons]); // Dependência adicionada para reagir às mudanças de 'pokemons'
 
   return (
     <PokemonContext.Provider value={{ pokemons, fetchPokemons }}>

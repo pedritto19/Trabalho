@@ -129,9 +129,8 @@ function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
         const response = await api.put(`/pokemonsup/${selectedPokemon?.id}`, updatedPokemon);
         if (response.status === 200) {
           console.log('Pokémon atualizado com sucesso:', response.data);
-          //todo: remover reload(), tentar outra chamada da api ou melhor
-          window.location.reload(); 
-          
+          //todo: remover reload(), tentar outra chamada da api ou melhor CC
+          closeModal();
        
         }
       } catch (error) {
