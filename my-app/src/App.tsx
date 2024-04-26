@@ -3,18 +3,14 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 import Pagina from './components/Cadastro/pagina_cadastro';
 import Mensagem from './components/Home/componente';
-import { api } from './services/api';
 import { useEffect, useState } from 'react';
 import fundo from './components/images/fundo.jpg'
 import topo from './components/images/topo.png'
 import styled from 'styled-components';
-// Definição da interface para tipar os dados de um Pokémon
-interface Pokemon {
-  id: number;
-  name: string;
-  type: string;
-  imag: string; 
-}
+import { PokemonProvider } from "./backend/PokemonContext";
+import { usePokemons } from "./backend/PokemonContext";
+
+
 
 export const TextoElegante = styled.p`
   font-family: 'Roboto', sans-serif;
@@ -111,7 +107,7 @@ function App() {
 
 
   // Estado para armazenar a lista de Pokémons e controle do botão de voltar ao topo
-  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+  const { pokemons } = usePokemons();
   const [showTopBtn, setShowTopBtn] = useState(false);
 
   useEffect(() => {
@@ -132,21 +128,11 @@ function App() {
     });
   };
 
-  // Efeito para buscar os dados dos Pokémons da API
-  useEffect(() => {
-    const fetchPokemons = async () => {
-      const response = await api.get('/pokemons');
-      setPokemons(response.data); 
-    };
-
-    fetchPokemons();
-  }, []);
-
 
 
 
   return (
-    
+    <PokemonProvider>
     <div>
       
       <header>
@@ -170,7 +156,7 @@ function App() {
         alignItems: 'center' }} className="container" id="header">
     
         {/* Mapeamento e exibição dos Pokémons */}
-        {pokemons.map((pokemon) => (
+        {pokemons.map((pokemon: any) => (
           
           <div key={pokemon.id} className="pokemon-container"> 
             <h3  className="pokemon-name" >{pokemon.name}</h3> 
@@ -188,6 +174,7 @@ function App() {
         </button>
       )}
     </div>
+    </PokemonProvider>
   );
 }
 export default App;

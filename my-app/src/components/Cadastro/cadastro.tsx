@@ -11,7 +11,7 @@ import { getColorByType } from '../../App';
 import { TextoElegante } from '../../App';
 import { TextoElegante2 } from '../../App';
 import clear from '../images/clear.png';
-
+import { usePokemons } from '../../backend/PokemonContext';
 
 
 
@@ -42,6 +42,8 @@ const [imag, setImag] = useState('')
 const [error, setError] = useState(false)
 const [showMessage, setShowMessage] = useState(false);
 const [isLoading, setIsLoading] = useState(false);
+const {fetchPokemons } = usePokemons();
+
 
 
 
@@ -81,7 +83,6 @@ const handleImagClick = () => {
 };
 
 
-
 const handleSubmit = async (e: FormEvent<HTMLFormElement>) => { // submissao do form
   
   e.preventDefault()
@@ -116,9 +117,14 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => { // submissao do 
 
     //cria im pokemon no banco
     const response = await api.post('/pkm', { name, type, imag });
+    await fetchPokemons();
     console.log('Pokemon criado:', response.data);
     //todo: remover reload(), tentar outra chamada da api ou melhor
-    window.location.reload();
+    await fetchPokemons();
+    setName('');
+    setImag('');
+    setType('');
+    
   } catch (error) {
     console.error("Erro ao enviar o Pokémon:", error);
   }
