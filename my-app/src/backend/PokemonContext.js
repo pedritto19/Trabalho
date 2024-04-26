@@ -17,7 +17,7 @@ export const PokemonProvider = ({ children }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       fetchPokemons(); // Agora com lógica de comparação
-    }); // Atualiza a cada 5 segundos
+    }, 86400000); // Atualiza a cada 5 segundos
   
     return () => clearInterval(interval); // Limpa o intervalo quando o componente é desmontado
   }, [pokemons]); // Dependência adicionada para reagir às mudanças de 'pokemons'
