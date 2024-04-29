@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react';
+import React, {  useState} from 'react';
 import { api } from '../../services/api';
 import { FaTrash } from 'react-icons/fa';
 import Modal from 'react-modal';
@@ -11,7 +11,7 @@ import { TextoElegante3 } from '../../App';
 import { TextoElegante4 } from '../../App';
 import { createGlobalStyle } from 'styled-components';
 import Editarpkm from './Editarpkm';
-
+import { usePokemons } from '../../backend/PokemonContext';
 
 
 
@@ -62,8 +62,7 @@ const PokemonList = () => {
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
   const [isModalOpen2, setIsModalOpen2] = useState(false);
   const [isModalOpen3, setIsModalOpen3] = useState(false);
-  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
- 
+  const { pokemons } = usePokemons();
  
   //abrir modal com um pokemon
   const handleOpenModal = (pokemon: any) => {
@@ -80,25 +79,14 @@ const PokemonList = () => {
 
 
 
- // efeito para pegar pokemons do banco 
-  useEffect(() => {
-    //todo: usar return() do useEffect com AbortController(), ver documentação do axios
-    const fetchPokemons = async () => {
-      const response = await api.get('/pokemons');
-      setPokemons(response.data); 
-    };
 
-    fetchPokemons();
-  }, []);
-  // deleta pokemons do banco a partir do seu id
   const handleDelete = async (pokemonId: any) => {
     try {
       setIsLoading(true);
       // Simule uma operação assíncrona, como uma chamada de API
 
       await api.delete(`/pokemons/${pokemonId}`);
-      //todo: só refazer a chamada de api fetchPokemons()
-      setPokemons(pokemons.filter(pokemon => pokemon.id !== pokemonId));
+      //todo: só refazer a chamada de api fetchPokemons() CC
       //todo: nomear melhor as modais
       setIsModalOpen2(false)
       setIsModalOpen3(true); // Abre o modal
@@ -115,7 +103,7 @@ const PokemonList = () => {
 
   return (
   <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', gap: '20px' }} className="container" id="header4">
-      {pokemons.map((pokemon) => (
+      {pokemons.map((pokemon: any) => (
     <div className="pokemon-container" key={pokemon.id} >
       <div>
         <GlobalStyle/>
