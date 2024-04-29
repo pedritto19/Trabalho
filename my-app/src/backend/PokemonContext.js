@@ -7,7 +7,10 @@ export const usePokemons = () => useContext(PokemonContext);
 
 export const PokemonProvider = ({ children }) => {
   const [pokemons, setPokemons] = useState([]);
-  const [ apokemons,asetpokemons] = useState([]);
+  const [apokemons, setApokemons] = useState([]);
+  const arraysAreEqual = (array1, array2) => {
+    return array1.length === array2.length && array1.every((element, index) => element === array2[index]);
+  };
 
   // Definindo 'fetchPokemons' fora do useEffect para que possa ser acessada globalmente dentro deste componente
   const fetchPokemons = async () => {
@@ -17,9 +20,9 @@ export const PokemonProvider = ({ children }) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (apokemons !== pokemons) {
+      if (!arraysAreEqual(pokemons, apokemons)) {
         fetchPokemons(); 
-        asetpokemons(pokemons);
+        setApokemons(pokemons);
       }
 
       
