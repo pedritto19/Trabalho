@@ -112,17 +112,21 @@ function App() {
   useEffect(() => {
 
     window.addEventListener("scroll", () => {
-      
+      if ((window.scrollY > 20) && (window.scrollY <30)){
+        fetchPokemons();
+      }
       if (window.scrollY > 0) {
         setShowTopBtn(true); // Mostrar botão 
       } else {
         setShowTopBtn(false); // Esconder botão
       }
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Função para voltar ao topo
   const goToTop = () => {
+    fetchPokemons();
     window.scrollTo({
       top: 0,
       behavior: 'smooth' // Rolagem suave
@@ -135,7 +139,7 @@ function App() {
 
 
   useEffect(()=> {
-    if ((pokemons.length === 0)) {
+    if ((pokemons.length === 0) ) {
       fetchPokemons();
       
     }
