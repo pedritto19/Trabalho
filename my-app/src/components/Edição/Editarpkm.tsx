@@ -11,7 +11,7 @@ import { getColorByType } from '../../App';
 import { TextoElegante } from '../../App';
 import { TextoElegante2 } from '../../App';
 import clear from '../images/clear.png';
-
+import { usePokemons } from '../../backend/PokemonContext';
 
   interface PokemonS {
     id: string;
@@ -130,8 +130,9 @@ function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
         if (response.status === 200) {
           console.log('Pokémon atualizado com sucesso:', response.data);
           //todo: remover reload(), tentar outra chamada da api ou melhor CC
+          fetchPokemons()
           closeModal();
-       
+          
         }
       } catch (error) {
         console.error('Erro ao atualizar o Pokémon:', error);
@@ -139,7 +140,7 @@ function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
       setIsLoading(false);
 
     };
-
+const {fetchPokemons} = usePokemons()
 
     return (
       <div style={{ 

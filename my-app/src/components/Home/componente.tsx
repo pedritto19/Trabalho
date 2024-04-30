@@ -7,20 +7,15 @@ import pesquisa from '../images/pesquisa.png'
 import Modal from 'react-modal';
 import fundo from '../images/fundo.jpg'
 import fechar from '../images/fechar.png';
-import React, { ChangeEvent, useState, useEffect } from 'react'
-import { api } from '../../services/api';
+import React, { ChangeEvent, useState } from 'react'
 import { getColorByType } from "../../App";
 import { TextoElegante } from "../../App";
 import { GlobalStyle } from "../input";
 import Edicao from "../Edição/pagina_edicao";
+import { usePokemons } from "../../backend/PokemonContext";
 
 // Definição da interface para tipar os dados de um Pokémon
-interface Pokemon {
-  id: string;
-  name: string;
-  type: string;
-  imag: string; 
-}
+
 
 
 
@@ -31,25 +26,15 @@ interface Pokemon {
       //estados
       const [isModalOpen, setIsModalOpen] = useState(false);
       const [name, setName] = useState('')
-      const [pokemons, setPokemons] = useState<Pokemon[]>([]);
       const [isModalOpen2, setIsModalOpen2] = useState(false);
+      const {pokemons,fetchPokemons } = usePokemons();
 
 
 
 
-      //efeito para ler pokemons do banco
-      useEffect(() => {
-    
-        const fetchPokemons = async () => {
-          const response = await api.get('/pokemons');
-          setPokemons(response.data); 
-        };
-    
-        fetchPokemons();
-      }, []);
     
       // Encontrar o Pokémon pelo nome
-    const pokemon = pokemons.find(p => p.name.toLowerCase() === name.toLowerCase());
+    const pokemon = pokemons.find((p: any)  => p.name.toLowerCase() === name.toLowerCase());
     
 
     // verifica o botao de pesquisa e abre o modal caso tenha conteúdo
@@ -60,9 +45,13 @@ interface Pokemon {
     };
     const handleOpenModal2 = (pokemon: any) => {
       setIsModalOpen2(true); // Abre o modal
+      fetchPokemons();
     };
   
-
+    const handleclosemodal2=() =>{
+      setIsModalOpen2(false);
+      fetchPokemons();
+    };
 
 
     let navigate = useNavigate();
@@ -76,7 +65,7 @@ interface Pokemon {
       setName(e.target.value)
     }
     
-
+    
 
 
 
@@ -111,7 +100,7 @@ interface Pokemon {
           style={{ padding: '10px', width: '200px' }}
           list="pokemon-options" />
           <datalist id="pokemon-options">
-          {pokemons.map((pokemon) => (
+          {pokemons.map((pokemon: any) => (
              
            
            
@@ -182,7 +171,9 @@ interface Pokemon {
         }}
       >
 
-        <Edicao closeModal={() => setIsModalOpen2(false)} />
+        <Edicao 
+       
+        closeModal={() => handleclosemodal2()} />
 
       </Modal>
 

@@ -8,7 +8,7 @@ import { TextoElegante } from '../../App';
 
 
 
-function Edicao({ closeModal}: any){
+function Edicao({closeModal}: any ){
 
     
      // definicao de estado para o modal

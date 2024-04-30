@@ -63,7 +63,7 @@ const PokemonList = () => {
   const [isModalOpen2, setIsModalOpen2] = useState(false);
   const [isModalOpen3, setIsModalOpen3] = useState(false);
   const { pokemons } = usePokemons();
- 
+  const {fetchPokemons } = usePokemons();
   //abrir modal com um pokemon
   const handleOpenModal = (pokemon: any) => {
     setSelectedPokemon(pokemon); // Armazena o Pokémon selecionado
@@ -86,11 +86,14 @@ const PokemonList = () => {
       // Simule uma operação assíncrona, como uma chamada de API
 
       await api.delete(`/pokemons/${pokemonId}`);
+      
       //todo: só refazer a chamada de api fetchPokemons() CC
       //todo: nomear melhor as modais
       setIsModalOpen2(false)
       setIsModalOpen3(true); // Abre o modal
+      fetchPokemons();
       setIsLoading(false);
+      
 
     } catch (error) {
       //todo: mensagem de erro para o usuário

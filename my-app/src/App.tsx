@@ -107,13 +107,14 @@ function App() {
 
 
   // Estado para armazenar a lista de Pokémons e controle do botão de voltar ao topo
-  const { pokemons } = usePokemons();
   const [showTopBtn, setShowTopBtn] = useState(false);
-
+  const { pokemons, fetchPokemons } = usePokemons();
   useEffect(() => {
+
     window.addEventListener("scroll", () => {
+      
       if (window.scrollY > 0) {
-        setShowTopBtn(true); // Mostrar botão se a rolagem for maior que 300px
+        setShowTopBtn(true); // Mostrar botão 
       } else {
         setShowTopBtn(false); // Esconder botão
       }
@@ -131,6 +132,16 @@ function App() {
 
 
 
+
+
+  useEffect(()=> {
+    if ((pokemons.length === 0)) {
+      fetchPokemons();
+      
+    }
+  })
+
+
   return (
     <PokemonProvider>
     <div>
@@ -141,7 +152,7 @@ function App() {
       <Routes>
           {/* Definição das rotas para as diferentes páginas do app */}
         <Route path="/" element={<Mensagem />} />
-        <Route path="/pagina_cadastro" element={<Pagina/>} />
+        <Route path="/pagina_cadastro" element={<Pagina />}  />
       </Routes>
     </Router>
     </header>
