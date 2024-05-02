@@ -16,6 +16,16 @@ import clear from '../images/clear.png';
 
 //todo: ver todos da página de edição e aplicar aqui
 
+export function isValidUrl(lnk:string) {
+  try {
+    new URL(lnk);
+    console.log('valido')
+    return true;
+  } catch (e) {
+    console.log('ivalido')
+    return false;
+  }
+}
 const Cadastro: React.FC = () => {
 
 
@@ -96,7 +106,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => { // submissao do 
     }
 
     // Validação para 'Imag'
-    if (!imag.trim()) {
+    if (!imag.trim() || !validade) {
       setError(true)
       return; 
     }
@@ -135,6 +145,9 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => { // submissao do 
 
 
 
+
+const validade = isValidUrl(imag)
+console.log(validade)
 
 
 return (
@@ -187,7 +200,8 @@ return (
         type="text"
         value={imag}
         name="imag"
-        error={!imag && error}
+        error={((!validade && error) ||(!imag && error))}
+        
         onChange={handlePastechange}
         placeholder="URL da sprite"
         onPaste={handlePastechange}

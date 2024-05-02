@@ -60,8 +60,8 @@ const PokemonList = () => {
   //estados
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
-  const [isModalOpen2, setIsModalOpen2] = useState(false);
-  const [isModalOpen3, setIsModalOpen3] = useState(false);
+  const [isModalConfirmOpen, setIsOpenModalConfirm] = useState(false);
+  const [isModalOpenfeedback, setIsModalOpenfeedback] = useState(false);
   const { pokemons } = usePokemons();
   const {fetchPokemons } = usePokemons();
   //abrir modal com um pokemon
@@ -72,7 +72,7 @@ const PokemonList = () => {
   //abrir segundo modal com pokemon
   const handleOpenModal2 = (pokemon: any) => {
     setSelectedPokemon(pokemon); // Armazena o Pokémon selecionado
-    setIsModalOpen2(true); // Abre o modal
+    setIsOpenModalConfirm(true); // Abre o modal
   };
 
 
@@ -89,8 +89,8 @@ const PokemonList = () => {
       
       //todo: só refazer a chamada de api fetchPokemons() CC
       //todo: nomear melhor as modais
-      setIsModalOpen2(false)
-      setIsModalOpen3(true); // Abre o modal
+      setIsOpenModalConfirm(false)
+      setIsModalOpenfeedback(true); // Abre o modal
       fetchPokemons();
       setIsLoading(false);
       
@@ -134,7 +134,7 @@ const PokemonList = () => {
 
 
 {/* todo: componentizar modal */}
-      <Modal isOpen={isModalOpen2} onRequestClose={() => setIsModalOpen2(false)}
+      <Modal isOpen={isModalConfirmOpen} onRequestClose={() => setIsOpenModalConfirm(false)}
       style={{
           content: {
             width: '328px', // Define a largura do modal
@@ -171,7 +171,7 @@ const PokemonList = () => {
           <button id='meuBotaoT' style={{ margin: '10px' }} onClick={() => handleDelete(selectedPokemon?.id)}>
             <TextoElegante3>SIM</TextoElegante3>
           </button>
-          <button id='meuBotaoT' style={{ margin: '10px' }} onClick={() => setIsModalOpen2(false)}> 
+          <button id='meuBotaoT' style={{ margin: '10px' }} onClick={() => setIsOpenModalConfirm(false)}> 
             <TextoElegante>NÃO</TextoElegante>
           </button>
         </div>
@@ -179,7 +179,7 @@ const PokemonList = () => {
         </div>
       </Modal>
 {/* todo: componentizar modal */}
-      <Modal isOpen={isModalOpen3} onRequestClose={() => setIsModalOpen3(false)}
+      <Modal isOpen={isModalOpenfeedback} onRequestClose={() => setIsModalOpenfeedback(false)}
       style={{
           content: {
             width: '328px', // Define a largura do modal
@@ -199,7 +199,7 @@ const PokemonList = () => {
           <div style={{ textAlign: 'center' }}><TextoElegante>{selectedPokemon?.name} Deletado com sucesso!!</TextoElegante></div>
 
           <div style={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>
-          <button id='meuBotaoT' style={{ margin: '10px' }} onClick={() => setIsModalOpen3(false)}> 
+          <button id='meuBotaoT' style={{ margin: '10px' }} onClick={() => setIsModalOpenfeedback(false)}> 
             <TextoElegante4>OK</TextoElegante4>
           </button>
           </div>

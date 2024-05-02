@@ -12,6 +12,7 @@ import { TextoElegante } from '../../App';
 import { TextoElegante2 } from '../../App';
 import clear from '../images/clear.png';
 import { usePokemons } from '../../backend/PokemonContext';
+import { isValidUrl } from '../Cadastro/cadastro';
 
   interface PokemonS {
     id: string;
@@ -112,11 +113,11 @@ function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
       }
   
 
-      if (!imag?.trim()) {
-        setError(true)
-        return; 
-      }
-    
+    // Validação para 'Imag'
+    if (!imag.trim() || !validade) {
+      setError(true)
+      return; 
+    }
 
       
 
@@ -141,7 +142,7 @@ function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
 
     };
 const {fetchPokemons} = usePokemons()
-
+const validade = isValidUrl(imag)
     return (
       <div style={{ 
         width: '1000px', // Define a largura
@@ -208,7 +209,7 @@ const {fetchPokemons} = usePokemons()
           type="text"
           value={imag}
           name="imag"
-          error={!imag && error}
+          error={((!validade && error) ||(!imag && error))}
           onChange={handlePastechange}
           placeholder="URL da sprite"
           onPaste={handlePastechange} // Permitir apenas colar
