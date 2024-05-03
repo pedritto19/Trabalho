@@ -1,18 +1,15 @@
 import React, {  useState} from 'react';
-import { api } from '../../services/api';
 import { FaTrash } from 'react-icons/fa';
 import Modal from 'react-modal';
 import editar from '../images/editar.png';
 import "../../styles.css"
 import fundo from '../images/fundo.jpg'
-import load from '../images/load.gif'
 import { TextoElegante } from '../../App';
-import { TextoElegante3 } from '../../App';
 import { TextoElegante4 } from '../../App';
 import { createGlobalStyle } from 'styled-components';
 import Editarpkm from './Editarpkm';
 import { usePokemons } from '../../backend/PokemonContext';
-
+import Modalconfirm from './Modalconfirm';
 
 
 //todo: PokemonS e Pokemon são a mesma coisa
@@ -51,7 +48,6 @@ const PokemonList = () => {
 
 
 
-  const [isLoading, setIsLoading] = useState(false);
 
   
 
@@ -63,7 +59,6 @@ const PokemonList = () => {
   const [isModalConfirmOpen, setIsOpenModalConfirm] = useState(false);
   const [isModalOpenfeedback, setIsModalOpenfeedback] = useState(false);
   const { pokemons } = usePokemons();
-  const {fetchPokemons } = usePokemons();
   //abrir modal com um pokemon
   const handleOpenModal = (pokemon: any) => {
     setSelectedPokemon(pokemon); // Armazena o Pokémon selecionado
@@ -80,26 +75,7 @@ const PokemonList = () => {
 
 
 
-  const handleDelete = async (pokemonId: any) => {
-    try {
-      setIsLoading(true);
-      // Simule uma operação assíncrona, como uma chamada de API
 
-      await api.delete(`/pokemons/${pokemonId}`);
-      
-      //todo: só refazer a chamada de api fetchPokemons() CC
-      //todo: nomear melhor as modais
-      setIsOpenModalConfirm(false)
-      setIsModalOpenfeedback(true); // Abre o modal
-      fetchPokemons();
-      setIsLoading(false);
-      
-
-    } catch (error) {
-      //todo: mensagem de erro para o usuário
-      console.error("Erro ao deletar o pokémon:", error);
-    }
-  };
 
   
 
@@ -151,33 +127,17 @@ const PokemonList = () => {
           }
         }}> 
         
-        <div style={{ 
-    width: '328px', // Largura fixa
-    height: '262px', // Altura fixa
-    margin: 'auto', // Centraliza a div
-    display: 'flex', // Utiliza flexbox para organizar o conteúdo
-    flexDirection: 'column', // Organiza os filhos em coluna
-    justifyContent: 'center', // Centraliza os itens na vertical
-    alignItems: 'center', // Centraliza os itens na horizontal
-    textAlign: 'center', // Centraliza o texto
-    backgroundColor: '#38b3d1', // Um exemplo de cor de fundo
-}}>
-         <div style={{ textAlign: 'center' }}><TextoElegante>Deseja realmente deletar {selectedPokemon?.name}?</TextoElegante></div>
-        <div>
-          <img src={selectedPokemon?.imag} style={{ width: '100px', height: 'auto', display: 'block', margin: 'auto',objectFit: 'cover', maxHeight: '150px' }} alt=''/>
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>
-        {isLoading && <div id="telaDeCarregamento"> <img src={load} style={{ width: '70px', height: 'auto' }} alt=''/> Carregando...</div>}
-          <button id='meuBotaoT' style={{ margin: '10px' }} onClick={() => handleDelete(selectedPokemon?.id)}>
-            <TextoElegante3>SIM</TextoElegante3>
-          </button>
-          <button id='meuBotaoT' style={{ margin: '10px' }} onClick={() => setIsOpenModalConfirm(false)}> 
-            <TextoElegante>NÃO</TextoElegante>
-          </button>
-        </div>
+        <Modalconfirm
+        closeModal={()=>setIsOpenModalConfirm(false)}
 
-        </div>
+        selectedPokemon={selectedPokemon}
+
+        openModal={()=>setIsModalOpenfeedback(true)}
+        ></Modalconfirm>
       </Modal>
+
+
+
 {/* todo: componentizar modal */}
       <Modal isOpen={isModalOpenfeedback} onRequestClose={() => setIsModalOpenfeedback(false)}
       style={{
@@ -210,7 +170,7 @@ const PokemonList = () => {
 
 
 
-{/* todo: componentizar modal */}
+
     <Modal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)}
         style={{
           content: {

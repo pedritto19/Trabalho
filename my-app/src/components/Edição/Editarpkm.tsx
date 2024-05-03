@@ -90,7 +90,7 @@ function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
     }
   };
 
-//todo: verificar se a imagem é válida (se tem output)
+//todo: verificar se a imagem é válida (se tem output) CC
 
   
   const updatedPokemon = {
