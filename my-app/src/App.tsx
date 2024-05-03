@@ -112,7 +112,7 @@ function App() {
   useEffect(() => {
 
     window.addEventListener("scroll", () => {
-      if ((window.scrollY > 20) && (window.scrollY <30)){
+      if ((window.scrollY > 20) && (window.scrollY <60)){
         fetchPokemons();
       }
       if (window.scrollY > 0) {
