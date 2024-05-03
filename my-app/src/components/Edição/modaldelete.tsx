@@ -109,7 +109,6 @@ const PokemonList = () => {
 
 
 
-{/* todo: componentizar modal */}
       <Modal isOpen={isModalConfirmOpen} onRequestClose={() => setIsOpenModalConfirm(false)}
       style={{
           content: {
