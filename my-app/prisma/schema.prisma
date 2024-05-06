@@ -13,11 +13,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Type {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  name String @unique
+
+  @@map("Types")
+}
  
 model Pokemon{
   id String @id @default(auto()) @map("_id") @db.ObjectId
   name String
   type String
+  type1 String?
   imag String
 
   @@map("Pokemons")

@@ -13,7 +13,7 @@ import { TextoElegante2 } from '../../App';
 import clear from '../images/clear.png';
 import { usePokemons } from '../../backend/PokemonContext';
 import { isValidUrl } from '../Cadastro/cadastro';
-
+import SelectType from '../SelectType';
   interface PokemonS {
     id: string;
     name: string;
@@ -174,34 +174,11 @@ const validade = isValidUrl(imag)
           placeholder={selectedPokemon?.name}
         />
         {/*todo: componetizar o select */}
-        <select
-          name="type"
-          value={type}
-          
-          onChange={handleTypechange}
-          className={`beautifulInput ${!type && error ? 'error' : 'Preencha o campo!!'}`}
-          
-        >
-          <option value={selectedPokemon?.type} >{selectedPokemon?.type}</option>
-          <option value="Normal">Normal</option>
-          <option value="Fire">Fire</option>
-          <option value="Water">Water</option>
-          <option value="Grass">Grass</option>
-          <option value="Flying">Flying</option>
-          <option value="Fighting">Fighting</option>
-          <option value="Electric">Electric</option>
-          <option value="Ground">Ground</option>
-          <option value="Rock">Rock</option>
-          <option value="Psychic">Psychic</option>
-          <option value="Ice">Ice</option>
-          <option value="Bug">Bug</option>
-          <option value="Ghost">Ghost</option>
-          <option value="Steel">Steel</option>
-          <option value="Dragon">Dragon</option>
-          <option value="Dark">Dark</option>
-          <option value="Fairy">Fairy</option>
-         
-        </select>
+        <SelectType
+        value={type}
+        onChange={handleTypechange}
+        error={error}
+      />
         <div className='input-group'>
         <div style={{ position: 'relative', width: '960px', left: '2px' }}>
         <Input
@@ -249,7 +226,7 @@ const validade = isValidUrl(imag)
       </form>
       <div>
                 {/*todo: nomear melhor imports, como imag */}
-        <img src={imag} style={{ width: '100px', height: 'auto'}} alt=''/>
+        <img src={imag} style={{ width: '100px', height: 'auto'}} alt='spritepokemon'/>
         
         <div id='header2'>
         <TextoElegante2>{name}</TextoElegante2>

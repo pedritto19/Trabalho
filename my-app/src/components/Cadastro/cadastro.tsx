@@ -11,7 +11,7 @@ import { getColorByType } from '../../App';
 import { TextoElegante } from '../../App';
 import { TextoElegante2 } from '../../App';
 import clear from '../images/clear.png';
-
+import SelectType from '../SelectType';
 
 
 //todo: ver todos da página de edição e aplicar aqui
@@ -166,34 +166,11 @@ return (
           onChange={handleNameChange}
           placeholder="Nome"
         />
-        <select
-          name="type"
-
-          value={type}
-          onChange={handleTypechange}
-          className={`beautifulInput ${!type && error ? 'error' : ''}`}
-          {...error && <span>{error}</span>}
-        >
-          <option value="" disabled>Escolha um tipo</option> 
-          <option value="Normal">Normal</option>
-          <option value="Fire">Fire</option>
-          <option value="Water">Water</option>
-          <option value="Grass">Grass</option>
-          <option value="Flying">Flying</option>
-          <option value="Fighting">Fighting</option>
-          <option value="Electric">Electric</option>
-          <option value="Ground">Ground</option>
-          <option value="Rock">Rock</option>
-          <option value="Psychic">Psychic</option>
-          <option value="Ice">Ice</option>
-          <option value="Bug">Bug</option>
-          <option value="Ghost">Ghost</option>
-          <option value="Steel">Steel</option>
-          <option value="Dragon">Dragon</option>
-          <option value="Dark">Dark</option>
-          <option value="Fairy">Fairy</option>
-       
-        </select>
+      <SelectType
+        value={type}
+        onChange={handleTypechange}
+        error={error}
+      />
         <div className='input-group'>
         <div style={{ position: 'relative', width: '737px', left: '300px' }}>
       <Input

@@ -4,7 +4,7 @@ import {FastifyInstance, FastifyPluginOptions, FastifyRequest, FastifyReply} fro
 import { Createpkmcontroler } from "../controller/Createpkmcontroler";
 import { DeletePokemonService } from '../services/DeletePokemonService';
 import { PokemonService } from '../services/PokemonService';
-
+import { showTypeService } from '../services/showTypeService';
 
 
 
@@ -23,6 +23,17 @@ export async function routes(fastify: FastifyInstance, options: FastifyPluginOpt
     fastify.get("/pokemons", async (request: FastifyRequest, reply: FastifyReply) => {
         const listPokemonsController = new showpkm();
         return listPokemonsController.handle(request, reply);
+    });
+    fastify.get("/types", async (request: FastifyRequest, reply: FastifyReply) => {
+        try {
+          // Cria uma instância de showTypeService
+          const service = new showTypeService();
+          const types = await service.listypes();
+          reply.send(types);
+        } catch (error) {
+          console.error("Failed to get types:", error);
+          reply.status(500).send({ error: "Erro ao buscar os tipos" });
+        }
     });
     fastify.delete("/pokemons/:id", async (request: FastifyRequest<{ Params: Params }>, reply: FastifyReply) => {
         try {
