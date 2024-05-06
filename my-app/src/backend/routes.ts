@@ -24,17 +24,16 @@ export async function routes(fastify: FastifyInstance, options: FastifyPluginOpt
         const listPokemonsController = new showpkm();
         return listPokemonsController.handle(request, reply);
     });
-    fastify.get("/types", async (request: FastifyRequest, reply: FastifyReply) => {
+    fastify.get("/types", async (request, reply) => {
         try {
-          // Cria uma instância de showTypeService
           const service = new showTypeService();
           const types = await service.listypes();
           reply.send(types);
         } catch (error) {
           console.error("Failed to get types:", error);
-          reply.status(500).send({ error: "Erro ao buscar os tipos" });
+          reply.status(500).send({ error: "Erro ao buscar os tipos", details: error });
         }
-    });
+      });
     fastify.delete("/pokemons/:id", async (request: FastifyRequest<{ Params: Params }>, reply: FastifyReply) => {
         try {
             const { id } = request.params;
