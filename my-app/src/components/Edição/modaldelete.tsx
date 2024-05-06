@@ -5,12 +5,11 @@ import editar from '../images/editar.png';
 import "../../styles.css"
 import fundo from '../images/fundo.jpg'
 import { TextoElegante } from '../../App';
-import { TextoElegante4 } from '../../App';
 import { createGlobalStyle } from 'styled-components';
 import Editarpkm from './Editarpkm';
 import { usePokemons } from '../../backend/PokemonContext';
 import Modalconfirm from './Modalconfirm';
-
+import Modalfeedback from './Modalfeedback';
 
 //todo: PokemonS e Pokemon são a mesma coisa
 
@@ -154,14 +153,12 @@ const PokemonList = () => {
             
           }
         }}>
+          <Modalfeedback
+          closeModal={()=>setIsModalOpenfeedback(false)}
 
-          <div style={{ textAlign: 'center' }}><TextoElegante>{selectedPokemon?.name} Deletado com sucesso!!</TextoElegante></div>
+          selectedPokemon={selectedPokemon}
+          ></Modalfeedback>
 
-          <div style={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>
-          <button id='meuBotaoT' style={{ margin: '10px' }} onClick={() => setIsModalOpenfeedback(false)}> 
-            <TextoElegante4>OK</TextoElegante4>
-          </button>
-          </div>
 
 
              </Modal>
