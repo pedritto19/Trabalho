@@ -4,7 +4,6 @@ import {FastifyInstance, FastifyPluginOptions, FastifyRequest, FastifyReply} fro
 import { Createpkmcontroler } from "../controller/Createpkmcontroler";
 import { DeletePokemonService } from '../services/DeletePokemonService';
 import { PokemonService } from '../services/PokemonService';
-import { showTypeService } from '../services/showTypeService';
 import { showtype } from '../controller/showtype';
 
 
@@ -26,7 +25,7 @@ export async function routes(fastify: FastifyInstance, options: FastifyPluginOpt
         const listPokemonsController = new showpkm();
         return listPokemonsController.handle(request, reply);
     });
-    fastify.get("/pokemons", async (request: FastifyRequest, reply: FastifyReply) => {
+    fastify.get("/types", async (request: FastifyRequest, reply: FastifyReply) => {
         const listypesController = new showtype();
         return listypesController.handle(request, reply);
     });
