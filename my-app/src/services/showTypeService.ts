@@ -1,8 +1,9 @@
 import prismaClient from "../prisma";
+import prisma from "../prisma";
 
 export class showTypeService {
     async listAlltype() {
-        const showtype = await prismaClient.types.findMany({
+        const showtype = await prisma.types.findMany({
 
         })
         return showtype;
