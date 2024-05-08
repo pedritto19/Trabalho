@@ -14,10 +14,11 @@ datasource db {
 }
 
 model Type {
-  id   String @id @default(auto()) @map("_id") @db.ObjectId
-  name String 
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  name  String
+  // Inclua outros campos conforme necessário
 
-  @@map("Types")
+  @@map("Types") // Opcional: Especifica o nome da coleção no MongoDB se você quiser que seja diferente do nome do modelo
 }
  
 model Pokemon{
