@@ -1,4 +1,3 @@
-import prismaClient from "../prisma";
 import prisma from "../prisma";
 
 export class showTypeService {

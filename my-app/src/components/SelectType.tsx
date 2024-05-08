@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { api } from '../services/api';
+
 const SelectType = ({ value, onChange, error, ...props }: any) => {
 
     const [types, setTypes] = useState([]);
@@ -28,8 +29,8 @@ const SelectType = ({ value, onChange, error, ...props }: any) => {
         {...props}
       >
         <option value="" disabled>Escolha um tipo</option>
-        {types.map(type => (
-          <option key={type} value={type}>{type}</option>
+        {types.map((type: any) => (
+          <option key={type.id} value={type.name}>{type.name}</option>
         ))}
       </select>
       {error && <span>{error}</span>}
