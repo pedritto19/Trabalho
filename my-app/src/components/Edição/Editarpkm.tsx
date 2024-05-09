@@ -18,11 +18,12 @@ import SelectType from '../SelectType';
     id: string;
     name: string;
     type: string;
+    type1: string;
     imag: string;
   }
   
 //todo: qual é nomepkm? tipopkm? CC
-function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
+function Editarpkm({ closeModal, nomepkm, tipopkm,tipopkm1, imagempkm,pkm }: any){
 
    
 //todo: um tipo de erro CC
@@ -37,11 +38,10 @@ function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
   const [selectedPokemon] = useState<PokemonS | null>(pkm);
   const [name, setName] = useState(nomepkm)
   const [type, setType] = useState(tipopkm)
-  const [type1, setType1] = useState('')
+  const [type1, setType1] = useState(tipopkm1)
   const [imag, setImag] = useState(imagempkm)
   const [showMessage, setShowMessage] = useState(false);
- 
- 
+
 
 
   // efeito de selecionar nome do pokemon
@@ -100,6 +100,7 @@ function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
   const updatedPokemon = {
     name: name || selectedPokemon?.name, 
     type: type || selectedPokemon?.type,
+    type1: type1 || selectedPokemon?.type1,
     imag: imag || selectedPokemon?.imag,
   };
   // submissao do formulario

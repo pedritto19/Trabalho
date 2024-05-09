@@ -17,6 +17,7 @@ interface Pokemon {
   id: string;
   name: string;
   type: string;
+  type1: string;
   imag: string; 
 }
 
@@ -185,6 +186,7 @@ const PokemonList = () => {
         closeModal={() => setIsModalOpen(false)}
         nomepkm={selectedPokemon?.name}
         tipopkm={selectedPokemon?.type}
+        tipopkm1={selectedPokemon?.type1}
         imagempkm={selectedPokemon?.imag}
         pkm={selectedPokemon}
       />
