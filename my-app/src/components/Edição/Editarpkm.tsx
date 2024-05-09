@@ -37,6 +37,7 @@ function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
   const [selectedPokemon] = useState<PokemonS | null>(pkm);
   const [name, setName] = useState(nomepkm)
   const [type, setType] = useState(tipopkm)
+  const [type1, setType1] = useState('')
   const [imag, setImag] = useState(imagempkm)
   const [showMessage, setShowMessage] = useState(false);
  
@@ -55,6 +56,9 @@ function Editarpkm({ closeModal, nomepkm, tipopkm, imagempkm,pkm }: any){
   const handleTypechange = (e: ChangeEvent<HTMLSelectElement>) => {
     setType(e.target.value)
 
+  }
+  const handleType1change = (e: ChangeEvent<HTMLSelectElement>) => {
+    setType1(e.target.value)
   }
 
 
@@ -179,6 +183,11 @@ const validade = isValidUrl(imag)
         onChange={handleTypechange}
         error={error}
       />
+      <SelectType
+        value={type1}
+        onChange={handleType1change}
+        error={false}
+      />
         <div className='input-group'>
         <div style={{ position: 'relative', width: '960px', left: '2px' }}>
         <Input
@@ -233,6 +242,9 @@ const validade = isValidUrl(imag)
         </div>
         <div id='header2'>
         <TextoElegante2 style={{color: getColorByType(type)}}> {type} </TextoElegante2>
+        </div>
+        <div id='header2' style={{paddingTop: 0}}>
+        <TextoElegante2 style={{color: getColorByType(type1)}}> {type1} </TextoElegante2>
         </div>
       </div>
           </div>

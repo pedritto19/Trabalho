@@ -176,11 +176,14 @@ function App() {
           <div key={pokemon.id} className="pokemon-container"> 
             <h3  className="pokemon-name" >{pokemon.name}</h3> 
             <img style={{ width: 'auto', height: '90px' }} src={pokemon.imag} alt={pokemon.name} /> 
-            <p style={{ color: getColorByType(pokemon.type) }}>{pokemon.type}</p>
-            <p style={{ color: getColorByType(pokemon.type1), paddingTop: 0 }}>{pokemon.type1}</p>
+            <p>
+              <span style={{color:getColorByType(pokemon.type)}}>{pokemon.type}</span>
+              {' '}
+              {pokemon.type1 && <span style={{color:getColorByType(pokemon.type1)}}>{pokemon.type1}</span>}
+            </p>
           </div>
         ))}
-        
+      
       
     </div>
     {/* Botão de voltar ao topo */}
