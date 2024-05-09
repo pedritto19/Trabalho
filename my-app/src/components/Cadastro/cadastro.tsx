@@ -47,6 +47,7 @@ const Cadastro: React.FC = () => {
 //estados
 const [name, setName] = useState('') 
 const [type, setType] = useState('')
+const [type1, setType1] = useState('')
 const [imag, setImag] = useState('')
 const [error, setError] = useState(false)
 const [showMessage, setShowMessage] = useState(false);
@@ -62,6 +63,9 @@ const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
 }
 const handleTypechange = (e: ChangeEvent<HTMLSelectElement>) => {
   setType(e.target.value)
+}
+const handleType1change = (e: ChangeEvent<HTMLSelectElement>) => {
+  setType1(e.target.value)
 }
 const handlePastechange = (e: ChangeEvent<HTMLInputElement> | React.ClipboardEvent<HTMLInputElement>) => {
   // Verifica se o evento é de colagem
@@ -124,13 +128,14 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => { // submissao do 
 
 
     //cria im pokemon no banco
-    const response = await api.post('/pkm', { name, type, imag });
+    const response = await api.post('/pkm', { name, type,type1, imag });
     
     console.log('Pokemon criado:', response.data);
     //todo: remover reload(), tentar outra chamada da api ou melhor
     setName('');
     setImag('');
     setType('');
+    setType1('');
   } catch (error) {
     console.error("Erro ao enviar o Pokémon:", error);
   }
@@ -147,7 +152,6 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => { // submissao do 
 
 
 const validade = isValidUrl(imag)
-console.log(validade)
 
 
 return (
@@ -171,6 +175,12 @@ return (
         onChange={handleTypechange}
         error={error}
       />
+      <SelectType
+        value={type1}
+        onChange={handleType1change}
+        error={false}
+      />
+      
         <div className='input-group'>
         <div style={{ position: 'relative', width: '737px', left: '300px' }}>
       <Input
@@ -231,6 +241,9 @@ return (
         </div>
         <div id='header2'>
         <TextoElegante2 style={{color: getColorByType(type)}}> {type} </TextoElegante2>
+        </div>
+        <div id='header2' style={{paddingTop: 0}}>
+        <TextoElegante2 style={{color: getColorByType(type1)}}> {type1} </TextoElegante2>
         </div>
       </div>
       <div className="menu-opcoes" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>

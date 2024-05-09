@@ -177,6 +177,7 @@ function App() {
             <h3  className="pokemon-name" >{pokemon.name}</h3> 
             <img style={{ width: 'auto', height: '90px' }} src={pokemon.imag} alt={pokemon.name} /> 
             <p style={{ color: getColorByType(pokemon.type) }}>{pokemon.type}</p>
+            <p style={{ color: getColorByType(pokemon.type1), paddingTop: 0 }}>{pokemon.type1}</p>
           </div>
         ))}
         
