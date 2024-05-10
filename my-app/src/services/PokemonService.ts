@@ -9,6 +9,7 @@ export class PokemonService {
             data: {
                 name: data.name,
                 type: data.type,
+                type1: data.type1,
                 imag: data.imag,
             },
         });
