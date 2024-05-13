@@ -161,7 +161,7 @@ return (
         
         <h3 className="form-title"><TextoElegante>Cadastro</TextoElegante></h3>
         {/* todo: componentizar input */}
-        <div style={{textAlign: 'center' }}>
+   
         <Input
           type="text"
           value={name}
@@ -169,52 +169,55 @@ return (
           error={!name && error}
           onChange={handleNameChange}
           placeholder="Nome"
+          style={{ width: 'calc(40% - 1px)' }}
         />
-      <SelectType
-        value={type}
-        onChange={handleTypechange}
-        error={error}
-      />
-      <SelectType
-        value={type1}
-        onChange={handleType1change}
-        error={false}
-      />
-      
-        <div className='input-group'>
-        <div style={{ position: 'relative', width: '737px', left: '300px' }}>
-      <Input
-        type="text"
-        value={imag}
-        name="imag"
-        error={((!validade && error) ||(!imag && error))}
-        
-        onChange={handlePastechange}
-        placeholder="URL da sprite"
-        onPaste={handlePastechange}
-        onClick={handleImagClick}
-        style={{ width: '100%', boxSizing: 'border-box' }} // Garante que o Input ocupe todo o contêiner
-      />
-      {imag && (
-        <button
-          onClick={() => setImag('')}
-          style={{
-            position: 'absolute',
-            right: '6px', // Ajuste conforme necessário para manter o botão dentro do Input
-            top: '52%',
-            transform: 'translateY(-50%)',
-            cursor: 'pointer',
-            background: 'transparent',
-            border: 'none',
-            padding: 0,
-          }}
-        >
-          <img style={{ width: '25px', height: 'auto' }} src={clear} alt='limpar conteúdo'/>
-        </button>
-      )}
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', gap: '0px', textAlign: 'center' }}>
+          <SelectType
+            value={type}
+            onChange={handleTypechange}
+            error={error}
+            style={{ width: 'calc(100% - 1px)' }}
+          />
+          <SelectType
+            value={type1}
+            onChange={handleType1change}
+            error={false}
+            style={{ width: 'calc(100% - 1px)' }}
+          />
+        </div>
 
-    </div>
-    </div>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+          <div style={{ width: '90%', maxWidth: '737px' }}> 
+            <Input
+              type="text"
+              value={imag}
+              name="imag"
+              error={((!validade && error) || (!imag && error))}
+              onChange={handlePastechange}
+              placeholder="URL da sprite"
+              onPaste={handlePastechange}
+              onClick={handleImagClick}
+              style={{ width: '73%' }} // Agora o Input se ajusta ao contêiner pai
+            />
+            {imag && (
+              <button
+                onClick={() => setImag('')}
+                style={{
+                  position: 'absolute',
+                  right: '10%', // Ajuste conforme necessário para manter o botão dentro do Input
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  cursor: 'pointer',
+                  background: 'transparent',
+                  border: 'none',
+                  padding: 0,
+                }}
+              >
+                <img style={{ width: '25px', height: 'auto' }} src={clear} alt='limpar conteúdo'/>
+              </button>
+            )}
+          </div>
+        </div>
       <div className='div1'>
       <button id='meuBotaoT' type="button" onClick={handlePaste2} className={showMessage ? 'shake-animation' : ''}>
         <span className="tooltip">Colar Url</span>
@@ -223,7 +226,7 @@ return (
 
         {showMessage && <div className="error" style={{color:'red'}}><>Clique aqui para colar uma url!!</></div>}
         </div>
-        </div>
+        
      
         
 
