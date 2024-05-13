@@ -176,20 +176,20 @@ const validade = isValidUrl(imag)
           error={!name && error}
           onChange={handleNameChange}
           placeholder="Nome"
-          style={{ width: 'calc(40% - 1px)' }}
+          style={{ width: 'calc(56% - 1px)' }}
         />
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', gap: '0px', textAlign: 'center' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', gap: '240px', textAlign: 'center' }}>
           <SelectType
             value={type}
             onChange={handleTypechange}
             error={error}
-            style={{ width: 'calc(100% - 1px)' }}
+            style={{ width: 'calc(184% - 1px)' }}
           />
           <SelectType
             value={type1}
             onChange={handleType1change}
             error={false}
-            style={{ width: 'calc(100% - 1px)' }}
+            style={{ width: 'calc(180% - 1px)' ,marginLeft: '-78%'}}
           />
         </div>
         <div className='input-group'>
