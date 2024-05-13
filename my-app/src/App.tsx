@@ -58,7 +58,7 @@ export function getColorByType(type: any) { //funcao para mudar a cor do texto c
     'Electric': "#FFFF00",
     'Ground': "#A52A2A",
     'Rock': "#654321",
-    'Psychic': "#FFC0CB",
+    'Psychic': "#f324b5",
     'Ice': "#AFEEEE",
     'Bug': "#006400",
     'Ghost': "#800080",
@@ -172,15 +172,32 @@ function App() {
     
         {/* Mapeamento e exibição dos Pokémons */}
         {pokemons.map((pokemon: any) => (
-          
           <div key={pokemon.id} className="pokemon-container"> 
-            <h3  className="pokemon-name" >{pokemon.name}</h3> 
+            <h3 className="pokemon-name">{pokemon.name}</h3> 
             <img style={{ width: 'auto', height: '90px' }} src={pokemon.imag} alt={pokemon.name} /> 
-            <p>
-              <span style={{color:getColorByType(pokemon.type)}}>{pokemon.type}</span>
+            <h2>
+              <span style={{
+                backgroundColor: getColorByType(pokemon.type),
+                color: '#FFFFFF',
+                padding: '5px 10px',
+                borderRadius: '5px',
+                fontSize: '15px',
+              }}>
+                {pokemon.type}
+              </span>
               {' '}
-              {pokemon.type1 && <span style={{color:getColorByType(pokemon.type1)}}>{pokemon.type1}</span>}
-            </p>
+              {pokemon.type1 && (
+                <span style={{
+                  backgroundColor: getColorByType(pokemon.type1),
+                  color: '#FFFFFF',
+                  padding: '5px 10px',
+                  borderRadius: '5px',
+                  fontSize: '15px',
+                }}>
+                  {pokemon.type1}
+                </span>
+              )}
+            </h2>
           </div>
         ))}
       
