@@ -186,8 +186,9 @@ return (
           />
         </div>
 
+
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-          <div style={{ width: '90%', maxWidth: '737px' }}> 
+          <div style={{ width: '90%', maxWidth: '737px', position: 'relative' }}> 
             <Input
               type="text"
               value={imag}
@@ -197,14 +198,14 @@ return (
               placeholder="URL da sprite"
               onPaste={handlePastechange}
               onClick={handleImagClick}
-              style={{ width: '73%' }} // Agora o Input se ajusta ao contêiner pai
+              style={{ width: '73%' }} // Ajuste para que o Input ocupe todo o espaço disponível
             />
             {imag && (
               <button
                 onClick={() => setImag('')}
                 style={{
                   position: 'absolute',
-                  right: '10%', // Ajuste conforme necessário para manter o botão dentro do Input
+                  right: '10px', // Posiciona o botão à direita, dentro do contêiner
                   top: '50%',
                   transform: 'translateY(-50%)',
                   cursor: 'pointer',

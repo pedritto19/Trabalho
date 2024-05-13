@@ -171,54 +171,60 @@ const validade = isValidUrl(imag)
         <h3 className="form-title"><TextoElegante>Editar</TextoElegante></h3>
         <Input
           type="text"
-          defaultValue={selectedPokemon?.name}
           value={name}
           name="name"
           error={!name && error}
           onChange={handleNameChange}
-          placeholder={selectedPokemon?.name}
+          placeholder="Nome"
+          style={{ width: 'calc(40% - 1px)' }}
         />
-        {/*todo: componetizar o select */}
-        <SelectType
-        value={type}
-        onChange={handleTypechange}
-        error={error}
-      />
-      <SelectType
-        value={type1}
-        onChange={handleType1change}
-        error={false}
-      />
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', gap: '0px', textAlign: 'center' }}>
+          <SelectType
+            value={type}
+            onChange={handleTypechange}
+            error={error}
+            style={{ width: 'calc(100% - 1px)' }}
+          />
+          <SelectType
+            value={type1}
+            onChange={handleType1change}
+            error={false}
+            style={{ width: 'calc(100% - 1px)' }}
+          />
+        </div>
         <div className='input-group'>
-        <div style={{ position: 'relative', width: '960px', left: '2px' }}>
-        <Input
-          
-          type="text"
-          value={imag}
-          name="imag"
-          error={((!validade && error) ||(!imag && error))}
-          onChange={handlePastechange}
-          placeholder="URL da sprite"
-          onPaste={handlePastechange} // Permitir apenas colar
-          onClick={handleImagClick}
-          
-        />
-                      {imag && (
-        <button
-          onClick={() => setImag('')}
-          style={{
-            position: 'absolute',
-            right: '27.5%',
-            top: '52%',
-            transform: 'translateY(-50%)',
-            cursor: 'pointer',
-            background: 'transparent',
-            border: 'none',
-          }}
-        >
-          <img style={{ width: '25px', height: 'auto' }} alt='' src={clear}/>
-        </button>
-      )}</div>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+          <div style={{ width: '90%', maxWidth: '737px', position: 'relative' }}> 
+            <Input
+              type="text"
+              value={imag}
+              name="imag"
+              error={((!validade && error) || (!imag && error))}
+              onChange={handlePastechange}
+              placeholder="URL da sprite"
+              onPaste={handlePastechange}
+              onClick={handleImagClick}
+              style={{ width: '73%' }} // Ajuste para que o Input ocupe todo o espaço disponível
+            />
+            {imag && (
+              <button
+                onClick={() => setImag('')}
+                style={{
+                  position: 'absolute',
+                  right: '10px', // Posiciona o botão à direita, dentro do contêiner
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  cursor: 'pointer',
+                  background: 'transparent',
+                  border: 'none',
+                  padding: 0,
+                }}
+              >
+                <img style={{ width: '25px', height: 'auto' }} src={clear} alt='limpar conteúdo'/>
+              </button>
+            )}
+          </div>
+        </div>
 
       <div className='div1'>
       <button id='meuBotaoT' type="button" onClick={handlePaste2} className={showMessage ? 'shake-animation' : ''}>
