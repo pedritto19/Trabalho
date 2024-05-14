@@ -61,11 +61,12 @@ export function getColorByType(type: any) { //funcao para mudar a cor do texto c
     'Psychic': "#f324b5",
     'Ice': "#AFEEEE",
     'Bug': "#006400",
-    'Ghost': "#800080",
+    'Ghost': "#A020F0",
     'Steel': "#C0C0C0",
     'Dragon': "#FF4500",
     'Dark': "#000000",
-    'Fairy': "#FFB6C1" 
+    'Fairy': "#FFB6C1",
+    'Poison': "#800080", 
     
   };
 

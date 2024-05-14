@@ -244,10 +244,30 @@ return (
         <TextoElegante2>{name}</TextoElegante2>
         </div>
         <div id='header2'>
-        <TextoElegante2 style={{color: getColorByType(type)}}> {type} </TextoElegante2>
+        {type && (
+                <span style={{
+                  backgroundColor: getColorByType(type),
+                  color: '#FFFFFF',
+                  padding: '5px 10px',
+                  borderRadius: '5px',
+                  fontSize: '15px',
+                }}>
+                  {type}
+                </span>
+              )}
         </div>
         <div id='header2' style={{paddingTop: 0}}>
-        <TextoElegante2 style={{color: getColorByType(type1)}}> {type1} </TextoElegante2>
+        {type1 && (
+                <span style={{
+                  backgroundColor: getColorByType(type1),
+                  color: '#FFFFFF',
+                  padding: '5px 10px',
+                  borderRadius: '5px',
+                  fontSize: '15px',
+                }}>
+                  {type1}
+                </span>
+              )}
         </div>
       </div>
       <div className="menu-opcoes" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
