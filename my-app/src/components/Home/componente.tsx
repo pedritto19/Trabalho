@@ -137,7 +137,28 @@ import { usePokemons } from "../../backend/PokemonContext";
             <div>
               <h2>{pokemon.name}</h2>
               <img src={pokemon.imag} alt='' style={{ width: '500px', height: 'auto'}} />
-              <p className="pokemon-name" style={{color: getColorByType(pokemon.type)}}>{pokemon.type}</p>
+              <div>
+              <span style={{
+                backgroundColor: getColorByType(pokemon.type),
+                color: '#FFFFFF',
+                padding: '5px 10px',
+                borderRadius: '5px',
+                fontSize: '15px',
+              }}>
+                {pokemon.type}
+              </span>
+              {' '}
+              {pokemon.type1 && (
+                <span style={{
+                  backgroundColor: getColorByType(pokemon.type1),
+                  color: '#FFFFFF',
+                  padding: '5px 10px',
+                  borderRadius: '5px',
+                  fontSize: '15px',
+                }}>
+                  {pokemon.type1}
+                </span>
+              )}</div>
             </div>
           ) : (
             <div>Pokémon não encontrado.</div>
