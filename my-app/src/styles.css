@@ -270,7 +270,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     scrollbar-width: thin !important;
-    scrollbar-color: #28e7d7 #d392db !important;
+    scrollbar-color: #28e7d7 #dbd492 !important;
     max-width: 80vw; /* Ajustado para garantir o ajuste dentro do modal */
     max-height: 80vh; /* Ajustado para garantir o ajuste dentro do modal */
     margin: auto;

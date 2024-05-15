@@ -7,7 +7,7 @@ import pesquisa from '../images/pesquisa.png'
 import Modal from 'react-modal';
 import fundo from '../images/fundo.jpg'
 import fechar from '../images/fechar.png';
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useState, useEffect } from 'react'
 import { getColorByType } from "../../App";
 import { TextoElegante } from "../../App";
 import { GlobalStyle } from "../input";
@@ -66,7 +66,13 @@ import { usePokemons } from "../../backend/PokemonContext";
     }
     
     
-
+    useEffect(()=> {
+      if ((pokemons.length === 0) ) {
+        fetchPokemons();
+        
+      }
+    })
+  
 
 
     return (

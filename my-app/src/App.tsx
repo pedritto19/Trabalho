@@ -55,7 +55,7 @@ export function getColorByType(type: any) { //funcao para mudar a cor do texto c
     'Grass': "#008000",
     'Flying': "#ADD8E6",
     'Fighting': "#FF8C00",
-    'Electric': "#FFFF00",
+    'Electric': "#f3e246",
     'Ground': "#A52A2A",
     'Rock': "#654321",
     'Psychic': "#f324b5",
