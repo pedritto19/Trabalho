@@ -15,7 +15,8 @@ import SelectType from '../SelectType';
 
 
 //todo: ver todos da página de edição e aplicar aqui
-
+//todo: basta 1 tipo estar selecionado para poder cadastrar
+//todo: bug: tipos iguais sendo selecionados
 export function isValidUrl(lnk:string) {
   try {
     new URL(lnk);
@@ -80,7 +81,8 @@ const handlePastechange = (e: ChangeEvent<HTMLInputElement> | React.ClipboardEve
     e.preventDefault();
   }
 };
-
+//todo: mudar handlePaste2 pra handleImage
+//todo: erro ao gerar imagem
 const handlePaste2 = async () => { //colar conteudo da area de transferencia quando clicar no botao
   try {
     const text = await navigator.clipboard.readText();
@@ -127,7 +129,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => { // submissao do 
    
 
 
-    //cria im pokemon no banco
+    //cria um pokemon no banco
     const response = await api.post('/pkm', { name, type,type1, imag });
     
     console.log('Pokemon criado:', response.data);
@@ -237,40 +239,40 @@ return (
 
       
       
-      <div>
-        <img src={imag} style={{ width: '100px', height: 'auto'}}alt=''/>
-        
-        <div id='header2'>
-        <TextoElegante2>{name}</TextoElegante2>
-        </div>
-        <div id='header2'>
-        {type && (
-                <span style={{
-                  backgroundColor: getColorByType(type),
-                  color: '#FFFFFF',
-                  padding: '5px 10px',
-                  borderRadius: '5px',
-                  fontSize: '15px',
-                }}>
-                  {type}
-                </span>
-              )}
-        </div>
-        <div id='header2' style={{paddingTop: 0}}>
-        {type1 && (
-                <span style={{
-                  backgroundColor: getColorByType(type1),
-                  color: '#FFFFFF',
-                  padding: '5px 10px',
-                  borderRadius: '5px',
-                  fontSize: '15px',
-                }}>
-                  {type1}
-                </span>
-              )}
-        </div>
-      </div>
-      <div className="menu-opcoes" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <div>
+  <img src={imag} style={{ width: '100px', height: 'auto'}} alt=''/>
+  
+  <div className='header2'>
+    <TextoElegante2>{name}</TextoElegante2>
+  </div>
+  <div className='type-container'>
+    {type && (
+      <span style={{
+        backgroundColor: getColorByType(type),
+        color: '#FFFFFF',
+        padding: '5px 10px',
+        borderRadius: '5px',
+        fontSize: '15px',
+        display: 'inline-block', // Isso faz com que o elemento seja exibido em linha
+      }}>
+        {type}
+      </span>
+    )}
+    {type1 && (
+      <span style={{
+        backgroundColor: getColorByType(type1),
+        color: '#FFFFFF',
+        padding: '5px 10px',
+        borderRadius: '5px',
+        fontSize: '15px',
+        display: 'inline-block', // Isso também aplica o estilo de exibição em linha
+      }}>
+        {type1}
+      </span>
+    )}
+  </div>
+</div>
+      <div className="menu-opcoes" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center',paddingTop: '30px' }}>
           <div>   
             
           </div>

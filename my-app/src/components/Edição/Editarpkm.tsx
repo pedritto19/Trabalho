@@ -22,11 +22,11 @@ import SelectType from '../SelectType';
     imag: string;
   }
   
-//todo: qual é nomepkm? tipopkm? CC
+
 function Editarpkm({ closeModal, nomepkm, tipopkm,tipopkm1, imagempkm,pkm }: any){
 
    
-//todo: um tipo de erro CC
+//todo: personalizar error
   const [error, setError] = useState(false)
   const [isLoading, setIsLoading] = useState(false);
 
@@ -94,7 +94,7 @@ function Editarpkm({ closeModal, nomepkm, tipopkm,tipopkm1, imagempkm,pkm }: any
     }
   };
 
-//todo: verificar se a imagem é válida (se tem output) CC
+//todo: verificar se a imagem é válida (se tem output)
 
   
   const updatedPokemon = {
@@ -241,7 +241,6 @@ const validade = isValidUrl(imag)
 
       </form>
       <div>
-                {/*todo: nomear melhor imports, como imag */}
         <img src={imag} style={{ width: '100px', height: 'auto'}} alt='spritepokemon'/>
         
         <div id='header2'>
