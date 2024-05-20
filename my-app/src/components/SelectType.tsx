@@ -25,10 +25,11 @@ const SelectType = ({ value, onChange, error, ...props }: any) => {
         name="type"
         value={value}
         onChange={onChange}
-        className={`beautifulInput ${!value && error ? 'error' : ''}`}
+        className={`beautifulInput ${ error ? 'error' : ''}`}
         {...props}
       >
         <option value="" disabled>Escolha um tipo</option>
+        <option value="">Sem tipo</option>
         {types.map((type: any) => (
           <option key={type.id} value={type.name}>{type.name}</option>
         ))}

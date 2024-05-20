@@ -63,6 +63,7 @@ const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
   setName(e.target.value)
 }
 const handleTypechange = (e: ChangeEvent<HTMLSelectElement>) => {
+  setType1('');
   setType(e.target.value)
 }
 const handleType1change = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -111,6 +112,12 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => { // submissao do 
       return; 
     }
 
+    if (type === type1) {
+      setError(true);
+      return;
+    }
+    
+
     // Validação para 'Imag'
     if (!imag.trim() || !validade) {
       setError(true)
@@ -138,6 +145,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => { // submissao do 
     setImag('');
     setType('');
     setType1('');
+    setError(false);
   } catch (error) {
     console.error("Erro ao enviar o Pokémon:", error);
   }
@@ -177,13 +185,14 @@ return (
           <SelectType
             value={type}
             onChange={handleTypechange}
-            error={error}
+            error={(type === type1) && error}
             style={{ width: 'calc(184% - 1px)' }}
           />
           <SelectType
             value={type1}
             onChange={handleType1change}
-            error={false}
+            error={(type1 === type) && error}
+            disabled={!type}
             style={{ width: 'calc(180% - 1px)' ,marginLeft: '-78%'}}
           />
         </div>
@@ -207,7 +216,7 @@ return (
                 onClick={() => setImag('')}
                 style={{
                   position: 'absolute',
-                  right: '10px', // Posiciona o botão à direita, dentro do contêiner
+                  right: '70px', // Posiciona o botão à direita, dentro do contêiner
                   top: '50%',
                   transform: 'translateY(-50%)',
                   cursor: 'pointer',
@@ -253,6 +262,7 @@ return (
         padding: '5px 10px',
         borderRadius: '5px',
         fontSize: '15px',
+        
         display: 'inline-block', // Isso faz com que o elemento seja exibido em linha
       }}>
         {type}
