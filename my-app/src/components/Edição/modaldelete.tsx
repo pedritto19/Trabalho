@@ -76,7 +76,7 @@ const PokemonList = () => {
 
 
 
-
+//todo: experimentar unir as 2 modais em 1 componente so
   
 
 

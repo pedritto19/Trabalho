@@ -180,7 +180,7 @@ import { usePokemons } from "../../backend/PokemonContext";
         isOpen={isModalOpen2} // Passa a propriedade isOpen
         onRequestClose={() => setIsModalOpen2(false)} // Opcional: Função para fechar o modal
         id='modalId'
-        shouldCloseOnOverlayClick={false} // Impede que o modal feche ao clicar fora
+        shouldCloseOnOverlayClick={true} // Impede que o modal feche ao clicar fora
         
         style={{
           content: {

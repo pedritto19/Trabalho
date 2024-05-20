@@ -216,7 +216,7 @@ return (
                 onClick={() => setImag('')}
                 style={{
                   position: 'absolute',
-                  right: '70px', // Posiciona o botão à direita, dentro do contêiner
+                  right: '60px', // Posiciona o botão à direita, dentro do contêiner
                   top: '50%',
                   transform: 'translateY(-50%)',
                   cursor: 'pointer',
