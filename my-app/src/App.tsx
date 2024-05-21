@@ -105,8 +105,8 @@ function App() {
 
 
 
-
-
+//todo: pokemons em ordem alfabetica
+//todo: remover fetchPokemons ao scrollar e aplicar pra cada alteração (cadastro e edição)
   // Estado para armazenar a lista de Pokémons e controle do botão de voltar ao topo
   const [showTopBtn, setShowTopBtn] = useState(false);
   const { pokemons, fetchPokemons } = usePokemons();
@@ -127,7 +127,7 @@ function App() {
 
   // Função para voltar ao topo
   const goToTop = () => {
-    fetchPokemons();
+    fetchPokemons(); //todo: remover 🤮
     window.scrollTo({
       top: 0,
       behavior: 'smooth' // Rolagem suave
@@ -138,7 +138,7 @@ function App() {
 
 
 
-
+//todo: remover loop infinito
   useEffect(()=> {
     if ((pokemons.length === 0) ) {
       fetchPokemons();

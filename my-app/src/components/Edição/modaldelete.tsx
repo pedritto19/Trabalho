@@ -9,7 +9,6 @@ import { createGlobalStyle } from 'styled-components';
 import Editarpkm from './Editarpkm';
 import { usePokemons } from '../../backend/PokemonContext';
 import Modalconfirm from './Modalconfirm';
-import Modalfeedback from './Modalfeedback';
 
 //todo: PokemonS e Pokemon são a mesma coisa
 
@@ -57,7 +56,6 @@ const PokemonList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
   const [isModalConfirmOpen, setIsOpenModalConfirm] = useState(false);
-  const [isModalOpenfeedback, setIsModalOpenfeedback] = useState(false);
   const { pokemons } = usePokemons();
   //abrir modal com um pokemon
   const handleOpenModal = (pokemon: any) => {
@@ -131,38 +129,12 @@ const PokemonList = () => {
 
         selectedPokemon={selectedPokemon}
 
-        openModal={()=>setIsModalOpenfeedback(true)}
         ></Modalconfirm>
       </Modal>
 
 
 
-{/* todo: componentizar modal */}
-      <Modal isOpen={isModalOpenfeedback} onRequestClose={() => setIsModalOpenfeedback(false)}
-      style={{
-          content: {
-            width: '328px', // Define a largura do modal
-            height: '262px', // Define a altura do modal
-            margin: 'auto', // Centraliza o modal na tela
-            backgroundColor: '#38b3d1',
-            backgroundSize: 'cover',
-            filter: 'brightness(100%)', // Ajusta o brilho da imagem
-            overflow: 'hidden',
-          },
-          overlay: {
-            backgroundColor: 'rgba(0, 0, 0, 0.20)',
-            
-          }
-        }}>
-          <Modalfeedback
-          closeModal={()=>setIsModalOpenfeedback(false)}
 
-          selectedPokemon={selectedPokemon}
-          ></Modalfeedback>
-
-
-
-             </Modal>
 
 
 
