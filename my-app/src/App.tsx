@@ -9,7 +9,7 @@ import topo from './components/images/topo.png'
 import styled from 'styled-components';
 import { PokemonProvider } from "./backend/PokemonContext";
 import { usePokemons } from "./backend/PokemonContext";
-
+import recarregar from './components/images/recarregar.png'
 
 
 export const TextoElegante = styled.p`
@@ -63,7 +63,7 @@ export function getColorByType(type: any) { //funcao para mudar a cor do texto c
     'Bug': "#006400",
     'Ghost': "#A020F0",
     'Steel': "#C0C0C0",
-    'Dragon': "#FF4500",
+    'Dragon': "#562fe4",
     'Dark': "#000000",
     'Fairy': "#FFB6C1",
     'Poison': "#800080", 
@@ -127,7 +127,6 @@ function App() {
 
   // Função para voltar ao topo
   const goToTop = () => {
-    fetchPokemons(); //todo: remover 🤮
     window.scrollTo({
       top: 0,
       behavior: 'smooth' // Rolagem suave
@@ -138,13 +137,11 @@ function App() {
 
 
 
-//todo: remover loop infinito
-  useEffect(()=> {
-    if ((pokemons.length === 0) ) {
-      fetchPokemons();
-      
-    }
-  })
+  useEffect(() => {
+    console.log('Fetch original');
+    fetchPokemons();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
 
   return (
@@ -162,16 +159,21 @@ function App() {
     </Router>
     </header>
     <div>
-            <img src='' alt=''/>  
+    <img src='' alt=''/>  
     </div>
+    
     <div style={{ 
         textAlign: 'center', 
         display: 'flex',
         flexWrap: 'wrap', 
         justifyContent: 'center', 
         alignItems: 'center' }} className="container" id="header">
-    
+        <button style={{paddingRight: 2}} id="meuBotaoT" onClick={()=>fetchPokemons()}> 
+        <span className="tooltip">Atualizar</span>
+        <img style={{ width: 'auto', height: '40px' }} src={recarregar}alt=''/>
+        </button>
         {/* Mapeamento e exibição dos Pokémons */}
+
         {pokemons.map((pokemon: any) => (
           <div key={pokemon.id} className="pokemon-container"> 
             <h3 className="pokemon-name">{pokemon.name}</h3> 
