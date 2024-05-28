@@ -168,10 +168,14 @@ function App() {
         flexWrap: 'wrap', 
         justifyContent: 'center', 
         alignItems: 'center' }} className="container" id="header">
+
+          
         <button style={{paddingRight: 2}} id="meuBotaoT" onClick={()=>fetchPokemons()}> 
         <span className="tooltip">Atualizar</span>
         <img style={{ width: 'auto', height: '40px' }} src={recarregar}alt=''/>
         </button>
+
+
         {/* Mapeamento e exibição dos Pokémons */}
 
         {pokemons.map((pokemon: any) => (

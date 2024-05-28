@@ -17,15 +17,9 @@ import SelectType from '../SelectType';
 //todo: ver todos da página de edição e aplicar aqui
 //todo: basta 1 tipo estar selecionado para poder cadastrar
 //todo: bug: tipos iguais sendo selecionados
-export function isValidUrl(lnk:string) {
-  try {
-    new URL(lnk);
-    console.log('valido')
-    return true;
-  } catch (e) {
-    console.log('ivalido')
-    return false;
-  }
+export function isValidUrl(url: string){
+  const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp', '.svg'];
+  return imageExtensions.some(extension => url.toLowerCase().includes(extension));
 }
 const Cadastro: React.FC = () => {
 
@@ -37,9 +31,7 @@ const Cadastro: React.FC = () => {
 
   let navigate = useNavigate();
 
-  function handleClick() {
-    navigate('/pagina_cadastro'); 
-  }
+
   function handleClickback() {
     navigate('/'); 
   }
@@ -101,6 +93,7 @@ const handleImagClick = () => {
 const handleSubmit = async (e: FormEvent<HTMLFormElement>) => { // submissao do form
   
   e.preventDefault()
+
   if (!name.trim()) {
     setError(true)
     return;
@@ -157,11 +150,9 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => { // submissao do 
 
 
 }
-
-
-
-
 const validade = isValidUrl(imag)
+console.log(validade)
+
 
 
 return (
@@ -291,7 +282,7 @@ return (
           <img src={home} style={{ width: 'auto', height: '40px'}}alt='' />
         </button>
       {isLoading && <div id="telaDeCarregamento"> <img src={load} style={{ width: '70px', height: 'auto' }} alt=''/> Carregando...</div>}
-      <button style={{paddingRight: 2}} id="meuBotaoT" type="submit"  onClick={handleClick}>
+      <button style={{paddingRight: 2}} id="meuBotaoT" type="submit"  onClick={()=>handleSubmit}>
         <span className="tooltip">Salvar</span>
         <img style={{ width: 'auto', height: '40px' }} src={confirm}alt=''/>
       </button>
