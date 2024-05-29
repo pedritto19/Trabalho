@@ -23,7 +23,6 @@ function Modalconfirm({closeModal, selectedPokemon }: any){
     
           await api.delete(`/pokemons/${pokemonId}`);
           
-          //todo: só refazer a chamada de api fetchPokemons() CC
           //todo: nomear melhor as modais
         
           fetchPokemons();

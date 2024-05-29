@@ -6,7 +6,7 @@ import Mensagem from './components/Home/componente';
 import { useEffect, useState } from 'react';
 import fundo from './components/images/fundo.jpg'
 import topo from './components/images/topo.png'
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { PokemonProvider } from "./backend/PokemonContext";
 import { usePokemons } from "./backend/PokemonContext";
 import recarregar from './components/images/recarregar.png'
@@ -45,7 +45,48 @@ export const TextoElegante4 = styled.p`
   letter-spacing: 0.5px;
 `;
 
+interface ChipProps {
+  animate: boolean;
+}
 
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const Chip = styled.div<ChipProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 25px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: absolute;
+  top: 20px; /* Ajusta a posição do topo */
+  right: 20px; /* Ajusta a posição da direita */
+
+  &:hover {
+    background-color: #e0e0e0;
+  }
+
+  img {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    ${props => props.animate && css`
+      animation: ${rotate} 1s linear;
+    `}
+  }
+`;
 
 export function getColorByType(type: any) { //funcao para mudar a cor do texto com base no tipo selecionado
   const colors: { [key: string]: string } = {
@@ -106,23 +147,29 @@ function App() {
 
 
 //todo: pokemons em ordem alfabetica
-//todo: remover fetchPokemons ao scrollar e aplicar pra cada alteração (cadastro e edição)
+
   // Estado para armazenar a lista de Pokémons e controle do botão de voltar ao topo
   const [showTopBtn, setShowTopBtn] = useState(false);
   const { pokemons, fetchPokemons } = usePokemons();
+  const [animate, setAnimate] = useState(false);
+
+  const handleClick = async () => {
+    setAnimate(true);
+    await fetchPokemons();
+    setTimeout(() => setAnimate(false), 10); 
+  };
   useEffect(() => {
 
     window.addEventListener("scroll", () => {
-      if ((window.scrollY > 20) && (window.scrollY <60)){
-        fetchPokemons();
-      }
+      // if ((window.scrollY > 20) && (window.scrollY <60)){
+      //   fetchPokemons();
+      // }
       if (window.scrollY > 0) {
         setShowTopBtn(true); // Mostrar botão 
       } else {
         setShowTopBtn(false); // Esconder botão
       }
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Função para voltar ao topo
@@ -134,14 +181,9 @@ function App() {
   };
 
 
+ 
 
 
-
-  useEffect(() => {
-    console.log('Fetch original');
-    fetchPokemons();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
 
   return (
@@ -158,23 +200,23 @@ function App() {
       </Routes>
     </Router>
     </header>
+    
     <div>
     <img src='' alt=''/>  
     </div>
-    
+
     <div style={{ 
         textAlign: 'center', 
         display: 'flex',
         flexWrap: 'wrap', 
         justifyContent: 'center', 
-        alignItems: 'center' }} className="container" id="header">
-
-          
-        <button style={{paddingRight: 2}} id="meuBotaoT" onClick={()=>fetchPokemons()}> 
-        <span className="tooltip">Atualizar</span>
-        <img style={{ width: 'auto', height: '40px' }} src={recarregar}alt=''/>
-        </button>
-
+        alignItems: 'center',
+        position: 'relative',
+         }} className="container" id="header">
+        
+          <Chip onClick={()=>handleClick()} animate={animate}>
+            <img src={recarregar} alt="Atualizar" />  Atualizar
+          </Chip>
 
         {/* Mapeamento e exibição dos Pokémons */}
 

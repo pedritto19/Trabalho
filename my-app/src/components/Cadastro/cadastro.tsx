@@ -12,6 +12,7 @@ import { TextoElegante } from '../../App';
 import { TextoElegante2 } from '../../App';
 import clear from '../images/clear.png';
 import SelectType from '../SelectType';
+import { usePokemons } from '../../backend/PokemonContext';
 
 
 //todo: ver todos da página de edição e aplicar aqui
@@ -45,6 +46,7 @@ const [imag, setImag] = useState('')
 const [error, setError] = useState(false)
 const [showMessage, setShowMessage] = useState(false);
 const [isLoading, setIsLoading] = useState(false);
+const { fetchPokemons } = usePokemons();
 
 
 
@@ -55,6 +57,7 @@ const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
   setName(e.target.value)
 }
 const handleTypechange = (e: ChangeEvent<HTMLSelectElement>) => {
+  //todo: limpar type1 apenas se type não tiver mais seleção
   setType1('');
   setType(e.target.value)
 }
@@ -133,12 +136,13 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => { // submissao do 
     const response = await api.post('/pkm', { name, type,type1, imag });
     
     console.log('Pokemon criado:', response.data);
-    //todo: remover reload(), tentar outra chamada da api ou melhor
+    //todo: fetchPokemon()
     setName('');
     setImag('');
     setType('');
     setType1('');
     setError(false);
+    await fetchPokemons();
   } catch (error) {
     console.error("Erro ao enviar o Pokémon:", error);
   }

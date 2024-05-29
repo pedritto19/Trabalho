@@ -54,8 +54,9 @@ function Editarpkm({ closeModal, nomepkm, tipopkm,tipopkm1, imagempkm,pkm }: any
   //efeito de selecionar tipo do pokemon
 
   const handleTypechange = (e: ChangeEvent<HTMLSelectElement>) => {
+    //todo: limpar type1 apenas se type não tiver mais seleção
+    setType1('');
     setType(e.target.value)
-
   }
   const handleType1change = (e: ChangeEvent<HTMLSelectElement>) => {
     setType1(e.target.value)
@@ -64,7 +65,7 @@ function Editarpkm({ closeModal, nomepkm, tipopkm,tipopkm1, imagempkm,pkm }: any
 
 
 
-  //todo: otimizar o ato de colar imagem e a mensagem de erro CC
+  //todo: otimizar o ato de colar imagem e a mensagem de erro
  const handlePastechange = (e: ChangeEvent<HTMLInputElement> | React.ClipboardEvent<HTMLInputElement>) => {
     // Verifica se o evento é de colagem
     if (e.type === 'paste') {
@@ -79,7 +80,7 @@ function Editarpkm({ closeModal, nomepkm, tipopkm,tipopkm1, imagempkm,pkm }: any
     }
   };
 // mensagem de erro da url
-//todo: melhorar visualização e inserir botão de limpar o input
+//todo: melhorar visualização
   const handleImagClick = () => {
     setShowMessage(true);
     setTimeout(() => setShowMessage(false), 3000); // Desativa a mensagem após 3 segundos
@@ -135,7 +136,6 @@ function Editarpkm({ closeModal, nomepkm, tipopkm,tipopkm1, imagempkm,pkm }: any
         const response = await api.put(`/pokemonsup/${selectedPokemon?.id}`, updatedPokemon);
         if (response.status === 200) {
           console.log('Pokémon atualizado com sucesso:', response.data);
-          //todo: remover reload(), tentar outra chamada da api ou melhor CC
           fetchPokemons()
           closeModal();
           
@@ -179,6 +179,7 @@ const validade = isValidUrl(imag)
           style={{ width: 'calc(56% - 1px)' }}
         />
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', gap: '240px', textAlign: 'center' }}>
+          {/* todo: deixar igual aos inputs do cadastro */}
           <SelectType
             value={type}
             onChange={handleTypechange}
@@ -189,6 +190,7 @@ const validade = isValidUrl(imag)
             value={type1}
             onChange={handleType1change}
             error={false}
+            disabled={!type}
             style={{ width: 'calc(180% - 1px)' ,marginLeft: '-78%'}}
           />
         </div>

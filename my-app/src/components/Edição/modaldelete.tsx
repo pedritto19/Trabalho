@@ -10,7 +10,6 @@ import Editarpkm from './Editarpkm';
 import { usePokemons } from '../../backend/PokemonContext';
 import Modalconfirm from './Modalconfirm';
 
-//todo: PokemonS e Pokemon são a mesma coisa
 
 interface Pokemon {
   id: string;
