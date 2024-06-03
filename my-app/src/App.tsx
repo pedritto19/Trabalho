@@ -10,7 +10,7 @@ import styled, { keyframes, css } from 'styled-components';
 import { PokemonProvider } from "./backend/PokemonContext";
 import { usePokemons } from "./backend/PokemonContext";
 import recarregar from './components/images/recarregar.png'
-
+import alfabetica from './components/images/alfabetica.png'
 
 export const TextoElegante = styled.p`
   font-family: 'Roboto', sans-serif;
@@ -62,7 +62,7 @@ export const Chip = styled.div<ChipProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f0f0f0;
+  background: linear-gradient(to right, #13a153 -90%, #5b88d6 100%);
   color: #333;
   padding: 10px 20px;
   border-radius: 25px;
@@ -71,10 +71,10 @@ export const Chip = styled.div<ChipProps>`
   transition: background-color 0.3s;
   position: absolute;
   top: 20px; /* Ajusta a posição do topo */
-  right: 20px; /* Ajusta a posição da direita */
+  right: 400px; /* Ajusta a posição da direita */
 
   &:hover {
-    background-color: #e0e0e0;
+    background: linear-gradient(to right, #13a153 0%, #5b88d6 100%);
   }
 
   img {
@@ -85,6 +85,34 @@ export const Chip = styled.div<ChipProps>`
     ${props => props.animate && css`
       animation: ${rotate} 1s linear;
     `}
+  }
+`;
+
+export const Chip2 = styled.div<ChipProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, #13a153 -90%, #5b88d6 100%);
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 25px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: absolute;
+  top: 20px; /* Ajusta a posição do topo */
+  right: 800px; /* Ajusta a posição da direita */
+
+  &:hover {
+    background: linear-gradient(to right, #13a153 0%, #5b88d6 100%);
+  }
+
+  img {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+
   }
 `;
 
@@ -146,12 +174,19 @@ function App() {
 
 
 
-//todo: pokemons em ordem alfabetica
+//todo: pokemons em ordem alfabetica 
 
   // Estado para armazenar a lista de Pokémons e controle do botão de voltar ao topo
   const [showTopBtn, setShowTopBtn] = useState(false);
   const { pokemons, fetchPokemons } = usePokemons();
   const [animate, setAnimate] = useState(false);
+  const [sortedPokemons, setSortedPokemons] = useState<Array<{ name: string }>>([]);
+
+
+  const sortPokemonsAlphabetically = () => {
+    const sorted = [...pokemons].sort((a, b) => a.name.localeCompare(b.name));
+    setSortedPokemons(sorted);
+  };
 
   const handleClick = async () => {
     setAnimate(true);
@@ -179,7 +214,10 @@ function App() {
       behavior: 'smooth' // Rolagem suave
     });
   };
-
+  useEffect(() => {
+    // Atualiza a lista ordenada sempre que a lista de pokemons mudar
+    setSortedPokemons(pokemons);
+  }, [pokemons]);
 
  
 
@@ -213,14 +251,17 @@ function App() {
         alignItems: 'center',
         position: 'relative',
          }} className="container" id="header">
-        
+
+
           <Chip onClick={()=>handleClick()} animate={animate}>
             <img src={recarregar} alt="Atualizar" />  Atualizar
           </Chip>
 
         {/* Mapeamento e exibição dos Pokémons */}
-
-        {pokemons.map((pokemon: any) => (
+        <Chip2 onClick={sortPokemonsAlphabetically} animate={animate}>
+            <img src={alfabetica} alt="Atualizar" />  Ordenar
+          </Chip2>
+        {sortedPokemons.map((pokemon: any) => (
           <div key={pokemon.id} className="pokemon-container"> 
             <h3 className="pokemon-name">{pokemon.name}</h3> 
             <img style={{ width: 'auto', height: '90px' }} src={pokemon.imag} alt={pokemon.name} /> 

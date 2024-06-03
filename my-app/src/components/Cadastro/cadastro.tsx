@@ -57,7 +57,7 @@ const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
   setName(e.target.value)
 }
 const handleTypechange = (e: ChangeEvent<HTMLSelectElement>) => {
-  //todo: limpar type1 apenas se type não tiver mais seleção
+  //todo: limpar type1 apenas se type não tiver mais seleção CC
   if (e.target.value === '') {
     setType1('');
   }
@@ -79,9 +79,9 @@ const handlePastechange = (e: ChangeEvent<HTMLInputElement> | React.ClipboardEve
     e.preventDefault();
   }
 };
-//todo: mudar handlePaste2 pra handleImage
+//todo: mudar handleImage pra handleImage
 //todo: erro ao gerar imagem
-const handlePaste2 = async () => { //colar conteudo da area de transferencia quando clicar no botao
+const handleImage = async () => { //colar conteudo da area de transferencia quando clicar no botao
   try {
     const text = await navigator.clipboard.readText();
     setImag(text);
@@ -228,7 +228,7 @@ return (
           </div>
         </div>
       <div className='div1'>
-      <button id='meuBotaoT' type="button" onClick={handlePaste2} className={showMessage ? 'shake-animation' : ''}>
+      <button id='meuBotaoT' type="button" onClick={handleImage} className={showMessage ? 'shake-animation' : ''}>
         <span className="tooltip">Colar Url</span>
         <img style={{ width: '25px', height: 'auto' }} src={paste} alt=''/>
       </button>
