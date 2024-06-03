@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
-import Input from '../input'
+import Input from '../interfaces/input'
 import '../../styles.css'
 import { useNavigate } from 'react-router-dom';
 import confirm from '../images/confirm.png'
@@ -11,7 +11,7 @@ import { getColorByType } from '../../App';
 import { TextoElegante } from '../../App';
 import { TextoElegante2 } from '../../App';
 import clear from '../images/clear.png';
-import SelectType from '../SelectType';
+import SelectType from '../interfaces/SelectType';
 import { usePokemons } from '../../backend/PokemonContext';
 
 

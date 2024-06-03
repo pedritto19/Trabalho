@@ -10,7 +10,7 @@ import fechar from '../images/fechar.png';
 import React, { ChangeEvent, useState, useEffect } from 'react'
 import { getColorByType } from "../../App";
 import { TextoElegante } from "../../App";
-import { GlobalStyle } from "../input";
+import { GlobalStyle } from "../interfaces/input";
 import Edicao from "../Edição/pagina_edicao";
 import { usePokemons } from "../../backend/PokemonContext";
 

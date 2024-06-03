@@ -1,7 +1,7 @@
 import React, { useState , FormEvent, ChangeEvent} from 'react';
 import { api } from '../../services/api';
 import fechar from '../images/fechar.png';
-import Input from '../input'
+import Input from '../interfaces/input'
 import confirm from '../images/confirm.png'
 import "../../styles.css"
 import fundo from '../images/fundo.jpg'
@@ -13,7 +13,7 @@ import { TextoElegante2 } from '../../App';
 import clear from '../images/clear.png';
 import { usePokemons } from '../../backend/PokemonContext';
 import { isValidUrl } from '../Cadastro/cadastro';
-import SelectType from '../SelectType';
+import SelectType from '../interfaces/SelectType';
   interface PokemonS {
     id: string;
     name: string;
