@@ -55,7 +55,9 @@ function Editarpkm({ closeModal, nomepkm, tipopkm,tipopkm1, imagempkm,pkm }: any
 
   const handleTypechange = (e: ChangeEvent<HTMLSelectElement>) => {
     //todo: limpar type1 apenas se type não tiver mais seleção
-    setType1('');
+    if (e.target.value === '') {
+      setType1('');
+    }
     setType(e.target.value)
   }
   const handleType1change = (e: ChangeEvent<HTMLSelectElement>) => {
