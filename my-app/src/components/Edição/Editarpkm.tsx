@@ -250,30 +250,33 @@ const validade = isValidUrl(imag)
         <div id='header2'>
         <TextoElegante2>{name}</TextoElegante2>
         </div>
-        <div id='header2'>
-        <span style={{
-                  backgroundColor: getColorByType(type),
-                  color: '#FFFFFF',
-                  padding: '5px 10px',
-                  borderRadius: '5px',
-                  fontSize: '15px',
-                }}>
-                  {type}
-                </span>
-        </div>
-        <div id='header2' style={{paddingTop: 0}}>
-        {type1 && (
-                <span style={{
-                  backgroundColor: getColorByType(type1),
-                  color: '#FFFFFF',
-                  padding: '5px 10px',
-                  borderRadius: '5px',
-                  fontSize: '15px',
-                }}>
-                  {type1}
-                </span>
-              )}
-        </div>
+        <div className='type-container'>
+    {type && (
+      <span style={{
+        backgroundColor: getColorByType(type),
+        color: '#FFFFFF',
+        padding: '5px 10px',
+        borderRadius: '5px',
+        fontSize: '15px',
+        
+        display: 'inline-block', // Isso faz com que o elemento seja exibido em linha
+      }}>
+        {type}
+      </span>
+    )}
+    {type1 && (
+      <span style={{
+        backgroundColor: getColorByType(type1),
+        color: '#FFFFFF',
+        padding: '5px 10px',
+        borderRadius: '5px',
+        fontSize: '15px',
+        display: 'inline-block', // Isso também aplica o estilo de exibição em linha
+      }}>
+        {type1}
+      </span>
+    )}
+  </div>
       </div>
           </div>
         </div>

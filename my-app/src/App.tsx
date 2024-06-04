@@ -62,7 +62,7 @@ export const Chip = styled.div<ChipProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to right, #13a153 -90%, #5b88d6 100%);
+  background: linear-gradient(to right, #13a153 0%, #3ba7d6 50%, #5b88d6 100%);
   color: #333;
   padding: 10px 20px;
   border-radius: 25px;
@@ -74,7 +74,7 @@ export const Chip = styled.div<ChipProps>`
   right: 400px; /* Ajusta a posição da direita */
 
   &:hover {
-    background: linear-gradient(to right, #13a153 0%, #5b88d6 100%);
+    background: linear-gradient(to right, #11a143 0%, #3b97c6 50%, #4b78c6 100%);
   }
 
   img {
@@ -92,7 +92,7 @@ export const Chip2 = styled.div<ChipProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to right, #13a153 -90%, #5b88d6 100%);
+  background: linear-gradient(to right, #13a153 0%, #3ba7d6 50%, #5b88d6 100%);
   color: #333;
   padding: 10px 20px;
   border-radius: 25px;
@@ -104,7 +104,7 @@ export const Chip2 = styled.div<ChipProps>`
   right: 800px; /* Ajusta a posição da direita */
 
   &:hover {
-    background: linear-gradient(to right, #13a153 0%, #5b88d6 100%);
+    background: linear-gradient(to right, #11a143 0%, #3b97c6 50%, #4b78c6 100%);
   }
 
   img {
